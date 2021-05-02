@@ -1,0 +1,78 @@
+.container .title {
+    font-family: Lora, Quicksand, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    line-height: 2px;
+    /*border:2px solid darkorange;*/
+}
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*border:2px solid darkorange;*/
+    font-size: 0.7cm;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.container form{
+    /*border:2px solid darkorange;*/
+    width:20%
+}
+
+.container form .password{
+    margin-top: 5px;
+}
+
+.container form input{
+    border-radius: 7px;
+    width: 100%;
+    height: 25px;
+    font-size: 15px;
+}
+
+.container .sign-in_button{
+    margin-top: 10px;
+    width: calc(10%);
+    /*border:2px solid darkorange;*/
+}
+
+.container .sign-in_button button{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    background-color: #575cc9;
+    color: white;
+    border-radius: 10px;
+}
+
+
+.container  .button{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    background-color: #575cc9;
+    color: white;
+    border-radius: 10px;
+}
+@media screen and (max-width: 580px) {    /* adapt to smaller screens*/
+    .container form{
+        /*border:2px solid darkorange;*/
+        width:80%
+    }
+    .container .sign-in_button{
+        width:80%;
+    }
+  }
+
+  .footer_words{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height:8%;
+    width: 100%;
+    background-color: #105191;
+    color: white;
+    text-align: center;
+  }
