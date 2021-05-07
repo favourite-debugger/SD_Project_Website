@@ -10,5 +10,4 @@ before_script:
   - bundle install --gemfile=Gemfile
   - yarn
 script:
-  - bundle exec rake test
-  - bundle exec rake test:system
+
