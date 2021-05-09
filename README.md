@@ -1,4 +1,10 @@
-# README
+# Software Design Project - Admin Website
+
+Website to facilitate admin functions
+
+## Build-Test Status
+
+[![Coverage Status](https://coveralls.io/repos/github/RXRider1451/SD_Project_Website/badge.svg?branch=main)](https://coveralls.io/github/RXRider1451/SD_Project_Website?branch=main)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
