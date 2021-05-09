@@ -1,2 +1,7 @@
+
 <h1>Home#index</h1>
+<button>
+  <%= link_to 'new admin',
+     new_admin_registration_path, class: "nav-link" %>
+</button>
 <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete %>
