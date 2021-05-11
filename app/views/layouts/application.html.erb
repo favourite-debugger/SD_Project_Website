@@ -66,10 +66,10 @@
   </head>
   <body>
     <!-- Still fixing this -->
-    <% unless action_name == 'admin' %>
+    <% if controller_name == "dashboard" %>
       <%= render 'home/header'%>
     <% end %>
-    
+
     <div class="container">
       <%= yield %>
     </div>
