@@ -1,10 +1,14 @@
 # Software Design Project - Admin Website
 
-Website to facilitate admin functions
+Website to facilitate administrator functions
 
 ## Build-Test Status
 
 [![Coverage Status](https://coveralls.io/repos/github/RXRider1451/SD_Project_Website/badge.svg?branch=main)](https://coveralls.io/github/RXRider1451/SD_Project_Website?branch=main)
+
+Note: No successful build will occur due a database connection error. Once we have access to the server, the builds should be successful.
+
+## Additional Notes
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
