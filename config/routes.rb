@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
   get 'home/index'
-  devise_for :admins
+#root 'dashboard#index'
 
-
-
-
+#Add all of this back
+devise_for :admins
 devise_scope :admin do
 
   authenticated :admin do
@@ -12,10 +12,13 @@ devise_scope :admin do
   end
 
   unauthenticated do
-    #root 'home#index', as: :unauthenticated_root
-    root 'devise/sessions#new', as: :unauthenticated_root
+   root 'devise/sessions#new', as: :unauthenticated_root
   end
+
 end
+
+
+#Don't add this back, not sure what this is
   #devise_scope :admin do
   #  root to: "devise/sessions#new"
   #end
