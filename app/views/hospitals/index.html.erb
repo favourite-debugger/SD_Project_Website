@@ -1,0 +1,50 @@
+
+
+<!--SEARCH BAR-->
+<div class="m-4">
+ <form class="d-flex ">
+        <input class="form-control me-2" type="search" name="searchHospitals" placeholder="Search hospital name" aria-label="Search">
+        <button class="btn btn-outline-dark" type="submit">Search</button>
+ </form>
+</div>
+
+<!--TABLE-->
+
+<div class="m-4">
+
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Hospital ID</th>
+      <th scope="col">Hospital Name</th>
+    </tr>
+  </thead>
+
+<tbody>
+  <!--loop through each item in hospital array-->
+
+
+
+
+  <% @hospitals_array.each_with_index do |hosp_element, index| %>
+    <tr>
+      <th scope="row" class="col-5" >  <%= hosp_element.first %> </th>
+      <td  class="col-6"><%= hosp_element.last %> </td> 
+
+      <!--edit and delete functionality-->
+      <td class="col-1">
+        <div id=" <%= hosp_element.first %> "  class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-outline-dark">Edit</button>
+          <button type="button" class="btn btn-outline-dark">Delete</button>
+     </div>
+      </td>
+       
+    </tr>
+   
+
+  <% end %>
+  </tbody>
+</table>
+
+</div>
+

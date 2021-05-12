@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
   get 'home/index'
+
+  #PLEASE AUTHENTICATE!
+  #TODO: AUTHENTICATION
+  get "/hospitals",to: "hospitals#index"
+  get "/blocks",to: "blocks#index"
+  #========================================================
+  
   devise_for :admins
 
 
