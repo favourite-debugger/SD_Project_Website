@@ -16,9 +16,6 @@ end
 
 #root 'dashboard#index'
 
-#Add all of this back
-devise_for :admins
-
 
 #START - Setting routes using devise scope---------------------------------------------------------------------------
 devise_scope :admin do
