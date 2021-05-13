@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
   get 'home/index'
+
   devise_for :admins,
     controllers: {:registrations => "registrations"} #, :sessions => "sessions"} #That will tell devise to use your custom registrations controller
 
@@ -11,23 +13,23 @@ end
 #---------------------------------------------------------------------------------------------------------
 
 #--------------------------------------------------------------------------------------------------------
+
+#root 'dashboard#index'
+
+#Add all of this back
+devise_for :admins
+
+
+#START - Setting routes using devise scope---------------------------------------------------------------------------
 devise_scope :admin do
-  #root 'devise/sessions#new'#, as: :unauthenticated_root
   authenticated :admin do
     root 'home#index', as: :authenticated_root
-  #  root 'devise/sessions#new', as: :unauthenticated_root
   end
 
   unauthenticated do
     root 'devise/sessions#new', as: :unauthenticated_root
   end
 end
-#--------------------------------------------------------------------------------------------------------
+#END - Setting routes using devise scope---------------------------------------------------------------------------
 
-
-
-  #devise_scope :admin do
-  #  root to: "devise/sessions#new"
-  #end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
