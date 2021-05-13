@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   get 'home/index'
   devise_for :admins,
-    controllers: {:registrations => "registrations" , :sessions => "sessions"} #That will tell devise to use your custom registrations controller
+    controllers: {:registrations => "registrations"} #, :sessions => "sessions"} #That will tell devise to use your custom registrations controller
 
 #Setting up a custom route to that action:-----------------------------------------------------------------------------
 as :admin do
   get "/register", to: "registrations#new", as: "register"
-  get "/sessions", to: "sessionss#new", as: "session"
+  #get "/sessions", to: "sessions#new", as: "session"
 end
 #---------------------------------------------------------------------------------------------------------
 
