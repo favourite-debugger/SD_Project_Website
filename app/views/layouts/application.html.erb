@@ -15,9 +15,15 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
+    <% begin %>
+      <link rel="stylesheet" type="text/css" href="../assets/Wits Health Web.css">
 
+    <% rescue => e %>
 
-    <link rel="stylesheet" type="text/css" href = "../assets/Wits Health Web.css">
+      <link rel="stylesheet" type="text/css" href="../assets/Wits Health Web.css">
+    <% end %>
+
+    <%#<link rel="stylesheet" type="text/css" href = "../assets/Wits Health Web.css">%>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
 
