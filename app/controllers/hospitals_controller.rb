@@ -1,12 +1,12 @@
 class HospitalsController < ApplicationController
-  def index
-  	
+  
+
+	def index
+	#ONLY CHANGE THIS TO DATABASE DATA IN 3D ARRAY FORMAT!!
+	@db_data=[["1","Helen Joseph"],["2","Bara"],["3","Charlotte Maxeke"]]
+	#Format is [[hospital ID], [hospital name]]
   	#SEARCH BAR CODE 
-  	#ONLY CHANGE THIS TO DATABASE DATA IN 3D ARRAY FORMAT!!
-  	@db_data=[["1","Helen Joseph"],["2","Bara"],["3","Charlotte Maxeke"]]
 
-
-  	#Format is [[hospital ID], [hospital name]]
   	
   	#DON'T CHANGE BELOW CODE!!==========================
   	
@@ -18,5 +18,9 @@ class HospitalsController < ApplicationController
 	end
 
   	#===================================================
+
   end
+
+
+
 end
