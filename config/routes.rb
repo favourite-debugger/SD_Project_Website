@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 #Setting up a custom route to that action:-----------------------------------------------------------------------------
 as :admin do
   get "/register", to: "registrations#new", as: "register"
-  #get "/sessions", to: "sessions#new", as: "session"
+  #Sget "/session", to: "sessions#new", as: "session"
 end
 #---------------------------------------------------------------------------------------------------------
 
