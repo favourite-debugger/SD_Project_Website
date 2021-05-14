@@ -1,5 +1,7 @@
+
 <!doctype html>
 <html lang="en">
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -7,12 +9,25 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    
-    <!--this messes up everything! <link rel="stylesheet" type="text/css" href = "../assets/Wits Health Web.css">-->
+   
     <link rel="stylesheet" type="text/css" href = "../assets/generalstyles.css">
+
+
+  <!--  <% begin %>
+      <link rel="stylesheet" type="text/css" href="../assets/Wits Health Web.css">
+
+    <% rescue => e %>
+
+      <link rel="stylesheet" type="text/css" href="../assets/Wits Health Web.css">
+    <% end %>
+
+    <%#<link rel="stylesheet" type="text/css" href = "../assets/Wits Health Web.css">%>
+    -->
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
 
@@ -20,11 +35,17 @@
     <title>Student Placement System</title>
   </head>
 
- 
+ <body>
 
   <div class="container-fluid">
+ 
+    <!-- Add the header to every view except the login -->
+    <% if controller_name != "sessions" && controller_name != "passwords" %>
+      <%= render 'home/header'%>
+    <% end %>
+
     <!--Used shared nav bar partial-->
-      <%= render "home/nav_bar" %>
+    <%= render "home/nav_bar" %>
 
     
       <%= yield %>
@@ -46,4 +67,5 @@
   </body>
   
 </html>
+
 
