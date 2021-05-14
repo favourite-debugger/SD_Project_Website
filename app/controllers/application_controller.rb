@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
 
   protected
+  #kameron: This function authenticates the user and redirects to the appropriate page
   def authenticate_admin!
     if admin_signed_in?
       #redirect_to authenticated_root_path

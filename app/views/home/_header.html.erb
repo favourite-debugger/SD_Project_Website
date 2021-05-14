@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <%= link_to 'Student Placement System', dashboard_index_path, class:"navbar-brand" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,27 +6,84 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+
         <li class="nav-item">
-          <%= link_to 'Home', dashboard_index_path, class:"nav-link active" %>
+          <% if controller_name == "dashboard"%>
+          <!-- If we're at the Dashboard view, set this nav link to active -->
+            <%= link_to 'Home', dashboard_index_path, class:"nav-link active" %>
+          <!-- If we're at another view, set this to normal nav link -->
+          <% else %>
+            <%= link_to 'Home', dashboard_index_path, class:"nav-link" %>
+          <% end %>
         </li>
+
+
         <li class="nav-item">
-          <%= link_to 'Users', dashboard_index_path, class:"nav-link" %>
+          <!-- If we're at the Manage Users view, set this nav link to active -->
+          <% if controller_name == "home"%>
+            <%= link_to 'Users', home_index_path, class:"nav-link active" %>
+          <!-- If we're at another view, set this to normal nav link -->
+          <% else %>
+            <%= link_to 'Users', home_index_path, class:"nav-link" %>
+          <% end %>
         </li>
+
+
         <li class="nav-item">
-          <%= link_to 'Groups', dashboard_index_path, class:"nav-link" %>
+          <!-- If we're at the Manage Groups view, set this nav link to active -->
+          <% if controller_name == "groups"%>
+            <%= link_to 'Groups', dashboard_index_path, class:"nav-link active" %>
+          <!-- If we're at another view, set this to normal nav link -->
+          <% else %>
+            <%= link_to 'Groups', dashboard_index_path, class:"nav-link" %>
+          <% end %>
         </li>
+
+
         <li class="nav-item">
-          <%= link_to 'Hospitals', dashboard_index_path, class:"nav-link" %>
+          <!-- If we're at the Manage Hospitals view, set this nav link to active -->
+          <% if controller_name == "hospitals"%>
+            <%= link_to 'Hospitals', dashboard_index_path, class:"nav-link active" %>
+          <!-- If we're at another view, set this to normal nav link -->
+          <% else %>
+            <%= link_to 'Hospitals', hospitals_path, class:"nav-link" %>
+          <% end %>
         </li>
+
+
         <li class="nav-item">
-          <%= link_to 'Blocks', dashboard_index_path, class:"nav-link" %>
+          <!-- If we're at the Manage Blocks view, set this nav link to active -->
+          <% if controller_name == "blocks"%>
+            <%= link_to 'Blocks', dashboard_index_path, class:"nav-link active" %>
+            <!-- If we're at another view, set this to normal nav link -->
+          <% else %>
+            <%= link_to 'Blocks', blocks_path, class:"nav-link" %>
+          <% end %>
         </li>
+
+
         <li class="nav-item">
-          <%= link_to 'Specialties', dashboard_index_path, class:"nav-link" %>
+          <!-- If we're at the Manage Specialties view, set this nav link to active -->
+          <% if controller_name == "specialties"%>
+            <%= link_to 'Specialties', dashboard_index_path, class:"nav-link active" %>
+          <!-- If we're at another view, set this to normal nav link -->
+          <% else %>
+            <%= link_to 'Specialties', dashboard_index_path, class:"nav-link" %>
+          <% end %>
         </li>
+
+
         <li class="nav-item">
-          <%= link_to 'Programmes', dashboard_index_path, class:"nav-link" %>
+          <!-- If we're at the Manage Programmes view, set this nav link to active -->
+          <% if controller_name == "programmes"%>
+            <%= link_to 'Programmes', dashboard_index_path, class:"nav-link active" %>
+          <% else %>
+            <%= link_to 'Programmes', dashboard_index_path, class:"nav-link" %>
+          <% end %>
         </li>
+
+
       </ul>
         <!-- Sign Out Button -->
         <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete, class:"btn btn-outline-danger" %>
