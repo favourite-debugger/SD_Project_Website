@@ -1,0 +1,2 @@
+class SpecialtyPage < ApplicationRecord
+end
