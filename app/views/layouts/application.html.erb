@@ -71,8 +71,8 @@
     <title>Student Placement System</title>
   </head>
   <body>
-    <!-- Still fixing this -->
-    <% if controller_name == "dashboard" %>
+    <!-- Add the header to every view except the login -->
+    <% if controller_name != "sessions" && controller_name != "passwords" %>
       <%= render 'home/header'%>
     <% end %>
 

@@ -20,7 +20,7 @@ end
 #START - Setting routes using devise scope---------------------------------------------------------------------------
 devise_scope :admin do
   authenticated :admin do
-    root 'home#index', as: :authenticated_root
+    root 'dashboard#index', as: :authenticated_root
   end
 
   unauthenticated do
