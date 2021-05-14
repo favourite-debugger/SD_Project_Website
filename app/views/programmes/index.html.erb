@@ -1,0 +1,49 @@
+<br/>
+<div class="container-fluid">
+    <div class="d-flex justify-content-evenly">
+        <button type="button" class="btn btn-outline-secondary">Add From CSV</button>
+      
+        <button type="button" class="btn btn-outline-secondary">Remove From CSV</button>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="card border-info mb-3" style="max-width: 18rem;">
+        <div class="card-header">Bara Hospital</div>
+        
+
+
+        <div class="container-fluid">
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Specialty ID</th>
+                    <th scope="col">Specialty Name</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+            
+                <% @programmes_array.each_with_index do |item,index| %>
+                    <tr>
+                        <th scope="row">   <%= item.first %> </th>
+                        <td><%= item.last %></td>
+                    </tr>
+
+                <% end %>
+
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+
+        <button type="button" class="btn btn-outline-secondary">Add New Specialty</button>
+    </div>
+</div>

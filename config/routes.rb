@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  resources :specialty_pages
+  resources :specialties
   get 'dashboard/index'
   get 'home/index'
+  get '/programmes', to: "programmes#index"
+  get '/specialties', to: "blocks#index"
+  #get 'specialty_pages/index'
+  get 'add_specialty/index'
 #root 'dashboard#index'
 
 #Add all of this back
