@@ -6,7 +6,7 @@ Website to facilitate administrator functions
 
 [![Coverage Status](https://coveralls.io/repos/github/RXRider1451/SD_Project_Website/badge.svg?branch=main)](https://coveralls.io/github/RXRider1451/SD_Project_Website?branch=main)
 
-Note: No successful build will occur due a database connection error. Once we have access to the server, the builds should be successful. Until there is a successful build, the badge status will read "Unknown".
+Note: No successful build will occur due a database connection error. Once we have access to the server, the builds should be successful. Until there is a successful build, the badge status will read "unknown".
 
 ## Overview
 
