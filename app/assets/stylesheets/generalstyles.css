@@ -12,3 +12,10 @@ body{
    footer{
    flex-grow: 0;
    }
+
+   #Witstitle{
+    font-family: Lora, Quicksand, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    line-height: 2px;
+   }
+
