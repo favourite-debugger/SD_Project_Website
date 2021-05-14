@@ -8,27 +8,8 @@ Website to facilitate administrator functions
 
 Note: No successful build will occur due a database connection error. Once we have access to the server, the builds should be successful.
 
-## Additional Notes
+## Overview
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The admin is the only user of the website. The purpose of the website is to create a user-friendly interface which makes it easy for the system administrator to make changes to the data in the database. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The admin needs to be able to perform CRUD functions on the various tables in the database. The admin needs to be able to create, update and delete Users, Hospitals, Specialties, Programmes, Groups and Blocks, on the database. 
