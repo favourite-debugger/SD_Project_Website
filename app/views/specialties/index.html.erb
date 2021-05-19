@@ -1,69 +1,36 @@
-<br/>
+<p id="notice"><%= notice %></p>
 
-<!--search button and bar-->
-<div class="container-fluid">
-<form class="d-flex">
-    <input class="form-control me-2" type="search" name="searchSpecialties" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-primary" type="submit">Search</button>
-  </form>
+<span><h1>Specialties</h1> <%= link_to 'New Specialty', new_specialty_path %></span>
+<div class="m-4">
+    <table class="table">
+      <thead>
+        <tr>
+        <th scope="col">Specialty ID</th>
+          <th scope="col">Specialty Name</th>
+         <!-- <th colspan="3" scope="col"></th>-->
+        </tr>
+      </thead>
 
-  <br/>
+      <tbody>
+        <% @specialties.each do |specialty| %>
+          <tr>
+            <td class="col-4">GOGOGOO</td>
+            <td class="col-4"><%= specialty.SpecialtyName %></td>
+            
+            <td class="col-1">
+             
+                <div class="btn-group" role="group" aria-label="Basic example">
+                <button class="btn btn-outline-dark"><%= link_to 'Show', specialty %></button>
+                <button class="btn btn-outline-dark"><%= link_to 'Edit', edit_specialty_path(specialty) %></button>
+                <button class="btn btn-outline-dark"><%= link_to 'Destroy', specialty, method: :delete, data: { confirm: 'Are you sure?' } %> </button>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 </div>
 
 
-<!--buttons-->
+<br>
 
-<div class="container-fluid">
-    <div class="d-flex justify-content-evenly">
-        
-        <button type="submit" value="submit" class="btn btn-outline-secondary">Add From CSV</button>
-        
-
-
-        <button id="myButton" class="btn btn-outline-secondary" >Add New Specialty</button>
-
-        <script type="text/javascript">
-            document.getElementById("myButton").onclick = function () {
-                location.href = "http://localhost:3000/add_specialty/index";
-            };
-        </script>
-
-
-        <button type="button" class="btn btn-outline-secondary">Remove From CSV</button>
-    </div>
-</div>
-
-<br/>
-
-
-
-
-<!--Making the list-->
-<div class="container-fluid">
-    <div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Specialty ID</th>
-                    <th scope="col">Specialty Name</th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-
-                <!--Getting specialties from array in the specialties controller-->
-                <% @specialties_array.each_with_index do |item,index| %>
-                    <tr>
-                        <th scope="row">   <%= item.first %> </th>
-                        <td><%= item.last %></td>
-                    </tr>
-
-                <% end %>
-
-
-            </tbody>
-        </table>
-
-    </div>
-</div>

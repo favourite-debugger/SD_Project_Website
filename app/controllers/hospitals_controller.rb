@@ -1,5 +1,5 @@
 class HospitalsController < ApplicationController
-  
+	before_action :authenticate_admin! #kameron: definition found in application_controller.rb
 
 	def index
 	#ONLY CHANGE THIS TO DATABASE DATA IN 3D ARRAY FORMAT!!
