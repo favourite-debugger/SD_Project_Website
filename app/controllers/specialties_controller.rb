@@ -46,8 +46,6 @@ class SpecialtiesController < ApplicationController
       end
     end
   end
-<<<<<<< HEAD
-=======
 
   # DELETE /specialties/1 or /specialties/1.json
   def destroy
@@ -68,5 +66,4 @@ class SpecialtiesController < ApplicationController
     def specialty_params
       params.require(:specialty).permit(:SpecialtyName)
     end
->>>>>>> 5ccee35ded129c50480b1628d878d08b0a0c8d9f
 end
