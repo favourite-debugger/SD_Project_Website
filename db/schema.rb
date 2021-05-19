@@ -107,8 +107,8 @@ ActiveRecord::Schema.define(version: 2021_05_14_024529) do
   create_table "specialty_pages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "specialty_ID"
     t.string "specialty_name"
-    t.datetime "created_at", precision: 6, null: true
-    t.datetime "updated_at", precision: 6, null: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "students", primary_key: ["StudentNo", "StudentEmail"], charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

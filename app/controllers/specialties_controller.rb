@@ -1,4 +1,3 @@
-
 class SpecialtiesController < ApplicationController
   def index
 
