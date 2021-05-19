@@ -1,5 +1,6 @@
 class BlocksController < ApplicationController
-  def index
+	before_action :authenticate_admin! #kameron: definition found in application_controller.rb
+	def index
 
   	#SEARCH BAR CODE 
   	#ONLY CHANGE THIS TO DATABASE DATA IN 3D ARRAY FORMAT!!

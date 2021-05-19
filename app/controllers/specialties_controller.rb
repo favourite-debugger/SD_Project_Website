@@ -1,20 +1,72 @@
 class SpecialtiesController < ApplicationController
+  before_action :set_specialty, only: %i[ show edit update destroy ]
+
+  # GET /specialties or /specialties.json
   def index
-
-    @db_data=[["001","Forensics"],["002","Clinical Skills"],["003","Internal Medicine"],["004","Surgery"],["005","Psychiatry"],["006","Anaesthetics"],["007","Public health"],["008","Obstetrics"],["009","Trauma"],["010","Gynae"]]
-  
-  
-  
-  
-  #for the search button
-   @data=params[:searchSpecialties]
-   if @data.blank?
-      @specialties_array=@db_data
-   else 
-      @specialties_array=@db_data.select{|(x,y)| y == @data}
-   end
-
-  
-  
+    @specialties = Specialty.all
   end
+
+  # GET /specialties/1 or /specialties/1.json
+  def show
+  end
+
+  # GET /specialties/new
+  def new
+    @specialty = Specialty.new
+  end
+
+  # GET /specialties/1/edit
+  def edit
+  end
+
+  # POST /specialties or /specialties.json
+  def create
+    @specialty = Specialty.new(specialty_params)
+
+    respond_to do |format|
+      if @specialty.save
+        format.html { redirect_to @specialty, notice: "Specialty was successfully created." }
+        format.json { render :show, status: :created, location: @specialty }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @specialty.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /specialties/1 or /specialties/1.json
+  def update
+    respond_to do |format|
+      if @specialty.update(specialty_params)
+        format.html { redirect_to @specialty, notice: "Specialty was successfully updated." }
+        format.json { render :show, status: :ok, location: @specialty }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @specialty.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+<<<<<<< HEAD
+=======
+
+  # DELETE /specialties/1 or /specialties/1.json
+  def destroy
+    @specialty.destroy
+    respond_to do |format|
+      format.html { redirect_to specialties_url, notice: "Specialty was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_specialty
+      @specialty = Specialty.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def specialty_params
+      params.require(:specialty).permit(:SpecialtyName)
+    end
+>>>>>>> 5ccee35ded129c50480b1628d878d08b0a0c8d9f
 end
