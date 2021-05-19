@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :groups
   resources :specialty_pages
   resources :specialties
   get 'dashboard/index'
