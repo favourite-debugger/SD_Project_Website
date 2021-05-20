@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 2021_05_19_014114) do
 
   create_table "group_assignments", primary_key: "GroupID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "GroupBlockID"
-    t.integer "GroupSpecialtyID"
     t.index ["GroupBlockID"], name: "BlockID_UNIQUE", unique: true
   end
 
@@ -101,7 +100,6 @@ ActiveRecord::Schema.define(version: 2021_05_19_014114) do
 
   create_table "registrars", primary_key: "RegistrarID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "RegistrarEmail"
-    t.integer "SpecialtyID", null: false
     t.index ["RegistrarEmail"], name: "RegistrarEmail_idx"
     t.index ["RegistrarID"], name: "RegistrarID_UNIQUE", unique: true
   end

@@ -1,9 +1,26 @@
+<br/>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Specialtyname:</strong>
-  <%= @specialty.SpecialtyName %>
-</p>
 
-<%= link_to 'Edit', edit_specialty_path(@specialty) %> |
-<%= link_to 'Back', specialties_path %>
+<br/>
+<div class="card">
+  <div class="card-body">
+    <p class="lead"><b>Specialty ID:</b></p>
+    <p class="lead"><%= @specialty.id %></p>
+    <p class="lead"><b>Specialty Name:</b></p>
+    <p class="lead"><%= @specialty.SpecialtyName %></p>
+    <%= link_to 'Edit', edit_specialty_path(@specialty), class:"btn btn-outline-dark"%> 
+    <%= link_to 'Back', specialties_path, class:"btn btn-outline-dark" %>
+    
+  </div>
+</div>
+
+<br/>
+
+
+
+
+
+
+
+
