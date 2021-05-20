@@ -1,0 +1,10 @@
+<%= search_form_for @q do |f| %>
+
+    <div class="form-group form-inline my-2 my-lg-0">
+     <%= f.search_field :hospital_name_or_hospital_contactNo_or_hospital_location_cont, class: 'form-control mr-sm-2', placeholder: "Search"%>
+   </div>
+
+  	<%= f.submit  class: "btn btn-outline-success my-2 my-sm-0" %>
+  		
+
+<% end %>
