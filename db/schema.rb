@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 2021_05_14_024529) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "consultants", primary_key: "ConsultantID", id: { type: :string, limit: 13 }, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "ConsultantEmail"
+  create_table "consultants", primary_key: ["ConsultantID", "ConsultantEmail"], charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "ConsultantID", limit: 13, null: false
+    t.string "ConsultantEmail", null: false
     t.integer "SpecialtyID"
     t.integer "ConsultHospitalID"
     t.string "StudentContactNo", limit: 30, null: false
