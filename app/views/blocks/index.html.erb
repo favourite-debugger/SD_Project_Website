@@ -7,7 +7,7 @@
     <tr>
       <th>Block Start Date</th>
       <th>Block End Date</th>
-      <th colspan="4"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -21,7 +21,6 @@
 
         <td><%= button_to('Destroy', block, method: :delete, data: { confirm: 'Are you sure?' }) %> </td>
 
-          <td><a href='/blocks/<%=  block.id %>' rel="nofollow" data-method="delete">Destroy</a> </td>
       </tr>
     <% end %>
   </tbody>
@@ -30,16 +29,3 @@
 <br>
 
 <%= link_to 'Create New Block', new_block_path %>
-
-
-
-link_to("Destroy", "http://www.example.com", method: :delete)
-
-
-<td>
-  <form class="button_to" method="post" action="/blocks/9">
-    <input type="hidden" name="_method" value="delete" />
-    <input data-confirm="Are you sure?" data-disable-with="loading..." type="submit" value="Destroy" />
-    <input type="hidden" name="authenticity_token" value="gm08YhG8-vW9xchlkixhjGMf0h27eR4uNQaKmSGpHaL-0-QUEn9SZuJtVSzHNsotkIjjGHIaUjspV-GQGLgh6Q" />
-  </form>
-</td>
