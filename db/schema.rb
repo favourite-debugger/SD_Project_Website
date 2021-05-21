@@ -24,9 +24,11 @@ ActiveRecord::Schema.define(version: 2021_05_19_014114) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "blocks", primary_key: "BlockID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.date "BlockStartDate", null: false
-    t.date "BlockEndDate", null: false
+  create_table "blocks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.date "BlockStartDate"
+    t.date "BlockEndDate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "consultants", primary_key: "ConsultantID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -147,8 +149,7 @@ ActiveRecord::Schema.define(version: 2021_05_19_014114) do
   end
 
   add_foreign_key "consultants", "hospitals", column: "ConsultHospitalID", primary_key: "HospitalID", name: "ConsultHospitalID"
-  add_foreign_key "group_assignments", "blocks", column: "GroupBlockID", primary_key: "BlockID", name: "GroupBlockID"
-  add_foreign_key "hospital_assignments", "blocks", column: "BlockID", primary_key: "BlockID", name: "BlockID"
+
   add_foreign_key "hospital_assignments", "hospitals", column: "HospID", primary_key: "HospitalID", name: "HospID"
   add_foreign_key "hospital_assignments", "students", column: "StudentID", primary_key: "StudentNo", name: "StudentID"
   add_foreign_key "hospital_availabilities", "hospitals", column: "AvailableHospitalID", primary_key: "HospitalID", name: "AvailableHospitalID"
@@ -156,5 +157,8 @@ ActiveRecord::Schema.define(version: 2021_05_19_014114) do
   add_foreign_key "programme_courses", "programmes", column: "ProgrammeID", primary_key: "ProgrammeID", name: "ProgrammeID"
   add_foreign_key "registrar_assignments", "hospitals", column: "HospitalID", primary_key: "HospitalID", name: "HospitalID"
   add_foreign_key "registrar_assignments", "registrars", column: "RegistrarID", primary_key: "RegistrarID", name: "RegistrarID"
+
+  add_foreign_key "registrars", "specialties", column: "SpecialtyID", primary_key: "SpecialtyID", name: "SpecialtyID"
+
   add_foreign_key "students", "courses", column: "CourseCode", primary_key: "CourseCode", name: "CourseCode"
 end
