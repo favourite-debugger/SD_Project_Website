@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_18_150224) do
+ActiveRecord::Schema.define(version: 2021_05_14_024529) do
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_150224) do
     t.string "StudentContactNo", limit: 30, null: false
     t.string "StudentEmail", null: false
     t.index ["ConsultHospitalID"], name: "HospitalID_idx"
+    t.index ["ConsultantEmail"], name: "ConsultantEmail_UNIQUE", unique: true
     t.index ["ConsultantID"], name: "ConsultantID_UNIQUE", unique: true
     t.index ["SpecialtyID"], name: "SpecialtyID_UNIQUE", unique: true
     t.index ["StudentContactNo"], name: "StudentContactNo_UNIQUE", unique: true
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_150224) do
   create_table "group_assignments", primary_key: "GroupID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "GroupBlockID"
     t.integer "GroupSpecialtyID"
+    t.index ["GroupBlockID"], name: "BlockID_UNIQUE", unique: true
     t.index ["GroupSpecialtyID"], name: "SpecialtyID_UNIQUE", unique: true
   end
 
@@ -67,6 +69,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_150224) do
   create_table "hospital_assignments", primary_key: "StudentID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "HospID"
     t.integer "BlockID"
+    t.index ["BlockID"], name: "BlockID_idx"
     t.index ["HospID"], name: "HospitalID_idx"
   end
 
@@ -90,7 +93,7 @@ ActiveRecord::Schema.define(version: 2021_05_18_150224) do
   end
 
   create_table "registrars", primary_key: "RegistrarID", id: { type: :string, limit: 13 }, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "RegistrarEmail"
+    t.string "RegistrarEmail", null: false
     t.integer "SpecialtyID", null: false
     t.index ["RegistrarEmail"], name: "RegistrarEmail_idx"
     t.index ["RegistrarID"], name: "RegistrarID_UNIQUE", unique: true
@@ -105,18 +108,20 @@ ActiveRecord::Schema.define(version: 2021_05_18_150224) do
   create_table "specialty_pages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "specialty_ID"
     t.string "specialty_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", precision: 6, null: true
+    t.datetime "updated_at", precision: 6, null: true
   end
 
-  create_table "students", primary_key: "StudentNo", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "StudentEmail"
+  create_table "students", primary_key: ["StudentNo", "StudentEmail"], charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "StudentNo", null: false
+    t.string "StudentEmail", null: false
     t.string "CourseCode", limit: 45
     t.string "StudentName", limit: 64, null: false
     t.integer "StudentYOS", null: false
     t.string "StudentContactNo", limit: 30, null: false
     t.index ["CourseCode"], name: "CourseCode_idx"
     t.index ["StudentContactNo"], name: "StudentContactNo_UNIQUE", unique: true
+    t.index ["StudentEmail"], name: "StudentEmail_UNIQUE", unique: true
     t.index ["StudentNo"], name: "StudentNo_UNIQUE", unique: true
   end
 
