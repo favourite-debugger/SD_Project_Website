@@ -1,4 +1,5 @@
 class BlocksController < ApplicationController
+	before_action :authenticate_admin! #kameron: definition found in application_controller.rb
   before_action :set_block, only: %i[ show edit update destroy ]
 
   # GET /blocks or /blocks.json
@@ -9,6 +10,7 @@ class BlocksController < ApplicationController
   # GET /blocks/1 or /blocks/1.json
   def show
   end
+
 
   # GET /blocks/new
   def new
