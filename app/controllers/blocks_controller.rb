@@ -1,22 +1,89 @@
 class BlocksController < ApplicationController
+  before_action :set_block, only: %i[ show edit update destroy ]
+
+  # GET /blocks or /blocks.json
   def index
-
-  	#SEARCH BAR CODE 
-  	#ONLY CHANGE THIS TO DATABASE DATA IN 3D ARRAY FORMAT!!
-  	@db_data=[["1","1-May-2021","1-June-2021"],["2","1-July-2021","1-August-2021"],["3","1-September-2021","1-October-2021"]]
-
-
-  	#Format is [[index],[start date],[end date]]
-  	#DON'T CHANGE BELOW CODE!!==========================
-  	
-  	@data = params[:searchBlocks]
-  	if @data.blank?
-  		@blocks_array=@db_data
-  	else	
-  		@blocks_array=@db_data.select{|(x, y,z)| x == @data}
-  	end
-
-  	#===================================================
-  	
+    @blocks = Block.all
   end
+
+  # GET /blocks/1 or /blocks/1.json
+  def show
+  end
+
+  # GET /blocks/new
+  def new
+    @block = Block.new
+  end
+
+  # GET /blocks/1/edit
+  def edit
+  end
+
+  # POST /blocks or /blocks.json
+  def create
+    @block = Block.new(block_params)
+      if ( @block[:BlockStartDate] < @block[:BlockEndDate]) #checks if the block dates make sense
+        respond_to do |format|
+          if @block.save
+            format.html { redirect_to @block, notice: "Block was successfully created." }
+            format.json { render :show, status: :created, location: @block }
+          else
+            format.html { render :new, status: :unprocessable_entity }
+            format.json { render json: @block.errors, status: :unprocessable_entity }
+          end
+        end
+
+      else#START Showing alert message for invalid block dates---------------------------------------------------------------------------------------------------------------------------------------------------
+        flash.now[:alert] = "Block Start Date cannot be after the Block End Data. Please choose a Block Start Date that is eariler than the Block End Date"
+        respond_to do |format|
+            format.html { render :new, status: :unprocessable_entity }
+            format.json { render json: @block.errors, status: :unprocessable_entity }
+        end
+      end#END Showing alert message for invalid block dates---------------------------------------------------------------------------------------------------------------------------------------------------
+
+  end
+
+  # PATCH/PUT /blocks/1 or /blocks/1.json
+  def update
+    @tempblock = Block.new(block_params)
+    if ( @tempblock[:BlockStartDate] < @tempblock[:BlockEndDate]) #checks if the block dates make sense
+      respond_to do |format|
+        if @block.update(block_params)
+          format.html { redirect_to @block, notice: "Block was successfully updated." }
+          format.json { render :show, status: :ok, location: @block }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @block.errors, status: :unprocessable_entity }
+        end
+      end
+    else#START Showing alert message for invalid block dates----------------------------------------------------------------------------------------------------------------------------------------------
+      flash.now[:alert] = "Block Start Date cannot be after the Block End Data. Please choose a Block Start Date that is eariler than the Block End Date"
+      respond_to do |format|
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @block.errors, status: :unprocessable_entity }
+      end
+
+    end#END Showing alert message for invalid block dates---------------------------------------------------------------------------------------------------------------------------------------------------
+  end
+
+  # DELETE /blocks/1 or /blocks/1.json
+  def destroy
+
+    @block.destroy
+    respond_to do |format|
+      format.html { redirect_to blocks_url, notice: "Block was successfully destroyed." }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_block
+      @block = Block.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def block_params
+      params.require(:block).permit(:BlockStartDate, :BlockEndDate)
+    end
 end

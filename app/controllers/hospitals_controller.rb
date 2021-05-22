@@ -5,7 +5,6 @@ class HospitalsController < ApplicationController
   def index
     @hospitals = @q.result
   end
-
   # GET /hospitals/1 or /hospitals/1.json
   def show
   end
@@ -26,6 +25,7 @@ class HospitalsController < ApplicationController
   def create
     @hospital = Hospital.new(hospital_params)
 
+
     respond_to do |format|
       if @hospital.save
         format.html { redirect_to @hospital, notice: "Hospital was successfully created." }
@@ -36,6 +36,7 @@ class HospitalsController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /hospitals/1 or /hospitals/1.json
   def update
@@ -63,6 +64,12 @@ class HospitalsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_hospital
       @hospital = Hospital.find(params[:id])
+    end
+
+    # Only allow a list of trusted parameters through.
+    def hospital_params
+      params.require(:hospital).permit(:hospital_name, :hospital_location, :hospital_contactNo)
+
     end
 
     # Only allow a list of trusted parameters through.

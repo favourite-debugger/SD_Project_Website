@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<style>
+  .lbl{
+    color: #1757A6;
+  }
+
+</style>
+
+
+
+    <div class="text-center">
+          <img src="https://holy.trinity.joburg/wp-content/uploads/2017/11/Wits-University-logo.jpg" class="rounded" alt="University Of The Witwatersrand Logo" style="width: 150px">
+    </div>
+
+<div class="text-center">
+      <p class="lead">
+        <br>
+      </p>
+      <hr class="my-4">
+      <p>
+
+        <p>
+          <strong>Blockstartdate:</strong>
+          <%= @block.BlockStartDate %>
+        </p>
+
+
+
+        <p>
+          <strong>Blockenddate:</strong>
+          <%= @block.BlockEndDate %>
+        </p>
+
+      <p class="lead">
+        <%= link_to 'Back', blocks_path, class: "btn btn-secondary"%> |
+        <%= link_to 'Edit', edit_block_path(@block), class: "btn btn-primary "%>
+
+      </p>
+
+  </div>
+
+
+</div>

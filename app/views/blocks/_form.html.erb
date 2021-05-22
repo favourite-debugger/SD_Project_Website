@@ -1,0 +1,36 @@
+
+
+<%= form_with(model: block) do |form| %>
+  <% if block.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(block.errors.count, "error") %> prohibited this block from being saved:</h2>
+
+      <ul>
+        <% block.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+    <div class="field form-group col-sm-3 text-center">
+    <%= form.label "Block Start Date" %>
+    <%= form.date_select :BlockStartDate, class: "form-control" %>
+    </div>
+
+    <div class="field form-group col-sm-3 text-center">
+    <%= form.label "Block End Date" %>
+    <%= form.date_select :BlockEndDate, class: "form-control" %>
+    </div>
+
+
+  <div class="actions col-sm-3 text-center">
+    <%= form.submit class: "btn btn-outline-primary" %>
+  </div>
+
+
+
+<% end %>

@@ -1,41 +1,53 @@
-<!--SEARCH BAR-->
-<div class="m-4">
- <form class="d-flex ">
-        <input class="form-control me-2" type="search" placeholder="Search block ID" name="searchBlocks" aria-label="Search">
-        <button class="btn btn-outline-dark" type="submit">Search</button>
- </form>
+
+
+
+<div class="text-center">
+  <img src="https://holy.trinity.joburg/wp-content/uploads/2017/11/Wits-University-logo.jpg" class="rounded" alt="University Of The Witwatersrand Logo" style="width: 150px">
+</div>
+<%= stylesheet_link_tag "blocks" %>
+<div id="blocks">
+<h1><b>MANAGE BLOCKS</b></h1>
 </div>
 
+<div>
+  <button class="btn btn-info"><i> Add users from CSV</i></button>
+  <button class="btn btn-info pull-right"><i> Delete users from CSV</i></button>
+</div>
+<br>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!--TABLE-->
-<div class="m-4">
-  <table class="table">
-  <thead>
+
+
+
+<table class="table table-hover table-bordered">
+  <thead style="background-color: #1757A6; color: white">
     <tr>
-      <th scope="col">Block ID</th>
-    	<th scope="col">Start_Date</th>
-    	<th scope="col">End Date</th> 
+      <th>Block Start Date</th>
+      <th>Block End Date</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
-<tbody>
-  <!--loop through each item in hospital array-->
-  <% @blocks_array.each_with_index do |block_element, index| %>
-    <tr>
-      <th scope="row" class="col-3">  <%= block_element.first %> </th>
-      <td class="col-4"> <%= block_element.second %> </td>
-      <td class="col-4"> <%= block_element.last %> </td>
-  
-      <!--edit and delete functionality-->
-      <td class="col-1">
-        <div id="<%= block_element.first %>"  class="btn-group" role="group" aria-label="Basic example">
-          <button type="Submit" class="btn btn-outline-dark">Edit</button>
-          <button type="Submit" class="btn btn-outline-dark">Delete</button>
-     </div>
-      </td>
-    </tr>
-  <% end %>
+  <tbody>
+    <% @blocks.each do |block| %>
+      <tr>
+        <td><%= block.BlockStartDate %></td>
+        <td><%= block.BlockEndDate %></td>
+        <td><%= link_to 'Show', block %></td>
+        <td><%= link_to 'Edit', edit_block_path(block) %></td>
+        <td><%= link_to 'Delete', block, method: :delete, data: { confirm: 'Are you sure you want to delete this user?' },class: "btn btn-outline-danger" %></td>
+
+      </tr>
+    <% end %>
   </tbody>
 </table>
-  
+
+<br>
+
+<div class="text-center">
+  <%= link_to 'Create New Block', new_block_path, class: "btn btn-outline-info w-75"%>
 </div>
+
+
+<br>
+<br>

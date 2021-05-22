@@ -13,7 +13,6 @@ class UsersTest < ApplicationSystemTestCase
   test "creating a User" do
     visit users_url
     click_on "New User"
-
     fill_in "Email", with: @user.email
     fill_in "Password", with: @user.password
     fill_in "User contactno", with: @user.user_ContactNo
@@ -29,7 +28,6 @@ class UsersTest < ApplicationSystemTestCase
   test "updating a User" do
     visit users_url
     click_on "Edit", match: :first
-
     fill_in "Email", with: @user.email
     fill_in "Password", with: @user.password
     fill_in "User contactno", with: @user.user_ContactNo
