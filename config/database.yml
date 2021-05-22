@@ -14,13 +14,14 @@ default: &default
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: a0a9a8a7
+  password: FezileMahlangu26*
   host: localhost
+  database: student_placement
   port: 3306
 
 development:
   <<: *default
-  database: database1
+  database: student_placement
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -28,6 +29,7 @@ development:
 test:
   <<: *default
   database: database1
+
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is

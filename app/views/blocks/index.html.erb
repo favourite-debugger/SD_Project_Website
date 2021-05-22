@@ -1,0 +1,41 @@
+<!--SEARCH BAR-->
+<div class="m-4">
+ <form class="d-flex ">
+        <input class="form-control me-2" type="search" placeholder="Search block ID" name="searchBlocks" aria-label="Search">
+        <button class="btn btn-outline-dark" type="submit">Search</button>
+ </form>
+</div>
+
+
+<!--TABLE-->
+<div class="m-4">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Block ID</th>
+    	<th scope="col">Start_Date</th>
+    	<th scope="col">End Date</th> 
+    </tr>
+  </thead>
+
+<tbody>
+  <!--loop through each item in hospital array-->
+  <% @blocks_array.each_with_index do |block_element, index| %>
+    <tr>
+      <th scope="row" class="col-3">  <%= block_element.first %> </th>
+      <td class="col-4"> <%= block_element.second %> </td>
+      <td class="col-4"> <%= block_element.last %> </td>
+  
+      <!--edit and delete functionality-->
+      <td class="col-1">
+        <div id="<%= block_element.first %>"  class="btn-group" role="group" aria-label="Basic example">
+          <button type="Submit" class="btn btn-outline-dark">Edit</button>
+          <button type="Submit" class="btn btn-outline-dark">Delete</button>
+     </div>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+  
+</div>

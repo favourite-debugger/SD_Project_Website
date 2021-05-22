@@ -1,0 +1,69 @@
+<br/>
+
+<!--search button and bar-->
+<div class="container-fluid">
+<form class="d-flex">
+    <input class="form-control me-2" type="search" name="searchSpecialties" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-primary" type="submit">Search</button>
+  </form>
+
+  <br/>
+</div>
+
+
+<!--buttons-->
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-evenly">
+        
+        <button type="submit" value="submit" class="btn btn-outline-secondary">Add From CSV</button>
+        
+
+
+        <button id="myButton" class="btn btn-outline-secondary" >Add New Specialty</button>
+
+        <script type="text/javascript">
+            document.getElementById("myButton").onclick = function () {
+                location.href = "http://localhost:3000/add_specialty/index";
+            };
+        </script>
+
+
+        <button type="button" class="btn btn-outline-secondary">Remove From CSV</button>
+    </div>
+</div>
+
+<br/>
+
+
+
+
+<!--Making the list-->
+<div class="container-fluid">
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Specialty ID</th>
+                    <th scope="col">Specialty Name</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+
+                <!--Getting specialties from array in the specialties controller-->
+                <% @specialties_array.each_with_index do |item,index| %>
+                    <tr>
+                        <th scope="row">   <%= item.first %> </th>
+                        <td><%= item.last %></td>
+                    </tr>
+
+                <% end %>
+
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
