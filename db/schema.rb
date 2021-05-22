@@ -24,12 +24,6 @@ ActiveRecord::Schema.define(version: 2021_05_14_024529) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "blocks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.date "BlockStartDate"
-    t.date "BlockEndDate"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
 
   create_table "consultants", primary_key: ["ConsultantID", "ConsultantEmail"], charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "ConsultantID", limit: 13, null: false
@@ -74,6 +68,21 @@ ActiveRecord::Schema.define(version: 2021_05_14_024529) do
     t.index ["HospID"], name: "HospitalID_idx"
   end
 
+  create_table "hospitals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "hospital_name"
+    t.string "hospital_location"
+    t.string "hospital_contactNo"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "blocks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.date "BlockStartDate"
+    t.date "BlockEndDate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+  
   create_table "hospital_availabilities", primary_key: ["HospSpecialtyID", "AvailableHospitalID"], charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "HospSpecialtyID", null: false
     t.integer "AvailableHospitalID", null: false
@@ -126,21 +135,17 @@ ActiveRecord::Schema.define(version: 2021_05_14_024529) do
     t.index ["StudentNo"], name: "StudentNo_UNIQUE", unique: true
   end
 
-  create_table "users", primary_key: "UserID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "UserFName", limit: 60
-    t.string "UserLName", limit: 60
-    t.string "UserContactNo", limit: 30
-    t.string "UserType", limit: 45
-    t.string "email", default: ""
-    t.string "encrypted_password", default: ""
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.string "username"
-    t.index ["UserContactNo"], name: "UserContactNo_UNIQUE", unique: true
-    t.index ["email"], name: "email_UNIQUE", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "email"
+    t.string "user_FirstName"
+    t.string "user_LastName"
+    t.string "password_digest"
+    t.string "user_ContactNo"
+    t.string "user_Type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
+  
 
   add_foreign_key "consultants", "hospitals", column: "ConsultHospitalID", primary_key: "HospitalID", name: "ConsultHospitalID"
   add_foreign_key "consultants", "specialties", column: "SpecialtyID", primary_key: "SpecialtyID", name: "SoecialtyID"
@@ -155,4 +160,5 @@ ActiveRecord::Schema.define(version: 2021_05_14_024529) do
   add_foreign_key "registrar_assignments", "registrars", column: "RegistrarID", primary_key: "RegistrarID", name: "RegistrarID"
   add_foreign_key "registrars", "specialties", column: "SpecialtyID", primary_key: "SpecialtyID", name: "SpecialtyID"
   add_foreign_key "students", "courses", column: "CourseCode", primary_key: "CourseCode", name: "CourseCode"
+
 end

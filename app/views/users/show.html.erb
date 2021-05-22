@@ -1,0 +1,63 @@
+<style>
+  .lbl{
+    color: #1757A6;
+  }
+
+</style>
+
+
+
+    <div class="text-center">
+          <img src="https://holy.trinity.joburg/wp-content/uploads/2017/11/Wits-University-logo.jpg" class="rounded" alt="University Of The Witwatersrand Logo" style="width: 150px">
+    </div>
+
+
+
+
+
+
+<div class="text-center">  
+      <p class="lead">
+        <br>
+      </p>
+      <hr class="my-4">
+      <p>
+      
+        <p>
+      <strong class="lbl">Email:</strong>
+      <%= @user.email %>
+    </p>
+
+    <p>
+      <strong class="lbl">First Name:</strong>
+      <%= @user.user_FirstName %>
+    </p>
+
+    <p>
+      <strong class="lbl">Last Name:</strong>
+      <%= @user.user_LastName %>
+    </p>
+
+
+    <p>
+      <strong class="lbl">Contact Number:</strong>
+      <%= @user.user_ContactNo %>
+    </p>
+
+    <p>
+      <strong class="lbl">User Type:</strong>
+      <%= @user.user_Type %>
+    </p>
+
+      <br>
+
+      <p class="lead">
+        <%= link_to 'Back', users_path, class: "btn btn-secondary"%> |
+        <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary "%>
+
+      </p>
+
+  </div>
+
+ 
+</div>
