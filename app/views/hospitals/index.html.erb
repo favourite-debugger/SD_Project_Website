@@ -1,52 +1,46 @@
-
-
-<!--SEARCH BAR-->
-<div class="m-4">
- <form class="d-flex ">
-        <input class="form-control me-2" type="search" name="searchHospitals" placeholder="Search hospital name" aria-label="Search">
-        <button class="btn btn-outline-dark" type="submit">Search</button>
- </form>
+<%= stylesheet_link_tag "hospital" %>
+<div class="text-center">
+  <img src="https://holy.trinity.joburg/wp-content/uploads/2017/11/Wits-University-logo.jpg" class="rounded" alt="University Of The Witwatersrand Logo" style="width: 150px">
 </div>
 
-<!--TABLE-->
+<div id="hospital">
+  <h1><b>Hospitals</b></h1>
+</div>
 
-<div class="m-4">
 
-  <table id="cartTable" class="table">
-  <thead>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<table class="table table-hover table-bordered ">
+  <thead style="background-color: #1757A6; color: white">
     <tr>
-      <th scope="col">Hospital ID</th>
-      <th scope="col">Hospital Name</th>
+      <th>Hospital Name</th>
+      <th>Hospital Location</th>
+      <th>Contact Number</th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
-<tbody>
-  <!--loop through each item in hospital array-->
-
-
-
-  <% @hospitals_array.each_with_index do |hosp_element, index| %>
-     
-    <tr>
-      <th scope="row" class="col-5" >  <%= hosp_element.first %> </th>
-      <td  class="col-6"><%= hosp_element.last %> </td> 
-
-      <!--edit and delete functionality-->
-      <td class="col-1">
-        <div   class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-outline-dark"  >Edit</button>
-          <button type="button" class="btn btn-outline-dark"  >Delete</button>
-      </div>
-      </td>
-    </tr>
-
-   
-  
+  <tbody>
+    <% @hospitals.each do |hospital| %>
+      <tr>
+        <td><%= hospital.hospital_name %></td>
+        <td><%= hospital.hospital_location %></td>
+        <td><%= hospital.hospital_contactNo %></td>
+        <td><%= link_to 'Show', hospital, class: "btn btn-outline-info" %></td>
+        <td><%= link_to 'Edit', edit_hospital_path(hospital),class: "btn btn-outline-primary" %></td>
+        <td><%= link_to 'Delete', hospital, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %></td>
+      </tr>
     <% end %>
-
-
   </tbody>
 </table>
 
+<br>
+<div class="text-center">
+    <%= link_to 'Add New Hospital', new_hospital_path,class: "btn btn-outline-info w-75" %>
 </div>
 
+
+<div class="text-center">
+    <%= link_to 'Add New Hospital', new_hospital_path,class: "btn btn-outline-info w-75" %>
+</div>

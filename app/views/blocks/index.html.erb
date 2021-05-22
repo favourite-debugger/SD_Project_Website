@@ -1,9 +1,26 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Manage Blocks</h1>
 
-<table class="table table-primary table-striped table-hover table-bordered">
-  <thead>
+
+<div class="text-center">
+  <img src="https://holy.trinity.joburg/wp-content/uploads/2017/11/Wits-University-logo.jpg" class="rounded" alt="University Of The Witwatersrand Logo" style="width: 150px">
+</div>
+<%= stylesheet_link_tag "blocks" %>
+<div id="blocks">
+<h1><b>MANAGE BLOCKS</b></h1>
+</div>
+
+<div>
+  <button class="btn btn-info"><i> Add users from CSV</i></button>
+  <button class="btn btn-info pull-right"><i> Delete users from CSV</i></button>
+</div>
+<br>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+<table class="table table-hover table-bordered">
+  <thead style="background-color: #1757A6; color: white">
     <tr>
       <th>Block Start Date</th>
       <th>Block End Date</th>
@@ -18,8 +35,7 @@
         <td><%= block.BlockEndDate %></td>
         <td><%= link_to 'Show', block %></td>
         <td><%= link_to 'Edit', edit_block_path(block) %></td>
-
-        <td><%= button_to('Destroy', block, method: :delete, data: { confirm: 'Are you sure?' }) %> </td>
+        <td><%= link_to 'Delete', block, method: :delete, data: { confirm: 'Are you sure you want to delete this user?' },class: "btn btn-outline-danger" %></td>
 
       </tr>
     <% end %>
@@ -28,4 +44,10 @@
 
 <br>
 
-<%= link_to 'Create New Block', new_block_path %>
+<div class="text-center">
+  <%= link_to 'Create New Block', new_block_path, class: "btn btn-outline-info w-75"%>
+</div>
+
+
+<br>
+<br>

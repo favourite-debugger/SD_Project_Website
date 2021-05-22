@@ -1,0 +1,15 @@
+<%= search_form_for @q do |f| %>
+
+    	<div class="form-group form-inline my-2 my-lg-0">
+     	 <%= f.search_field :user_FirstName_or_user_LastName_or_user_ContactNo_cont, class: 'form-control mr-sm-2', placeholder: "Search"%>
+    	</div>
+
+    	<div class="form-group form-inline my-2 my-lg-0 ">
+    	
+      	<%= f.select :user_Type_cont, options_for_select( [["All",""],"Admin","Student","Registrar","Consultant"]),{:prompt=>"Sort By"},{class: "form-control mr-sm-2 "}%>
+  	</div>
+
+  	<%= f.submit  class: "btn btn-outline-success my-2 my-sm-0" %>
+  		
+
+<% end %>

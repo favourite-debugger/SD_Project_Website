@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <%= link_to 'Student Placement System', dashboard_index_path, class:"navbar-brand" %>
+
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,27 +11,28 @@
 
 
         <li class="nav-item">
-          <% if controller_name == "dashboard"%>
+          <% if controller_name == "dashboard"%> 
           <!-- If we're at the Dashboard view, set this nav link to active -->
-            <%= link_to 'Home', dashboard_index_path, class:"nav-link active" %>
+            <%= link_to 'Dashboard', dashboard_index_path, class:"nav-link active" %>
           <!-- If we're at another view, set this to normal nav link -->
           <% else %>
-            <%= link_to 'Home', dashboard_index_path, class:"nav-link" %>
+            <%= link_to 'Dashboard', dashboard_index_path, class:"nav-link" %>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
+          <% if controller_name == "home"%>
+          <!-- If we're at the Dashboard view, set this nav link to active -->
+            <%= link_to 'Home', home_index_path, class:"nav-link active" %>
+          <!-- If we're at another view, set this to normal nav link -->
+          <% else %>
+            <%= link_to 'Home', home_index_path, class:"nav-link" %>
           <% end %>
         </li>
 
 
         <li class="nav-item">
           <!-- If we're at the Manage Users view, set this nav link to active -->
-          <% if controller_name == "home"%>
-            <%= link_to 'Users', home_index_path, class:"nav-link active" %>
-          <!-- If we're at another view, set this to normal nav link -->
-          <% else %>
-            <%= link_to 'Users', home_index_path, class:"nav-link" %>
-          <% end %>
-        </li>
-
-
         <li class="nav-item">
           <!-- If we're at the Manage Groups view, set this nav link to active -->
           <% if controller_name == "groups"%>
@@ -42,7 +45,18 @@
 
 
         <li class="nav-item">
+          <!-- If we're at the Manage Users view, set this nav link to active -->
+          <% if controller_name == "users"%>
+            <%= link_to 'Users', users_path, class:"nav-link active" %>
+          <!-- If we're at another view, set this to normal nav link -->
+          <% else %>
+            <%= link_to 'Users', users_path, class:"nav-link" %>
+          <% end %>
+        </li>
+
+        <li class="nav-item">
           <!-- If we're at the Manage Hospitals view, set this nav link to active -->
+
           <% if controller_name == "hospitals"%>
             <%= link_to 'Hospitals', hospitals_path, class:"nav-link active" %>
           <!-- If we're at another view, set this to normal nav link -->
@@ -52,42 +66,52 @@
         </li>
 
 
-        <li class="nav-item">
-          <!-- If we're at the Manage Blocks view, set this nav link to active -->
-          <% if controller_name == "blocks"%>
-            <%= link_to 'Blocks', blocks_path, class:"nav-link active" %>
-            <!-- If we're at another view, set this to normal nav link -->
-          <% else %>
-            <%= link_to 'Blocks', blocks_path, class:"nav-link" %>
-          <% end %>
-        </li>
+      </ul>
 
 
-        <li class="nav-item">
-          <!-- If we're at the Manage Specialties view, set this nav link to active -->
-          <% if controller_name == "specialties"%>
-            <%= link_to 'Specialties', specialties_path, class:"nav-link active" %>
-          <!-- If we're at another view, set this to normal nav link -->
-          <% else %>
-            <%= link_to 'Specialties', specialties_path, class:"nav-link" %>
-          <% end %>
-        </li>
+      <!-- Add search forms for OWN model -->
+      <!-- unless statement takes out search bar when editing,creating,etc-->
+      <% unless url_for != users_path %>
+      <!--Makes the seach field neater however cant find a way to pull search field to  right of navbar -->
+        <form class="form-inline my-2 my-lg-0">
+          <%=render "users/filters"%>|
+          <%=link_to "Clear search",users_path,class: "btn btn-outline-info"%>
+        </form>
+      <% end %>
 
-
-        <li class="nav-item">
-          <!-- If we're at the Manage Programmes view, set this nav link to active -->
-          <% if controller_name == "programmes"%>
-            <%= link_to 'Programmes', programmes_path, class:"nav-link active" %>
-          <% else %>
-            <%= link_to 'Programmes', programmes_path, class:"nav-link" %>
-          <% end %>
-        </li>
-
+      <% unless url_for != hospitals_path %>
+        <form class="form-inline my-2 my-lg-0">
+          <%=render "hospitals/filters"%> |
+          <%=link_to "Clear Search",hospitals_path,class: "btn btn-outline-info"%>
+        </form>
+      <% end %>
+      <!--ADD Below check users controller and
+       -filters.html.erb for eg -->
 
       </ul>
-        <!-- Sign Out Button -->
+
+      <!-- Add search forms for OWN model -->
+      <!-- unless statement takes out search bar when editing,creating,etc-->
+      <% unless url_for != users_path %>
+      <!--Makes the seach field neater however cant find a way to pull search field to  right of navbar -->
+        <form class="form-inline my-2 my-lg-0">
+          <%=render "users/filters"%>|
+          <%=link_to "Clear search",users_path,class: "btn btn-outline-info"%>
+        </form>
+      <% end %>
+       
+      <% unless url_for != hospitals_path %>
+        <form class="form-inline my-2 my-lg-0">
+          <%=render "hospitals/filters"%> |
+          <%=link_to "Clear Search",hospitals_path,class: "btn btn-outline-info"%> 
+        </form>
+      <% end %>
+      <!--ADD Below check users controller and 
+       -filters.html.erb for eg -->
+          <!-- Sign Out Button -->
         <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete, class:"btn btn-outline-danger" %>
 
     </div>
   </div>
+
 </nav>

@@ -13,14 +13,12 @@ class UsersTest < ApplicationSystemTestCase
   test "creating a User" do
     visit users_url
     click_on "New User"
-
-    fill_in "Usercontactno", with: @user.UserContactNo
-    fill_in "Useremail", with: @user.UserEmail
-    fill_in "Userfname", with: @user.UserFName
-    fill_in "Userid", with: @user.UserID
-    fill_in "Userlname", with: @user.UserLName
-    fill_in "Userpassword", with: @user.UserPassword
-    fill_in "Usertype", with: @user.UserType
+    fill_in "Email", with: @user.email
+    fill_in "Password", with: @user.password
+    fill_in "User contactno", with: @user.user_ContactNo
+    fill_in "User firstname", with: @user.user_FirstName
+    fill_in "User lastname", with: @user.user_LastName
+    fill_in "User type", with: @user.user_Type
     click_on "Create User"
 
     assert_text "User was successfully created"
@@ -30,14 +28,12 @@ class UsersTest < ApplicationSystemTestCase
   test "updating a User" do
     visit users_url
     click_on "Edit", match: :first
-
-    fill_in "Usercontactno", with: @user.UserContactNo
-    fill_in "Useremail", with: @user.UserEmail
-    fill_in "Userfname", with: @user.UserFName
-    fill_in "Userid", with: @user.UserID
-    fill_in "Userlname", with: @user.UserLName
-    fill_in "Userpassword", with: @user.UserPassword
-    fill_in "Usertype", with: @user.UserType
+    fill_in "Email", with: @user.email
+    fill_in "Password", with: @user.password
+    fill_in "User contactno", with: @user.user_ContactNo
+    fill_in "User firstname", with: @user.user_FirstName
+    fill_in "User lastname", with: @user.user_LastName
+    fill_in "User type", with: @user.user_Type
     click_on "Update User"
 
     assert_text "User was successfully updated"
