@@ -9,6 +9,15 @@ Rails.application.routes.draw do
     get 'home/index'
 
   #==================================
+  
+  #PLEASE AUTHENTICATE!
+  #TODO: AUTHENTICATION
+  get '/programmes', to: "programmes#index"
+  get '/specialties', to: "blocks#index"
+  #get 'specialty_pages/index'
+  get 'add_specialty/index'
+  get "/hospitals",to: "hospitals#index"
+  get "/blocks",to: "blocks#index"
 
     devise_for :admins,
       controllers: {:registrations => "registrations"} #, :sessions => "sessions"} #That will tell devise to use your custom registrations controller
