@@ -1,7 +1,6 @@
 require "test_helper"
 
 class HospitalsControllerTest < ActionDispatch::IntegrationTest
-
   setup do
     @hospital = hospitals(:one)
   end
@@ -46,5 +45,4 @@ class HospitalsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to hospitals_url
   end
-
 end

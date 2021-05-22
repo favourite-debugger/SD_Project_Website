@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
     resources :blocks
     resources :specialty_pages
     resources :specialties
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
 
   #==================================
   
+
   #PLEASE AUTHENTICATE!
   #TODO: AUTHENTICATION
   get '/programmes', to: "programmes#index"
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
 
     devise_for :admins,
       controllers: {:registrations => "registrations"} #, :sessions => "sessions"} #That will tell devise to use your custom registrations controller
+
 
   #Setting up a custom route to that action:-----------------------------------------------------------------------------
   as :admin do

@@ -10,9 +10,8 @@ Note: No successful build will occur due a database connection error as we're cu
 
 ## Overview
 
-The admin is the only user of the website. The purpose of the website is to create a user-friendly interface which makes it easy for the system administrator to make changes to the data in the database. 
+The admin is the only user of the website. The purpose of the website is to create a user-friendly interface which makes it easy for the system administrator to make changes to the data in the database.
 
 The Admin must login first with a username annd password which will be verified before access.
 
 The admin needs to be able to perform CRUD functions on the various tables in the database. The admin needs to be able to create, update and delete Users (including other admins), Hospitals, Specialties, Programmes, Groups and Blocks, on the database. 
-
