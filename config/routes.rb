@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :programmes
     resources :blocks
     resources :specialty_pages
     resources :specialties
