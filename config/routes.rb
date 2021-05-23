@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :groups
     resources :blocks
     resources :specialty_pages
     resources :specialties
@@ -18,7 +19,6 @@ Rails.application.routes.draw do
   get '/specialties', to: "blocks#index"
   #get 'specialty_pages/index'
   get 'add_specialty/index'
-  get "/hospitals",to: "hospitals#index"
   get "/blocks",to: "blocks#index"
 
     devise_for :admins,

@@ -1,0 +1,32 @@
+
+<%= form_with(model: group) do |form| %>
+  <% if group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="field form-inline">
+  </br>
+  <div class="field">
+    <%= form.label :"Block ID" %>
+    <%= form.number_field :BlockID , class:"form-control"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :'Specialty ID' %>
+    <%= form.number_field :SpecialtyID, class:"form-control"   %>
+  </div>
+
+  </br>
+  <div class="actions" >
+    <%= form.submit class:"btn btn-secondary" %>
+  </div>
+<% end %>
+

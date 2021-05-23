@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_20_194345) do
+ActiveRecord::Schema.define(version: 2021_05_22_235504) do
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -49,14 +49,16 @@ ActiveRecord::Schema.define(version: 2021_05_20_194345) do
     t.index ["CourseCode"], name: "CourseCode_UNIQUE", unique: true
   end
 
-  create_table "group_assignments", primary_key: "GroupID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "GroupBlockID"
-    t.integer "GroupSpecialtyID"
+  create_table "group_assignments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "GroupStudentID"
+    t.integer "GroupStudentYear"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "GroupStudentID"
-    t.integer "GroupStudentYear"
+    t.integer "BlockID"
+    t.integer "SpecialtyID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

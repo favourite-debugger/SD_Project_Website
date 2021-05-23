@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="d-flex justify-content-center">
+  <%= link_to 'New Group', new_group_path, class:"btn btn-outline-dark btn-block"  %>
+</div>
+
+<div class="m-4">
+    <table class="table">
+      <thead>
+        <tr>
+        <th scope="col">Group Number</th>
+          <th scope="col">Block ID</th>
+          <th scope="col">Specialty</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @groups.each do |group| %>
+          <tr>
+            <td class="col=2"><%= group.id %></td>
+            <td class="col-3"><%= group.BlockID %></td>
+            <td class="col-3"><%= group.SpecialtyID %></td>
+            <td class="col-4">
+            <!--==================THESE NEED TO BE CODED!!================================-->
+              <%= link_to 'View students', group,class:"btn btn-outline-dark" %>
+              <!-- ================================================ -->
+              <%= link_to 'Edit', edit_group_path(group),  class:"btn btn-outline-dark" %>
+              <%= button_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-dark" %>
+            
+           </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+</div>
+<br>
+
