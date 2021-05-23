@@ -3,7 +3,9 @@ class GroupAssignmentsController < ApplicationController
 
   # GET /group_assignments or /group_assignments.json
   def index
-    @group_assignments = GroupAssignment.all
+    #search code
+    @q = GroupAssignment.ransack(params[:q])
+    @group_assignments = @q.result
   end
 
   # GET /group_assignments/1 or /group_assignments/1.json
