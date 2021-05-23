@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_05_23_174941) do
+
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -30,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_05_23_174941) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+
 
   create_table "consultants", primary_key: "ConsultantID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "ConsultantEmail"
@@ -82,7 +85,7 @@ ActiveRecord::Schema.define(version: 2021_05_23_174941) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "programme_courses", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "programme_courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "ProgrammeID"
     t.integer "CourseID"
     t.index ["CourseID"], name: "Course_ID_idx"
@@ -119,17 +122,6 @@ ActiveRecord::Schema.define(version: 2021_05_23_174941) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "students", primary_key: "StudentNo", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "StudentEmail"
-    t.string "CourseCode", limit: 45
-    t.string "StudentName", limit: 64, null: false
-    t.integer "StudentYOS", null: false
-    t.string "StudentContactNo", limit: 30, null: false
-    t.index ["CourseCode"], name: "CourseCode_idx"
-    t.index ["StudentContactNo"], name: "StudentContactNo_UNIQUE", unique: true
-    t.index ["StudentNo"], name: "StudentNo_UNIQUE", unique: true
-  end
-
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
     t.string "user_FirstName"
@@ -140,6 +132,7 @@ ActiveRecord::Schema.define(version: 2021_05_23_174941) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+
 
   add_foreign_key "group_assignments", "groups"
   add_foreign_key "groups", "blocks"

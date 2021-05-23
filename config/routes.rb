@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
+#<<<<<<< programmes
+  resources :programme_courses
+  resources :courses
+  resources :programmes
+#=======
   resources :group_assignments
   resources :groups
+#>>>>>>> main
     resources :blocks
     resources :specialty_pages
     resources :specialties
@@ -12,7 +18,7 @@ Rails.application.routes.draw do
     get 'home/index'
 
   #==================================
-  
+
 
   #PLEASE AUTHENTICATE!
   #TODO: AUTHENTICATION

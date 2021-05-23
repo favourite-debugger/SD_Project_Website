@@ -1,0 +1,22 @@
+<%= form_with(model: programme) do |form| %>
+  <% if programme.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(programme.errors.count, "error") %> prohibited this programme from being saved:</h2>
+
+      <ul>
+        <% programme.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :programme_code %>
+    <%= form.text_field :programme_code %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
