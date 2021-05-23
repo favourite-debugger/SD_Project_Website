@@ -10,18 +10,26 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :"Specialty ID" %>
-    <%= form.text_field :specialty_id %>
+  <!------>
+  <div class="field form-inline">
+   
+    
+    <br/>
+     <label for="Spec">Specialty ID:</label>
+     </br>
+    <%= form.text_field :specialty_id, class:"form-control" ,id:"Spec",placeholder:"Specialty ID" %>
+    </br>
+    <label for="Bloc">Block ID:</label>
+    
+     </br>
+    <%= form.text_field :block_id, class:"form-control" ,id:"Bloc",placeholder:"Block ID" %>
   </div>
-
-  <div class="field">
-    <%= form.label :"Block ID" %>
-    <%= form.text_field :block_id %>
-  </div>
-
+   
+  <br/>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-secondary" %>
   </div>
+  <!------->
+
+ 
 <% end %>
