@@ -11,6 +11,6 @@ import "bootstrap"
 import * as mdb from 'mdb-ui-kit'; // lib
 
 Rails.start()
-//Turbolinks.start()
+Turbolinks.start()
 
 ActiveStorage.start()
