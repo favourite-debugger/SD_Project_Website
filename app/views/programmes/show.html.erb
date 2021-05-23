@@ -3,6 +3,21 @@
 <p>
   <strong>Programme code:</strong>
   <%= @programme.programme_code %>
+  <hr></hr>
+  <strong>Associated Courses:</strong>
+  <br></br>
+  <% @programmecourses.each do |programmecourse| %>
+
+    <%if programmecourse.ProgrammeID == @programme.id%>
+          <% @courses.each do |course| %>
+            <%if course.CourseID == programmecourse.CourseID %>
+              <%= course.CourseDescription %>
+            <%end%>
+
+          <%end%>
+<%end%>
+    <%end%>
+
 </p>
 
 <%= link_to 'Edit', edit_programme_path(@programme) %> |

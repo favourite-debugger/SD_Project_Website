@@ -5,34 +5,36 @@
 <div class="container-fluid">
     <% @programmes.each do |programme| %>
     <div class="card border-info mb-3" style="max-width: 18rem;">
-        <div class="card-header"><%= programme.programme_code %></div>
-
-
-
+        <div class="card-header"><%= programme.programme_code %>     <%= link_to 'Edit', edit_programme_path(programme),class: "btn btn-outline-primary" %>     <%= link_to 'Delete', programme, method: :delete, data: { confirm: 'Are you sure you want to delete this user?' },class: "btn btn-outline-danger" %></div>
         <div class="container-fluid">
     <div>
         <table class="table">
             <thead>
-
-
-
-
-
-
-
             </thead>
 
             <tbody>
-
-                <!--Need to loop through each course belonging to that programme -->
-                <%  @programmes.each do |programme| %>
+                <!-- Looping through each course belonging to that programme -->
                     <tr>
-                        <!-- <%= programme.programme_code %> -->
+                        <% @programmecourses.each do |programmecourse| %>
+
+                          <%if programmecourse.ProgrammeID == programme.id%>
+
+                                <% @courses.each do |course| %>
+                                  <%if course.CourseID == programmecourse.CourseID %>
+                                    <td><%= course.CourseDescription %></td>
+                                  <%end%>
+
+                                <%end%>
+
+                          <%end%>
+
+
                     </tr>
                 <% end %>
-                <td><%= link_to 'Show', programme, class: "btn btn-outline-info" %></td>
-                <td><%= link_to 'Edit', edit_programme_path(programme),class: "btn btn-outline-primary" %></td>
-                <td><%= link_to 'Delete', programme, method: :delete, data: { confirm: 'Are you sure you want to delete this user?' },class: "btn btn-outline-danger" %></td>
+              <!--  <td><%= link_to 'Show', programme, class: "btn btn-outline-info" %></td> -->
+              <!--  <td><%= link_to 'Edit', edit_programme_path(programme),class: "btn btn-outline-primary" %></td> -->
+              <!--  <td><%= link_to 'Delete', programme, method: :delete, data: { confirm: 'Are you sure you want to delete this user?' },class: "btn btn-outline-danger" %></td> -->
+              <td><%= link_to 'Add/Remove Courses', new_programme_course_path(:programme_code => programme.id),class: "btn btn-outline-primary" %></td>
             </tbody>
         </table>
 
@@ -47,3 +49,4 @@
 
 
 <%= link_to 'New Programme', new_programme_path, class:"btn btn-primary btn-lg" %>
+<%= link_to 'Manage Courses', courses_path, class: "btn btn-primary btn-lg" %>

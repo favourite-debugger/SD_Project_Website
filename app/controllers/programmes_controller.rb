@@ -4,10 +4,15 @@ class ProgrammesController < ApplicationController
   # GET /programmes or /programmes.json
   def index
     @programmes = Programme.all
+    @programmecourses = ProgrammeCourse.all
+    @courses = Course.all
+
   end
 
   # GET /programmes/1 or /programmes/1.json
   def show
+    @programmecourses = ProgrammeCourse.all
+    @courses = Course.all
   end
 
   # GET /programmes/new

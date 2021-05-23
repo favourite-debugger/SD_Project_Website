@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :programme_courses
+  resources :courses
   resources :programmes
     resources :blocks
     resources :specialty_pages
