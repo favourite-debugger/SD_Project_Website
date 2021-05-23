@@ -1,4 +1,5 @@
 class HospitalsController < ApplicationController
+  before_action :authenticate_admin! #kameron: definition found in application_controller.rb
   before_action :set_hospital, only: %i[ show edit update destroy ]
   before_action :set_search
   # GET /hospitals or /hospitals.json

@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_05_22_235504) do
 
+
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -95,6 +96,18 @@ ActiveRecord::Schema.define(version: 2021_05_22_235504) do
     t.index ["ProgrammeID"], name: "Programme_ID_UNIQUE", unique: true
   end
 
+  create_table "programme_courses", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "ProgrammeID"
+    t.integer "CourseID"
+    t.index ["CourseID"], name: "Course_ID_idx"
+    t.index ["ProgrammeID"], name: "ProgrammeID_idx"
+  end
+
+  create_table "programmes", primary_key: "ProgrammeID", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "ProgrammeDescription"
+    t.index ["ProgrammeID"], name: "Programme_ID_UNIQUE", unique: true
+  end
+
   create_table "registrar_assignments", primary_key: "BlockID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "RegistrarID", null: false
     t.integer "HospitalID", null: false
@@ -132,7 +145,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_235504) do
     t.index ["StudentContactNo"], name: "StudentContactNo_UNIQUE", unique: true
     t.index ["StudentNo"], name: "StudentNo_UNIQUE", unique: true
   end
-
+  
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
     t.string "user_FirstName"
