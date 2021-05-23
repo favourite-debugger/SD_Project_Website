@@ -11,22 +11,17 @@
     </div>
   <% end %>
 
- <div class="field form-inline">
-  </br>
+  <div class="field">
+    <%= form.label :"Specialty ID" %>
+    <%= form.text_field :specialty_id %>
+  </div>
+
   <div class="field">
     <%= form.label :"Block ID" %>
-    <%= form.number_field :BlockID , class:"form-control"%>
+    <%= form.text_field :block_id %>
   </div>
 
-  <div class="field">
-    <%= form.label :'Specialty ID' %>
-    <%= form.number_field :SpecialtyID, class:"form-control"   %>
-  </div>
-
-  </br>
-  <div class="actions" >
-    <%= form.submit class:"btn btn-secondary" %>
+  <div class="actions">
+    <%= form.submit %>
   </div>
 <% end %>
-
-

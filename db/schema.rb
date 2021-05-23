@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_235504) do
-
+ActiveRecord::Schema.define(version: 2021_05_23_174941) do
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -51,17 +50,21 @@ ActiveRecord::Schema.define(version: 2021_05_22_235504) do
   end
 
   create_table "group_assignments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "GroupStudentID"
-    t.integer "GroupStudentYear"
+    t.bigint "group_id", null: false
+    t.integer "StudentID"
+    t.integer "GroupYear"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_group_assignments_on_group_id"
   end
 
   create_table "groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "BlockID"
-    t.integer "SpecialtyID"
+    t.bigint "specialty_id", null: false
+    t.bigint "block_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["block_id"], name: "index_groups_on_block_id"
+    t.index ["specialty_id"], name: "index_groups_on_specialty_id"
   end
 
   create_table "hospital_assignments", primary_key: "StudentID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -96,23 +99,10 @@ ActiveRecord::Schema.define(version: 2021_05_22_235504) do
     t.index ["ProgrammeID"], name: "Programme_ID_UNIQUE", unique: true
   end
 
-  create_table "programme_courses", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "ProgrammeID"
-    t.integer "CourseID"
-    t.index ["CourseID"], name: "Course_ID_idx"
-    t.index ["ProgrammeID"], name: "ProgrammeID_idx"
-  end
-
-  create_table "programmes", primary_key: "ProgrammeID", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "ProgrammeDescription"
-    t.index ["ProgrammeID"], name: "Programme_ID_UNIQUE", unique: true
-  end
-
   create_table "registrar_assignments", primary_key: "BlockID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "RegistrarID", null: false
     t.integer "HospitalID", null: false
     t.index ["BlockID"], name: "BlockID_UNIQUE", unique: true
-    t.index ["RegistrarID"], name: "RegistrarID_UNIQUE", unique: true
   end
 
   create_table "registrars", primary_key: "RegistrarID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -128,13 +118,6 @@ ActiveRecord::Schema.define(version: 2021_05_22_235504) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "specialty_pages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "specialty_ID"
-    t.string "specialty_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "students", primary_key: "StudentNo", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "StudentEmail"
     t.string "CourseCode", limit: 45
@@ -145,7 +128,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_235504) do
     t.index ["StudentContactNo"], name: "StudentContactNo_UNIQUE", unique: true
     t.index ["StudentNo"], name: "StudentNo_UNIQUE", unique: true
   end
-  
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
     t.string "user_FirstName"
@@ -157,9 +140,10 @@ ActiveRecord::Schema.define(version: 2021_05_22_235504) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "hospital_assignments", "students", column: "StudentID", primary_key: "StudentNo", name: "StudentID"
+  add_foreign_key "group_assignments", "groups"
+  add_foreign_key "groups", "blocks"
+  add_foreign_key "groups", "specialties"
   add_foreign_key "programme_courses", "courses", column: "CourseID", primary_key: "CourseID", name: "CourseID"
   add_foreign_key "programme_courses", "programmes", column: "ProgrammeID", primary_key: "ProgrammeID", name: "ProgrammeID"
-  add_foreign_key "registrar_assignments", "registrars", column: "RegistrarID", primary_key: "RegistrarID", name: "RegistrarID"
   add_foreign_key "students", "courses", column: "CourseCode", primary_key: "CourseCode", name: "CourseCode"
 end
