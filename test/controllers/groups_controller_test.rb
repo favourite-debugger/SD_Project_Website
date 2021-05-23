@@ -34,7 +34,11 @@ class GroupsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update group" do
+<<<<<<< HEAD
     patch group_url(@group), params: { group: { BlockID: @group.BlockID, SpecialtyID: @group.SpecialtyID } }
+=======
+    patch group_url(@group), params: { group: { GroupStudentID: @group.GroupStudentID, GroupStudentYear: @group.GroupStudentYear } }
+>>>>>>> 86aa8be8c49b7048a658f73cd7aa2a137e86a8d6
     assert_redirected_to group_url(@group)
   end
 

@@ -40,9 +40,14 @@
   <div class="container-fluid data-mdb-perfect-scrollbar='true'">
 
     <!-- Add the header to every view except the login -->
+
     <% if controller_name != "sessions" && controller_name != "passwords" %>
       <%= render 'home/header'%>
     <% end %>
+
+  <div class="container-fluid data-mdb-perfect-scrollbar='true'">
+  
+    
 
       <%= yield %>
 
