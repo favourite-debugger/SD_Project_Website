@@ -1,6 +1,13 @@
-<h1>Editing Specialty</h1>
+<br/>
+<div class="card">
+  <div class="card-body">
+    <h1>Edit specialty</h1>
 
-<%= render 'form', specialty: @specialty %>
+    <%= render 'form', specialty: @specialty %>
+    <br/>
+    
+    <%= link_to 'Back', specialties_path, class:"btn btn-outline-dark" %>
+  </div>
+</div>
 
-<%= link_to 'Show', @specialty %> |
-<%= link_to 'Back', specialties_path %>
+

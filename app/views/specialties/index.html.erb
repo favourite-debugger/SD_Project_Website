@@ -1,28 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<span><h1>Specialties</h1> <%= link_to 'New Specialty', new_specialty_path %></span>
+<div class="d-flex justify-content-center">
+
+    <button id="myButton" class="btn btn-outline-dark btn-block" >Add new specialty </button>
+        <script type="text/javascript">
+            document.getElementById("myButton").onclick = function () {
+                location.href = "http://localhost:3000/specialties/new";
+            };
+        </script>
+</div>
+
+
 <div class="m-4">
-    <table class="table">
+    <table class="table table-hover ">
       <thead>
         <tr>
         <th scope="col">Specialty ID</th>
           <th scope="col">Specialty Name</th>
-         <!-- <th colspan="3" scope="col"></th>-->
+         <th  scope="col"></th>
         </tr>
       </thead>
 
       <tbody>
         <% @specialties.each do |specialty| %>
           <tr>
-            <td class="col-4">GOGOGOO</td>
-            <td class="col-4"><%= specialty.SpecialtyName %></td>
+          <td class="col-4"><%= specialty.id %></td>
+          <td class="col-4"><%= specialty.SpecialtyName %></td>
             
             <td class="col-1">
              
                 <div class="btn-group" role="group" aria-label="Basic example">
-                <button class="btn btn-outline-dark"><%= link_to 'Show', specialty %></button>
-                <button class="btn btn-outline-dark"><%= link_to 'Edit', edit_specialty_path(specialty) %></button>
-                <button class="btn btn-outline-dark"><%= link_to 'Destroy', specialty, method: :delete, data: { confirm: 'Are you sure?' } %> </button>
+                <%= link_to 'Edit', edit_specialty_path(specialty), class:"btn btn-outline-dark" %>
+                <%= link_to 'Delete', specialty, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-dark" %>
+                
+                
               </div>
             </td>
           </tr>
@@ -30,7 +41,6 @@
       </tbody>
     </table>
 </div>
-
 
 <br>
 

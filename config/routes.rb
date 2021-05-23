@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
+#<<<<<<< programmes
   resources :programme_courses
   resources :courses
   resources :programmes
+#=======
+  resources :group_assignments
+  resources :groups
+#>>>>>>> main
     resources :blocks
     resources :specialty_pages
     resources :specialties
@@ -21,7 +26,6 @@ Rails.application.routes.draw do
   get '/specialties', to: "blocks#index"
   #get 'specialty_pages/index'
   get 'add_specialty/index'
-  get "/hospitals",to: "hospitals#index"
   get "/blocks",to: "blocks#index"
 
     devise_for :admins,

@@ -7,7 +7,12 @@
   <h1><b>Hospitals</b></h1>
 </div>
 
-
+<% unless url_for != hospitals_path %>
+  <form class="form-inline my-2 my-lg-0">
+    <%=render "hospitals/filters"%> |
+    <%=link_to "Clear Search",hospitals_path,class: "btn btn-outline-info"%> 
+  </form>
+<% end %>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -36,11 +41,6 @@
 </table>
 
 <br>
-<div class="text-center">
-    <%= link_to 'Add New Hospital', new_hospital_path,class: "btn btn-outline-info w-75" %>
-</div>
-
-
 <div class="text-center">
     <%= link_to 'Add New Hospital', new_hospital_path,class: "btn btn-outline-info w-75" %>
 </div>
