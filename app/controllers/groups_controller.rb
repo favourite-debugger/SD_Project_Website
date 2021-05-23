@@ -1,5 +1,4 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_admin! #kameron: definition found in application_controller.rb
   before_action :set_group, only: %i[ show edit update destroy ]
 
   # GET /groups or /groups.json
@@ -65,7 +64,6 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:BlockID, :SpecialtyID)
-
+      params.require(:group).permit(:specialty_id, :block_id)
     end
 end

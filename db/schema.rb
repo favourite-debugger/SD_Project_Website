@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_22_235504) do
-
+ActiveRecord::Schema.define(version: 2021_05_23_161736) do
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -50,20 +49,6 @@ ActiveRecord::Schema.define(version: 2021_05_22_235504) do
     t.index ["CourseCode"], name: "CourseCode_UNIQUE", unique: true
   end
 
-  create_table "group_assignments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "GroupStudentID"
-    t.integer "GroupStudentYear"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "groups", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "BlockID"
-    t.integer "SpecialtyID"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "hospital_assignments", primary_key: "StudentID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "HospID"
     t.integer "BlockID"
@@ -82,18 +67,6 @@ ActiveRecord::Schema.define(version: 2021_05_22_235504) do
     t.string "hospital_contactNo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "programme_courses", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "ProgrammeID"
-    t.integer "CourseID"
-    t.index ["CourseID"], name: "Course_ID_idx"
-    t.index ["ProgrammeID"], name: "ProgrammeID_idx"
-  end
-
-  create_table "programmes", primary_key: "ProgrammeID", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "ProgrammeDescription"
-    t.index ["ProgrammeID"], name: "Programme_ID_UNIQUE", unique: true
   end
 
   create_table "programme_courses", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -145,7 +118,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_235504) do
     t.index ["StudentContactNo"], name: "StudentContactNo_UNIQUE", unique: true
     t.index ["StudentNo"], name: "StudentNo_UNIQUE", unique: true
   end
-  
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
     t.string "user_FirstName"

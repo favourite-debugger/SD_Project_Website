@@ -14,9 +14,8 @@ class GroupsTest < ApplicationSystemTestCase
     visit groups_url
     click_on "New Group"
 
-    fill_in "Blockid", with: @group.BlockID
-    fill_in "Specialtyid", with: @group.SpecialtyID
-
+    fill_in "Block", with: @group.block_id
+    fill_in "Specialty", with: @group.specialty_id
     click_on "Create Group"
 
     assert_text "Group was successfully created"
@@ -26,10 +25,9 @@ class GroupsTest < ApplicationSystemTestCase
   test "updating a Group" do
     visit groups_url
     click_on "Edit", match: :first
-    
-    fill_in "Blockid", with: @group.BlockID
-    fill_in "Specialtyid", with: @group.SpecialtyID
 
+    fill_in "Block", with: @group.block_id
+    fill_in "Specialty", with: @group.specialty_id
     click_on "Update Group"
 
     assert_text "Group was successfully updated"

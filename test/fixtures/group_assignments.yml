@@ -1,9 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  specialty: one
-  block: one
+  group: one
+  StudentID: 1
+  GroupYear: 1
 
 two:
-  specialty: two
-  block: two
+  group: two
+  StudentID: 1
+  GroupYear: 1

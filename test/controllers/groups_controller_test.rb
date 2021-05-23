@@ -17,7 +17,7 @@ class GroupsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create group" do
     assert_difference('Group.count') do
-      post groups_url, params: { group: { BlockID: @group.BlockID, SpecialtyID: @group.SpecialtyID } }
+      post groups_url, params: { group: { block_id: @group.block_id, specialty_id: @group.specialty_id } }
     end
 
     assert_redirected_to group_url(Group.last)
@@ -34,11 +34,7 @@ class GroupsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update group" do
-<<<<<<< HEAD
-    patch group_url(@group), params: { group: { BlockID: @group.BlockID, SpecialtyID: @group.SpecialtyID } }
-=======
-    patch group_url(@group), params: { group: { GroupStudentID: @group.GroupStudentID, GroupStudentYear: @group.GroupStudentYear } }
->>>>>>> 86aa8be8c49b7048a658f73cd7aa2a137e86a8d6
+    patch group_url(@group), params: { group: { block_id: @group.block_id, specialty_id: @group.specialty_id } }
     assert_redirected_to group_url(@group)
   end
 

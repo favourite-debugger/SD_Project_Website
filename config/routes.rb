@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :group_assignments
   resources :groups
     resources :blocks
     resources :specialty_pages

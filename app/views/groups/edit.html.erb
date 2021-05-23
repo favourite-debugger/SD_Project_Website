@@ -1,14 +1,6 @@
-<br/>
-    
-<div class="card">
-    <div class="card-body">
-        <h1>Edit Group</h1>
+<h1>Editing Group</h1>
 
-        <%= render 'form', group: @group %>
+<%= render 'form', group: @group %>
 
-        <br/>
-            
-        <%= link_to 'Show', @group %> |
-        <%= link_to 'Back', groups_path %>
-    </div>
-</div>
+<%= link_to 'Show', @group %> |
+<%= link_to 'Back', groups_path %>
