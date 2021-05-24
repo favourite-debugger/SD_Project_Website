@@ -98,22 +98,12 @@
       
 
 
-        <li class="nav-item">
-          <!-- If we're at the Manage Programmes view, set this nav link to active -->
-          <% if controller_name == "programmes"%>
-            <%= link_to 'Programmes', programmes_path, class:"nav-link active" %>
-          <% else %>
-            <%= link_to 'Programmes', programmes_path, class:"nav-link" %>
-          <% end %>
-        </li>
-
-
       </ul>
 
        <!-- Sign Out Button -->
 
         <%= link_to 'Sign Out', destroy_admin_session_path, method: :delete, class:"btn btn-outline-danger" %>
-        
+
 
     </div>
   </div>

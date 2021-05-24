@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag "rails-ujs" %>
+    
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- make a bootstrap alert-->
 
@@ -40,13 +40,13 @@
   <%end%>
 
    <div class="container-fluid data-mdb-perfect-scrollbar='true'">
-       
+
        <%if notice %>
            <%= render "layouts/alters" %>
        <% end -%>
-     
+
        <%= yield %>
-   
+
 
     <!--Used shared footer partial-->
 </div>
