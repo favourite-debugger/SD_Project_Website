@@ -1,0 +1,3 @@
+class ProgrammeCourse < ApplicationRecord
+  
+end

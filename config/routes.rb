@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
+#<<<<<<< programmes
+  resources :programme_courses
+  resources :courses
+  resources :programmes
+#=======
   resources :group_assignments
   resources :groups
+#>>>>>>> main
     resources :blocks
     resources :specialty_pages
     resources :specialties
@@ -12,7 +18,7 @@ Rails.application.routes.draw do
     get 'home/index'
 
   #==================================
-  
+
 
   #PLEASE AUTHENTICATE!
   #TODO: AUTHENTICATION
@@ -29,6 +35,7 @@ Rails.application.routes.draw do
   #Setting up a custom route to that action:-----------------------------------------------------------------------------
   as :admin do
     get "/register", to: "registrations#new", as: "register"
+    get "/admins/sign_out", to: "devise/sessions#destroy", as: "sign_out"
     #Sget "/session", to: "sessions#new", as: "session"
   end
   #---------------------------------------------------------------------------------------------------------
