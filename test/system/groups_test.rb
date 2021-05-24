@@ -14,6 +14,7 @@ class GroupsTest < ApplicationSystemTestCase
     visit groups_url
     click_on "New Group"
 
+
     fill_in "Block", with: @group.block_id
     fill_in "Specialty", with: @group.specialty_id
     click_on "Create Group"
@@ -28,6 +29,7 @@ class GroupsTest < ApplicationSystemTestCase
 
     fill_in "Block", with: @group.block_id
     fill_in "Specialty", with: @group.specialty_id
+
     click_on "Update Group"
 
     assert_text "Group was successfully updated"
