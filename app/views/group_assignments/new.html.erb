@@ -1,5 +1,12 @@
-<h1>New Group Assignment</h1>
 
-<%= render 'form', group_assignment: @group_assignment %>
 
-<%= link_to 'Back', group_assignments_path %>
+<br/>
+<div class="card">
+  <div class="card-body">
+    <h1>Assign new student to a group</h1>
+    <%= render 'form', group_assignment: @group_assignment %>
+    </br>
+    <%= link_to 'Back', group_assignments_path, class:"btn btn-outline-dark" %>
+  </div>
+</div>
+

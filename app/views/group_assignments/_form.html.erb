@@ -11,22 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :group_id %>
-    <%= form.text_field :group_id %>
-  </div>
 
-  <div class="field">
-    <%= form.label :StudentID %>
-    <%= form.number_field :StudentID %>
-  </div>
 
-  <div class="field">
-    <%= form.label :GroupYear %>
-    <%= form.number_field :GroupYear %>
-  </div>
+  <div class="field form-inline">
+   
+    
+    <br/>
+    <label for="Group ID">Group ID:</label>
+        </br>
+        <%= form.text_field :group_id, class:"form-control" ,id:"Group",placeholder:"Group ID" %>
+        </br>
 
+
+     <label for="Stu">Student ID:</label>
+     </br>
+    <%= form.number_field :StudentID, class:"form-control" ,id:"Stu",placeholder:"Student ID" %>
+    </br>
+   
+    <label for="GroupY">Group Year:</label>
+     </br>
+    <%= form.number_field :GroupYear, class:"form-control" ,id:"GroupY",placeholder:"Group Year" %>
+  </div>
+   
+  <br/>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-secondary" %>
   </div>
+  <!------->
+
 <% end %>

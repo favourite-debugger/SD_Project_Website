@@ -2,14 +2,29 @@
 
 
 <!--SEARCH BAR-->
+
+
 <%= search_form_for @q do |f| %>
- <%= f.label :group_id_eq, 'Group ID' %>
- <%= f.search_field :group_id_eq %>
- <%= f.submit %>
+<div class="d-flex flex-row">
+ <%= f.search_field :group_id_or_StudentID_or_GroupYear_eq ,class:"form-control mr-sm-2" ,placeholder:"Search" %>
+ <%= f.submit class:"btn btn-outline-dark" %>
 <% end %>
+
+</div>
 <!-- ================-->
-<%= link_to 'Add student', new_group_assignment_path,class:"btn btn-outline-dark" %>
-<%= link_to 'Back', groups_path,class:"btn btn-outline-dark" %>
+</br>
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-evenly">
+    
+ 
+        <%= link_to 'Back', groups_path,class:"btn btn-outline-dark" %>
+        <%= link_to 'Assign Student', new_group_assignment_path, class:"btn btn-outline-dark"  %>
+      
+        
+    </div>
+</div>
+<!--------------------------->
 
 
 <div class="m-4">
@@ -59,6 +74,13 @@
   
 </table>
 </div>
+
+<br>
+
+
+
+<br>
+
 
 <br>
 
