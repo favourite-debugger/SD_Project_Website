@@ -1,15 +1,17 @@
-<%= search_form_for @q do |f| %>
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <div class="form-group form-inline my-2 my-lg-0">
-       <%= f.search_field :hospital_name_or_hospital_contactNo_or_hospital_location_cont, class: 'form-control mr-sm-2', placeholder: "Search"%>
-     </div>
-    </div>
-    <div class="col-sm">
-      <%= f.submit  class: "btn btn-outline-success my-2 my-sm-0" %>
-    </div>
-  </div>
-</div>
 
+
+	<!---Search bar-->
+	</br>
+<%= search_form_for @q do |f| %>
+<div class="d-flex flex-row">
+
+ <%= f.search_field :hospital_name_or_hospital_contactNo_or_hospital_locatioin_cont ,class:"form-control mr-sm-2" ,placeholder:"Enter Hospital Name" %>
+ 
+ 
+ <%= f.submit class:"btn btn-outline-dark" %>
+
+
+ 	
 <% end %>
+</div>
+<!-- ================-->
