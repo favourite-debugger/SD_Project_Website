@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :hospital_assignments
 #<<<<<<< programmes
   resources :programme_courses
   resources :courses

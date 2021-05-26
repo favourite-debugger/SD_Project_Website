@@ -40,7 +40,9 @@
   <%end%>
 
    <div class="container-fluid data-mdb-perfect-scrollbar='true'">
-
+     <% if notice%>
+      <%= render "layouts/alters" %>
+    <%end%>
        <%= yield %>
 
 
