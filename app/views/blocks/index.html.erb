@@ -1,53 +1,76 @@
 
 
-
-<div class="text-center">
-  <img src="https://holy.trinity.joburg/wp-content/uploads/2017/11/Wits-University-logo.jpg" class="rounded" alt="University Of The Witwatersrand Logo" style="width: 150px">
-</div>
-<%= stylesheet_link_tag "blocks" %>
-<div id="blocks">
-<h1><b>MANAGE BLOCKS</b></h1>
-</div>
-
-<div>
-  <button class="btn btn-info"><i> Add users from CSV</i></button>
-  <button class="btn btn-info pull-right"><i> Delete users from CSV</i></button>
+</br>
+<div class="container-fluid">
+    <div class="d-flex justify-content-evenly">
+        <button type="button" class="btn btn-outline-secondary">Add From CSV</button>
+        <%= link_to 'Create New Block', new_block_path, class: "btn btn-outline-dark"%>
+        <button type="button" class="btn btn-outline-secondary">Remove From CSV</button>
+    </div>
 </div>
 <br>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 
 
-<table class="table table-hover table-bordered">
-  <thead style="background-color: #1757A6; color: white">
+<table class="table table-hover">
+
+
+  <!----------------------------------------->
+  <thead>
     <tr>
-      <th>Block Start Date</th>
-      <th>Block End Date</th>
-      <th colspan="3"></th>
+        <th scope="col">Block ID</th>
+          <th scope="col">Block Start Date</th>
+          <th scope="col">Block End Date</th>
+         <th  scope="col"></th>
     </tr>
   </thead>
+  
+  <!---------------------------------------------------------------------------------------------->
+
+
 
   <tbody>
-    <% @blocks.each do |block| %>
-      <tr>
-        <td><%= block.BlockStartDate %></td>
-        <td><%= block.BlockEndDate %></td>
-        <td><%= link_to 'Show', block %></td>
-        <td><%= link_to 'Edit', edit_block_path(block) %></td>
-        <td><%= link_to 'Delete', block, method: :delete, data: { confirm: 'Are you sure you want to delete this user?' },class: "btn btn-outline-danger" %></td>
+        <% @blocks.each do |block| %>
+     
+          <tr>
+          <td class="col-4"><%= block.id %></td>
+          <td class="col-4"><%= block.BlockStartDate %></td>
+          <td class="col-4"><%= block.BlockEndDate %></td>
+         
+            <td class="col-1">
+             
+                <div class="btn-group" role="group" aria-label="Basic example">
+         
+                
+                <%= link_to 'Edit', edit_block_path(block), class:"btn btn-outline-dark" %>
+                <%= link_to 'Delete', block, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-dark" %>
+                
+                
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+  <!---------------------------------------------------------------------------------------------->
 
-      </tr>
-    <% end %>
-  </tbody>
+
+
+
+
+
+
 </table>
 
 <br>
 
-<div class="text-center">
-  <%= link_to 'Create New Block', new_block_path, class: "btn btn-outline-info w-75"%>
-</div>
+
 
 
 <br>
+<br>
+
+
+
+
 <br>

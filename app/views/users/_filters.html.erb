@@ -1,27 +1,18 @@
-</br>
-<div class="container">
-	<div class="row">
 
-	<%= search_form_for @q do |f| %>
 
-		<div class="col-md">
-		
-			<%= f.search_field :user_FirstName_or_user_LastName_or_user_ContactNo_cont, class: 'form-control mr-sm-2', placeholder: "Search"%>
-	</div>
-	<div class="col-sm ">
-			<%= f.select :user_Type_cont, options_for_select( [["All",""],"Admin","Student","Registrar","Consultant"]),{:prompt=>"Sort By"},{class: "form-control mr-sm-2 "}%>
-		
-		</div>
-		
+	<!---Search bar-->
+	</br>
+<%= search_form_for @q do |f| %>
+<div class="d-flex flex-row">
 
-		<div class="col-sm">
-			<%= f.submit  class: "btn btn-outline-success my-2 my-sm-0" %> 
+ <%= f.search_field :user_FirstName_or_user_LastName_or_user_ContactNo_cont ,class:"form-control mr-sm-2" ,placeholder:"Search" %>
+ <!-- idk how to make this look nicer 
+ <%= f.select :user_Type_cont, options_for_select( [["All",""],"Admin","Student","Registrar","Consultant"]),{:prompt=>"Sort By"},{class: "form-control mr-sm-2 "}%>
+-->	
+ <%= f.submit class:"btn btn-outline-dark" %>
+
+
+ 	
+<% end %>
 </div>
-	<% end %>
-		<div class="col-sm">
-      <%=link_to "Clear search",users_path,class: "btn btn-outline-info"%>
-    </div>
-	
-
-	</div>
-</div>
+<!-- ================-->

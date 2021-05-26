@@ -13,22 +13,25 @@
     </div>
   <% end %>
 
+<!------------------------------------------------------------------------------>
 
 
+   
 
-    <div class="field form-group col-sm-3 text-center">
-    <%= form.label "Block Start Date" %>
-    <%= form.date_select :BlockStartDate, class: "form-control" %>
-    </div>
+     <label for="blockStart">Block Start Date:</label>
+     </br>
+    <%= form.date_field :BlockStartDate, class:"form-control" ,id:"blockStart",placeholder:"Block Start Date" %>
+    </br>
+     <label for="blockEnd">Block End Date:</label>
+     </br>
+    <%= form.date_field :BlockEndDate, class:"form-control" ,id:"blockEnd",placeholder:"Block End Date" %>
+    </br>
 
-    <div class="field form-group col-sm-3 text-center">
-    <%= form.label "Block End Date" %>
-    <%= form.date_select :BlockEndDate, class: "form-control" %>
-    </div>
+    
 
 
-  <div class="actions col-sm-3 text-center">
-    <%= form.submit class: "btn btn-outline-primary" %>
+  <div class="actions">
+    <%= form.submit class: "btn btn-secondary" %>
   </div>
 
 

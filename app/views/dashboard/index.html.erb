@@ -1,9 +1,88 @@
 
-<h1>Dashboard</h1>
-<div class="container">
-  <p><%= link_to 'Manage Users', home_index_path, class:"btn btn-primary btn-lg" %></p>
-  <p><%= link_to 'Manage Groups', dashboard_index_path, class:"btn btn-primary btn-lg" %></p>
-  <p><%= link_to 'Manage Hospitals', dashboard_index_path, class:"btn btn-primary btn-lg" %></p>
-  <p><%= link_to 'Manage Specialties', dashboard_index_path, class:"btn btn-primary btn-lg" %></p>
-  <p><%= link_to 'Manage Programmes', dashboard_index_path, class:"btn btn-primary btn-lg" %></p>
-</div>
+
+
+<!----------------------------------------------------------------------------------------------------->
+</br>
+
+
+  <div class="card border-info mb-3" style="width: 18rem;">
+    <div id="myCard"class="card-body">
+        <h5 class="card-title">Manage Users</h5>
+        <p class="card-text">Add, Edit and Delete users.</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+            document.getElementById("myCard").onclick = function () {
+                location.href = "http://localhost:3000/users";
+            };
+        </script>
+        <!--------------------------------------------------------------------------------->
+
+  <div class="card border-info mb-3" style="width: 18rem;">
+    <div id="myCard1"class="card-body">
+        <h5 class="card-title">Manage Groups</h5>
+        <p class="card-text">Add, Edit and Delete groups.</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+            document.getElementById("myCard1").onclick = function () {
+                location.href = "http://localhost:3000/groups";
+            };
+        </script>
+ <!--------------------------------------------------------------------------------->
+
+         <div class="card border-info mb-3" style="width: 18rem;">
+           <img class="card-img-top" src="app/assets/images/wits logo.png" alt="Card image cap">
+    <div id="myCard2"class="card-body">
+        <h5 class="card-title">Manage Specialties</h5>
+        <p class="card-text">Add, Edit and Delete specialties.</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+            document.getElementById("myCard2").onclick = function () {
+                location.href = "http://localhost:3000/specialties";
+            };
+        </script>
+
+        <!--------------------------------------------------------------------------------->
+
+
+        <!----------------------------------------------------------------------------------------->
+
+         <div class="card border-info mb-3" style="width: 18rem;">
+    <div id="myCard3"class="card-body">
+        <h5 class="card-title">Manage Programmes</h5>
+        <p class="card-text">Add, Edit and Delete programmes.</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+            document.getElementById("myCard3").onclick = function () {
+                location.href = "http://localhost:3000/programmes";
+            };
+        </script>
+
+         <!--------------------------------------------------------------------------------->
+
+         <div class="card border-info mb-3" style="width: 18rem;">
+    <div id="myCard4"class="card-body">
+        <h5 class="card-title">Manage Blocks</h5>
+        <p class="card-text">Add, Edit and Delete blocks.</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+            document.getElementById("myCard4").onclick = function () {
+                location.href = "http://localhost:3000/blocks";
+            };
+        </script>
+
+
+
+
+</br>
+</br>
+</br>
