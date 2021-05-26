@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :course_specialties
+  resources :courses
 #<<<<<<< programmes
   resources :programme_courses
-  resources :courses
   resources :programmes
 #=======
   resources :group_assignments

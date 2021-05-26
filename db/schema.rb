@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_23_220214) do
+ActiveRecord::Schema.define(version: 2021_05_25_162409) do
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,8 +31,19 @@ ActiveRecord::Schema.define(version: 2021_05_23_220214) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "courses", primary_key: "CourseID", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "course_specialties", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "Course_id", null: false
+    t.bigint "Specialty_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Course_id", "Specialty_id"], name: "index_course_specialties_on_course_id_and_specialty_id", unique: true
+    t.index ["Course_id"], name: "index_course_specialties_on_Course_id"
+    t.index ["Specialty_id"], name: "index_course_specialties_on_Specialty_id"
+  end
+
+  create_table "courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "CourseDescription"
+    t.string "string"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -82,13 +93,6 @@ ActiveRecord::Schema.define(version: 2021_05_23_220214) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "specialty_pages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "specialty_ID"
-    t.string "specialty_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
     t.string "user_FirstName"
@@ -100,6 +104,8 @@ ActiveRecord::Schema.define(version: 2021_05_23_220214) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "course_specialties", "courses", column: "Course_id"
+  add_foreign_key "course_specialties", "specialties", column: "Specialty_id"
   add_foreign_key "group_assignments", "groups"
   add_foreign_key "groups", "blocks"
   add_foreign_key "groups", "specialties"

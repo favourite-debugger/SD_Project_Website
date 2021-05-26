@@ -1,9 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Coursedescription:</strong>
+  <strong>Course:</strong>
   <%= @course.CourseDescription %>
+  <br>
+  <strong>Course ID:</strong>
+  <%= @course.id %>
 </p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Back', edit_course_path(@course),class:"btn btn-outline-primary" %> 
+
+<!--removed edit here not necessary>
