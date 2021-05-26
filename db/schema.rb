@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_162409) do
+ActiveRecord::Schema.define(version: 2021_05_26_174405) do
+
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,6 +32,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_162409) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  
   create_table "course_specialties", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "Course_id", null: false
     t.bigint "Specialty_id", null: false
@@ -40,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_162409) do
     t.index ["Course_id"], name: "index_course_specialties_on_Course_id"
     t.index ["Specialty_id"], name: "index_course_specialties_on_Specialty_id"
   end
-
+create_table "courses", primary_key: "CourseID", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
   create_table "courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "CourseDescription"
     t.string "string"
@@ -66,9 +68,20 @@ ActiveRecord::Schema.define(version: 2021_05_25_162409) do
     t.index ["specialty_id"], name: "index_groups_on_specialty_id"
   end
 
+  create_table "hospital_assignments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "block_id", null: false
+    t.bigint "hospital_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["block_id"], name: "index_hospital_assignments_on_block_id"
+    t.index ["hospital_id"], name: "index_hospital_assignments_on_hospital_id"
+    t.index ["user_id"], name: "index_hospital_assignments_on_user_id"
+  end
+
   create_table "hospitals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "hospital_name"
-    t.string "hospital_locatioin"
+    t.string "hospital_location"
     t.string "hospital_contactNo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -93,6 +106,8 @@ ActiveRecord::Schema.define(version: 2021_05_25_162409) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
     t.string "user_FirstName"
@@ -109,4 +124,8 @@ ActiveRecord::Schema.define(version: 2021_05_25_162409) do
   add_foreign_key "group_assignments", "groups"
   add_foreign_key "groups", "blocks"
   add_foreign_key "groups", "specialties"
+  add_foreign_key "hospital_assignments", "blocks"
+  add_foreign_key "hospital_assignments", "hospitals"
+  add_foreign_key "hospital_assignments", "users"
+  add_foreign_key "students", "courses", column: "courses_id", primary_key: "CourseID"
 end

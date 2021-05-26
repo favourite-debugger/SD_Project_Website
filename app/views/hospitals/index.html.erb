@@ -1,13 +1,13 @@
 
 
 <% unless url_for != hospitals_path %>
-  
-    <%=render "hospitals/filters"%> 
-    
+
+    <%=render "hospitals/filters"%>
+
  <br>
 <% end %>
 
-   
+
 
    <div class="container-fluid">
     <div class="d-flex justify-content-evenly">
@@ -24,7 +24,7 @@
       <th scope="col">Hospital Name</th>
       <th scope="col">Hospital Location</th>
       <th scope="col">Contact Number</th>
-     
+
     </tr>
   </thead>
 
@@ -35,28 +35,27 @@
 
       <tr>
         <td class="col-4"><%= hospital.hospital_name %></td>
-        <td class="col-4"><%= hospital.hospital_locatioin%></td>
+        <td class="col-4"><%= hospital.hospital_location%></td>
         <td class="col-4"><%= hospital.hospital_contactNo %></td>
 
         <td class="col-1">
-             
+
                 <div class="btn-group" role="group" aria-label="Basic example">
-         
+
                 <%= link_to 'Show', hospital, class: "btn btn-outline-info" %>
                 <%= link_to 'Edit', edit_hospital_path(hospital), class:"btn btn-outline-dark" %>
                 <%= link_to 'Delete', hospital, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-dark" %>
-                
-                
+
+
               </div>
             </td>
-        
+
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<br>
-<br>
-<br>
+<div class="container-fluid">
+ <div class="d-flex justify-content-evenly">
+     <%= link_to 'Hospital Assignments', hospital_assignments_path,class: "btn btn-outline-dark "%>
+ </div>
