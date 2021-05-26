@@ -4,6 +4,8 @@ class CoursesController < ApplicationController
   # GET /courses or /courses.json
   def index
     @courses = Course.all
+    @course_specialties = CourseSpecialty.all
+    @specialties = Specialty.all
   end
 
   # GET /courses/1 or /courses/1.json

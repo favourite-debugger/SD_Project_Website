@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_05_26_174405) do
 
+
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -31,8 +32,20 @@ ActiveRecord::Schema.define(version: 2021_05_26_174405) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "courses", primary_key: "CourseID", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  
+  create_table "course_specialties", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "Course_id", null: false
+    t.bigint "Specialty_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["Course_id", "Specialty_id"], name: "index_course_specialties_on_course_id_and_specialty_id", unique: true
+    t.index ["Course_id"], name: "index_course_specialties_on_Course_id"
+    t.index ["Specialty_id"], name: "index_course_specialties_on_Specialty_id"
+  end
+create_table "courses", primary_key: "CourseID", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "CourseDescription"
+    t.string "string"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -93,18 +106,7 @@ ActiveRecord::Schema.define(version: 2021_05_26_174405) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "students", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "StudentNo"
-    t.string "Student_Email"
-    t.bigint "courses_id", null: false
-    t.string "Student_Fname"
-    t.string "Student_Lname"
-    t.integer "Student_yos"
-    t.string "Student_ContactNo"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["courses_id"], name: "index_students_on_courses_id"
-  end
+
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
@@ -117,6 +119,8 @@ ActiveRecord::Schema.define(version: 2021_05_26_174405) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "course_specialties", "courses", column: "Course_id"
+  add_foreign_key "course_specialties", "specialties", column: "Specialty_id"
   add_foreign_key "group_assignments", "groups"
   add_foreign_key "groups", "blocks"
   add_foreign_key "groups", "specialties"

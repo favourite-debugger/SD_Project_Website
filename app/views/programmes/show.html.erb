@@ -10,7 +10,7 @@
 
     <%if programmecourse.ProgrammeID == @programme.id%>
           <% @courses.each do |course| %>
-            <%if course.CourseID == programmecourse.CourseID %>
+            <%if course.id == programmecourse.CourseID %>
               <%= course.CourseDescription %>
             <%end%>
 
