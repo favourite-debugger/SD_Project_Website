@@ -1,11 +1,13 @@
+<div style="text-align:center">
+<br></br>
+<h1>Manage Blocks</h1>
+<br></br>
 
-
-</br>
 <div class="container-fluid">
     <div class="d-flex justify-content-evenly">
-        <button type="button" class="btn btn-outline-secondary">Add From CSV</button>
-        <%= link_to 'Create New Block', new_block_path, class: "btn btn-outline-dark"%>
-        <button type="button" class="btn btn-outline-secondary">Remove From CSV</button>
+        <!--<button type="button" class="btn btn-outline-secondary">Add From CSV</button>-->
+        <%= link_to 'Create New Block', new_block_path, class: "btn btn-primary"%>
+        <!--<button type="button" class="btn btn-outline-secondary">Remove From CSV</button>-->
     </div>
 </div>
 <br>
@@ -25,28 +27,28 @@
          <th  scope="col"></th>
     </tr>
   </thead>
-  
+
   <!---------------------------------------------------------------------------------------------->
 
 
 
   <tbody>
         <% @blocks.each do |block| %>
-     
+
           <tr>
           <td class="col-4"><%= block.id %></td>
           <td class="col-4"><%= block.BlockStartDate %></td>
           <td class="col-4"><%= block.BlockEndDate %></td>
-         
+
             <td class="col-1">
-             
+
                 <div class="btn-group" role="group" aria-label="Basic example">
-         
-                
-                <%= link_to 'Edit', edit_block_path(block), class:"btn btn-outline-dark" %>
-                <%= link_to 'Delete', block, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-dark" %>
-                
-                
+
+
+                <%= link_to 'Edit', edit_block_path(block), class:"btn btn-outline-primary" %>
+                <%= link_to 'Delete', block, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
+
+
               </div>
             </td>
           </tr>
@@ -69,7 +71,7 @@
 
 <br>
 <br>
-
+</div>
 
 
 

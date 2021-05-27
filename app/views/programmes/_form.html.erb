@@ -12,11 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :programme_code %>
-    <%= form.text_field :programme_code %>
+    <%= form.text_field :programme_code, class:"form-control", placeholder:"Programme Code"  %>
   </div>
-
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-secondary"%>
   </div>
 <% end %>

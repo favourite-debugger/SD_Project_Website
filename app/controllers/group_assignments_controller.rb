@@ -15,6 +15,7 @@ class GroupAssignmentsController < ApplicationController
   # GET /group_assignments/new
   def new
     @group_assignment = GroupAssignment.new
+    @group_id = params[:group_id]
   end
 
   # GET /group_assignments/1/edit

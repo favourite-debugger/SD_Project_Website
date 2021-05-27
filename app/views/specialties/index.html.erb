@@ -1,8 +1,13 @@
-<p id="notice"><%= notice %></p>
+<p hidden id="notice"><%= notice %></p>
+
+<div style="text-align:center">
+<br></br>
+<h1>Manage Specialties</h1>
+<br></br>
 
 <div class="d-flex justify-content-center">
 
-    <button id="myButton" class="btn btn-outline-dark btn-block" >Add new specialty </button>
+    <button id="myButton" class="btn btn-primary" >Add new specialty </button>
         <script type="text/javascript">
             document.getElementById("myButton").onclick = function () {
                 location.href = "http://localhost:3000/specialties/new";
@@ -26,14 +31,14 @@
           <tr>
           <td class="col-4"><%= specialty.id %></td>
           <td class="col-4"><%= specialty.SpecialtyName %></td>
-            
+
             <td class="col-1">
-             
+
                 <div class="btn-group" role="group" aria-label="Basic example">
-                <%= link_to 'Edit', edit_specialty_path(specialty), class:"btn btn-outline-dark" %>
-                <%= link_to 'Delete', specialty, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-dark" %>
-                
-                
+                <%= link_to 'Edit', edit_specialty_path(specialty), class:"btn btn-outline-primary" %>
+                <%= link_to 'Delete', specialty, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
+
+
               </div>
             </td>
           </tr>
@@ -48,5 +53,4 @@
 
 
 <br>
-
-
+</div>

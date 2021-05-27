@@ -1,7 +1,13 @@
-<p id="notice"><%= notice %></p>
+<p hidden id="notice"><%= notice %></p>
 
-<h1>Course Specialties</h1>
+<div style="text-align:center">
+<br></br>
+<h1>Manage Course-Specialty Assignments</h1>
 
+</br>
+<%= link_to 'New Course Specialty', new_course_specialty_path, class:"btn btn-primary btn-lg" %>
+</br>
+</br>
 <table class="table">
   <thead>
     <tr>
@@ -26,7 +32,7 @@
 
 <br>
 
-<%= link_to 'New Course Specialty', new_course_specialty_path %>
+
 
 
 <!--
@@ -54,5 +60,4 @@
 </table>
 
 
-
->
+</div>

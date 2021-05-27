@@ -8,9 +8,9 @@
   <br></br>
   <% @programmecourses.each do |programmecourse| %>
 
-    <%if programmecourse.ProgrammeID == @programme.id%>
+    <%if programmecourse.programme_id == @programme.id%>
           <% @courses.each do |course| %>
-            <%if course.id == programmecourse.CourseID %>
+            <%if course.id == programmecourse.course_id %>
               <%= course.CourseDescription %>
             <%end%>
 

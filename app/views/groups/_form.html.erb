@@ -12,19 +12,19 @@
   <% end %>
   <!------>
   <div class="field form-inline">
-   
-    
-    <br/>
-     <label for="Spec">Specialty ID:</label>
-     </br>
-    <%= form.text_field :specialty_id, class:"form-control" ,id:"Spec",placeholder:"Specialty ID" %>
-    </br>
-    <label for="Bloc">Block ID:</label>
-    
-     </br>
-    <%= form.text_field :block_id, class:"form-control" ,id:"Bloc",placeholder:"Block ID" %>
+
+</br>
+  <div class="field">
+     <%= form.label :specialty_id %>
+     <%= collection_select(:group, :specialty_id, Specialty.all, :id, :SpecialtyName, {}, { :multiple => false} ) %>
+</div>
+</br>
+<div class="field">
+     <%= form.label :block_id %>
+     <%= collection_select(:group, :block_id, Block.all, :id, :BlockStartDate, {}, { :multiple => false} ) %>
+
   </div>
-   
+
   <br/>
   <div class="actions">
     <%= form.submit class:"btn btn-secondary" %>

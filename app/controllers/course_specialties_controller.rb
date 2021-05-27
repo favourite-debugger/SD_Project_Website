@@ -13,6 +13,7 @@ class CourseSpecialtiesController < ApplicationController
   # GET /course_specialties/new
   def new
     @course_specialty = CourseSpecialty.new
+    @course_id = params[:course_id]
   end
 
   # GET /course_specialties/1/edit
@@ -22,7 +23,7 @@ class CourseSpecialtiesController < ApplicationController
   # POST /course_specialties or /course_specialties.json
   def create
     @course_specialty = CourseSpecialty.new(course_specialty_params)
-
+    @course_id = params[:course_id]
     respond_to do |format|
       if @course_specialty.save
         format.html { redirect_to @course_specialty, notice: "Course specialty was successfully created." }
@@ -51,7 +52,7 @@ class CourseSpecialtiesController < ApplicationController
   def destroy
     @course_specialty.destroy
     respond_to do |format|
-      format.html { redirect_to course_specialties_url, notice: "Course specialty was successfully destroyed." }
+      format.html { redirect_to courses_url, notice: "Course specialty was successfully destroyed." }
       format.json { head :no_content }
     end
   end

@@ -12,7 +12,10 @@
 <%= render 'form', course: @course %>
 <br>
 
-<%= link_to 'Delete Course', @course, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary" %>
+
 <!--<%= link_to 'Show Details', @course , class:"btn btn-outline-primary"%> -->
 <%= link_to 'Add/Remove Specialty', course_specialties_path, class:"btn btn-outline-primary" %>
+<%= link_to 'Delete Course', @course, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
+</br>
+</br>
 <%= link_to 'Back', courses_path, class:"btn btn-outline-primary" %>

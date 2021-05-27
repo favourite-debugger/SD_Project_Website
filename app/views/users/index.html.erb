@@ -1,6 +1,19 @@
 
 
 
+<div style="text-align:center">
+<br></br>
+<h1>Manage Users</h1>
+
+<br>
+<div class="container-fluid">
+    <div class="d-flex justify-content-evenly">
+        <!--<button type="button" class="btn btn-outline-dark">Add From CSV</button>-->
+         <%= link_to 'Add New User', new_user_path, class: "btn btn-primary"%>
+        <!--<button type="button" class="btn btn-outline-dark">Remove From CSV</button>-->
+    </div>
+</div>
+
 <!-- Add search forms for OWN model -->
 <!-- unless statement takes out search bar when editing,creating,etc-->
 <% unless url_for != users_path %>
@@ -9,31 +22,23 @@
       <%=render "users/filters"%>
   </form>
 <% end %>
-       
+<!--ADD Below check users controller and -filters.html.erb for eg -->
 
-<!--ADD Below check users controller and -filters.html.erb for eg -->      
-</br>
 
-<div class="container-fluid">
-    <div class="d-flex justify-content-evenly">
-        <button type="button" class="btn btn-outline-dark">Add From CSV</button>
-         <%= link_to 'Add New User', new_user_path, class: "btn btn-outline-dark"%>
-        <button type="button" class="btn btn-outline-dark">Remove From CSV</button>
-    </div>
-</div>
-<br>
+
 
 
 
 <div class="m-4">
 
 <table class="table table-hover ">
- 
+
 
   <!----------------------------------------->
   <thead>
         <tr>
-        <th scope="col">Email</th>
+          <th scope="col">User ID</th>
+          <th scope="col">Email</th>
           <th scope="col">Name</th>
           <th scope="col">Surname</th>
           <th scope="col">Contact</th>
@@ -41,28 +46,29 @@
          <th  scope="col"></th>
         </tr>
       </thead>
-  
+
   <!---------------------------------------------------------------------------------------------->
 
   <tbody>
 
         <% @users.each do |user| %>
-     
+
           <tr>
+          <td class="col-1"><%= user.id %></td>
           <td class="col-3"><%= user.email %></td>
           <td class="col-2"><%= user.user_FirstName %></td>
           <td class="col-2"><%= user.user_LastName %></td>
           <td class="col-2"><%= user.user_ContactNo %></td>
           <td class="col-2"><%= user.user_Type %></td>
             <td class="col-2">
-             
+
                 <div class="btn-group" role="group" aria-label="Basic example">
-                
-                
-                <%= link_to 'Edit', edit_user_path(user), class:"btn btn-outline-dark" %>
-                <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-dark" %>
-                
-                
+
+
+                <%= link_to 'Edit', edit_user_path(user), class:"btn btn-outline-primary" %>
+                <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
+
+
               </div>
             </td>
           </tr>
@@ -77,9 +83,10 @@
 
 <br>
 
- 
+
 
 
 
 <br>
 <br>
+</div>

@@ -14,12 +14,13 @@
 
 
   <div class="field form-inline">
-   
-    
+
+
     <br/>
-    <label for="Group ID">Group ID:</label>
+    <label for="Group ID" hidden>Group ID:</label>
         </br>
-        <%= form.text_field :group_id, class:"form-control" ,id:"Group",placeholder:"Group ID" %>
+        <!--<%= form.text_field :group_id, class:"form-control" ,id:"Group",placeholder:"Group ID" %>-->
+        <p hidden><%= form.number_field :group_id, value: @group_id  %></p>
         </br>
 
 
@@ -27,12 +28,12 @@
      </br>
     <%= form.number_field :StudentID, class:"form-control" ,id:"Stu",placeholder:"Student ID" %>
     </br>
-   
+
     <label for="GroupY">Group Year:</label>
      </br>
     <%= form.number_field :GroupYear, class:"form-control" ,id:"GroupY",placeholder:"Group Year" %>
   </div>
-   
+
   <br/>
   <div class="actions">
     <%= form.submit class:"btn btn-secondary" %>

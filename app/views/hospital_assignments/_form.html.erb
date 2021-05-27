@@ -11,22 +11,20 @@
     </div>
   <% end %>
 
-  <div class="field form-group">
-    <%= form.label :user_id,"Enter User ID" %>
-    <%= form.text_field :user_id,class: "form-control" %>
-  </div>
 
-  <div class="field field form-group">
-    <%= form.label :block_id,"Enter Block Number" %>
-    <%= form.text_field :block_id,class: "form-control" %>
-  </div>
+  <%= form.label :user_id, "Select Student: " %>
+  <%= collection_select(:hospital_assignment, :user_id, User.all, :id, :user_FirstName, {}, { :multiple => false} ) %>
+</br></br>
+<%= form.label :user_id, "Select Block: " %>
+<%= collection_select(:hospital_assignment, :block_id, Block.all, :id, :BlockStartDate, {}, { :multiple => false} ) %>
 
-  <div class="field form-group">
-    <%= form.label :hospital_id,"Enter Hospital ID" %>
-    <%= form.text_field :hospital_id,class: "form-control"  %>
-  </div>
-  <br>
+<br></br>
+<%= form.label :user_id, "Select Hospital: " %>
+<%= collection_select(:hospital_assignment, :hospital_id, Hospital.all, :id, :hospital_name, {}, { :multiple => false} ) %>
+
+
+  <br></br>
   <div class="actions">
-    <%= form.submit class: "btn btn-outline-primary"%>
+    <%= form.submit class: "btn btn-secondary"%>
   </div>
 <% end %>

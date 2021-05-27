@@ -12,16 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :Course_id %>
-    <%= form.text_field :Course_id %>
+    <p hidden><%= form.label :Course_id  %></p>
+    <p hidden><%= form.number_field :Course_id, value: @course_id  %></p>
   </div>
-
+</br>
   <div class="field">
-    <%= form.label :Specialty_id %>
-    <%= form.text_field :Specialty_id %>
-  </div>
+    <%= form.label :specialty_id %>
+    <%= collection_select(:course_specialty, :Specialty_id, Specialty.all, :id, :SpecialtyName, {}, { :multiple => false} ) %>
 
+  </div>
+</br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-secondary"%>
   </div>
 <% end %>

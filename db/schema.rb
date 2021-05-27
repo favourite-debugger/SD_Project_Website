@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_26_174405) do
-
+ActiveRecord::Schema.define(version: 2021_05_26_224757) do
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,7 +31,6 @@ ActiveRecord::Schema.define(version: 2021_05_26_174405) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  
   create_table "course_specialties", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "Course_id", null: false
     t.bigint "Specialty_id", null: false
@@ -42,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_05_26_174405) do
     t.index ["Course_id"], name: "index_course_specialties_on_Course_id"
     t.index ["Specialty_id"], name: "index_course_specialties_on_Specialty_id"
   end
-create_table "courses", primary_key: "CourseID", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+
   create_table "courses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "CourseDescription"
     t.string "string"
@@ -92,6 +90,10 @@ create_table "courses", primary_key: "CourseID", charset: "utf8mb4", collation: 
     t.integer "CourseID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "programme_id"
+    t.bigint "course_id"
+    t.index ["course_id"], name: "index_programme_courses_on_course_id"
+    t.index ["programme_id"], name: "index_programme_courses_on_programme_id"
   end
 
   create_table "programmes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -106,7 +108,12 @@ create_table "courses", primary_key: "CourseID", charset: "utf8mb4", collation: 
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
+  create_table "specialty_pages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "specialty_ID"
+    t.string "specialty_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email"
@@ -127,5 +134,6 @@ create_table "courses", primary_key: "CourseID", charset: "utf8mb4", collation: 
   add_foreign_key "hospital_assignments", "blocks"
   add_foreign_key "hospital_assignments", "hospitals"
   add_foreign_key "hospital_assignments", "users"
-  add_foreign_key "students", "courses", column: "courses_id", primary_key: "CourseID"
+  add_foreign_key "programme_courses", "courses"
+  add_foreign_key "programme_courses", "programmes"
 end

@@ -2,9 +2,9 @@
 <p id="notice"><%= notice %></p>
 
 
-<div class="card" >
+<div class="form_card" >
   <div class="card-body">
-  
+
     <p class="lead"><b>Email:</b></p>
     <p class="lead"><%= @user.email %></p>
 
@@ -20,9 +20,9 @@
     <p class="lead"><b>User Type:</b></p>
     <p class="lead"><%= @user.user_Type %></p>
 
-    <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-outline-dark"%> 
+    <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-outline-dark"%>
     <%= link_to 'Back', users_path, class:"btn btn-outline-dark" %>
-    
+
   </div>
 </div>
 

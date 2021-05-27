@@ -11,19 +11,30 @@
     </div>
   <% end %>
 
+
+
+
+
+
+
   <div class="field">
 
-    <p hidden><%= form.label :ProgrammeID  %></p>
-    <p hidden><%= form.number_field :ProgrammeID, value: @programme_code  %></p>
+    <p hidden><%= form.label :programme_id  %></p>
+    <p hidden><%= form.number_field :programme_id, value: @programme_code  %></p>
 
   </div>
 
+
   <div class="field">
-    <%= form.label :CourseID %>
-    <%= form.number_field :CourseID %>
+
+
+    <%= form.label :course_id %>
+    <%= collection_select(:programme_course, :course_id, Course.all, :id, :CourseDescription, {}, { :multiple => false} ) %>
+  <!--  <%= form.select :CourseID, Courses: @courses_array_desc %> -->
+
   </div>
 <br></br>
   <div class="actions">
-    <%= form.submit "Add Course", class:"btn btn-outline-primary"%>
+    <%= form.submit "Add Course", class:"btn btn-secondary"%>
   </div>
 <% end %>

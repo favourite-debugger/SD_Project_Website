@@ -2,27 +2,55 @@
 
 
 <!----------------------------------------------------------------------------------------------------->
-</br>
+<div class="container-fluid" align = "center">
+<div style="text-align:center" >
+<br></br>
+<h1>Dashboard</h1>
+<br></br>
 
 
+
+<div class="d-flex justify-content-evenly" align = "center">
+<div class="row">
+<div class="row row-cols-1 row-cols-md-4 g-4">
+
+<div class = "col">
   <div class="card border-info mb-3" style="width: 18rem;">
     <div id="myCard"class="card-body">
         <h5 class="card-title">Manage Users</h5>
-        <p class="card-text">Add, Edit and Delete users.</p>
+        <p class="card-text">Add, Edit and Delete Users.</p>
     </div>
   </div>
-
   <script type="text/javascript">
             document.getElementById("myCard").onclick = function () {
                 location.href = "http://localhost:3000/users";
             };
-        </script>
-        <!--------------------------------------------------------------------------------->
+  </script>
 
+</div>
+
+
+<!--------------------------------------------------------------------------------->
+<div class = "col">
+         <div class="card border-info mb-3" style="width: 18rem;">
+    <div id="myCard6"class="card-body">
+        <h5 class="card-title">Manage Admins</h5>
+        <p class="card-text">Add and Edit Admins.</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+            document.getElementById("myCard6").onclick = function () {
+                location.href = "http://localhost:3000/home/index";
+            };
+  </script>
+</div>
+
+<div class = "col">
   <div class="card border-info mb-3" style="width: 18rem;">
     <div id="myCard1"class="card-body">
         <h5 class="card-title">Manage Groups</h5>
-        <p class="card-text">Add, Edit and Delete groups.</p>
+        <p class="card-text">Add, Edit and Delete Groups.</p>
     </div>
   </div>
 
@@ -30,32 +58,53 @@
             document.getElementById("myCard1").onclick = function () {
                 location.href = "http://localhost:3000/groups";
             };
-        </script>
- <!--------------------------------------------------------------------------------->
+  </script>
 
+</div>
+<!--------------------------------------------------------------------------------->
+
+<div class = "col">
          <div class="card border-info mb-3" style="width: 18rem;">
-           <img class="card-img-top" src="app/assets/images/wits logo.png" alt="Card image cap">
-    <div id="myCard2"class="card-body">
-        <h5 class="card-title">Manage Specialties</h5>
-        <p class="card-text">Add, Edit and Delete specialties.</p>
+    <div id="myCard5"class="card-body">
+        <h5 class="card-title">Manage Hospitals</h5>
+        <p class="card-text">Add, Edit and Delete Hospitals.</p>
     </div>
   </div>
 
   <script type="text/javascript">
+            document.getElementById("myCard5").onclick = function () {
+                location.href = "http://localhost:3000/hospitals";
+            };
+  </script>
+</div>
+
+<!--------------------------------------------------------------------------------->
+
+
+<div class = "col">
+    <div class="card border-info mb-3" style="width: 18rem;">
+        <!--   <img class="card-img-top" src="app/assets/images/wits logo.png" alt="Card image cap"> -->
+    <div id="myCard2"class="card-body">
+        <h5 class="card-title">Manage Specialties</h5>
+        <p class="card-text">Add, Edit and Delete Specialties.</p>
+    </div>
+    </div>
+
+    <script type="text/javascript">
             document.getElementById("myCard2").onclick = function () {
                 location.href = "http://localhost:3000/specialties";
             };
-        </script>
-
+    </script>
+</div>
         <!--------------------------------------------------------------------------------->
 
 
         <!----------------------------------------------------------------------------------------->
-
+<div class = "col">
          <div class="card border-info mb-3" style="width: 18rem;">
     <div id="myCard3"class="card-body">
         <h5 class="card-title">Manage Programmes</h5>
-        <p class="card-text">Add, Edit and Delete programmes.</p>
+        <p class="card-text">Add, Edit and Delete Programmes.</p>
     </div>
   </div>
 
@@ -64,13 +113,13 @@
                 location.href = "http://localhost:3000/programmes";
             };
         </script>
-
+</div>
          <!--------------------------------------------------------------------------------->
-
+<div class = "col">
          <div class="card border-info mb-3" style="width: 18rem;">
     <div id="myCard4"class="card-body">
         <h5 class="card-title">Manage Blocks</h5>
-        <p class="card-text">Add, Edit and Delete blocks.</p>
+        <p class="card-text">Add, Edit and Delete Blocks.</p>
     </div>
   </div>
 
@@ -78,11 +127,40 @@
             document.getElementById("myCard4").onclick = function () {
                 location.href = "http://localhost:3000/blocks";
             };
-        </script>
+  </script>
+</div>
+
+
+<!---------------------------------------------------------------------------------------->
 
 
 
+
+
+<div class = "col">
+         <div class="card border-info mb-3" style="width: 18rem;">
+    <div id="myCard7"class="card-body">
+        <h5 class="card-title">Manage Courses</h5>
+        <p class="card-text">Add, Edit and Delete Courses.</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+            document.getElementById("myCard7").onclick = function () {
+                location.href = "http://localhost:3000/home/courses";
+            };
+  </script>
+</div>
+
+
+
+
+</div>
+
+
+</div>
 
 </br>
 </br>
 </br>
+</div>

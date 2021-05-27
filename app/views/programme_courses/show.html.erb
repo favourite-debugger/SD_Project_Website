@@ -1,14 +1,30 @@
 <p id="notice"><%= notice %></p>
-
+<br></br>
+<div class="form_card">
+  <div class="card-body">
+    <h1>Course Added</h1>
+    </br>
 <p>
-  <strong>Programmeid:</strong>
-  <%= @programme_course.ProgrammeID %>
+  <strong>Programme ID:</strong>
+  <%= @programme_course.programme_id %>
 </p>
 
 <p>
-  <strong>Courseid:</strong>
-  <%= @programme_course.CourseID %>
+  <strong>Programme Name:</strong>
+  <%= Programme.find(@programme_course.programme_id).programme_code%>
 </p>
 
-<%= link_to 'Edit', edit_programme_course_path(@programme_course) %> |
-<%= link_to 'Back', programmes_path %>
+<p>
+  <strong>Course ID:</strong>
+  <%= @programme_course.course_id %>
+</p>
+
+<p>
+  <strong>Course Name:</strong>
+  <%= Course.find(@programme_course.course_id).CourseDescription%>
+</p>
+
+<%= link_to 'Edit', edit_programme_course_path(@programme_course), class:"btn btn-outline-primary" %> |
+<%= link_to 'Back', programmes_path, class:"btn btn-outline-dark" %>
+</div>
+</div>
