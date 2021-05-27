@@ -42,6 +42,12 @@ Rails.application.routes.draw do
     get "/admins/sign_out", to: "devise/sessions#destroy", as: "sign_out"
     #Sget "/session", to: "sessions#new", as: "session"
   end
+
+  resources :csvs do
+    collection do
+      get :add_csv
+    end
+  end
   #---------------------------------------------------------------------------------------------------------
 
   #--------------------------------------------------------------------------------------------------------
