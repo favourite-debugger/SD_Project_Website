@@ -1,6 +1,6 @@
 
 
-  
+
 <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -13,15 +13,15 @@
       </ul>
     </div>
   <% end %>
- 
-  
-  
-  
+
+
+
+
 
   <!------>
   <div class="field form-inline">
-   
-    
+
+
     <br/>
      <label for="Email">Email:</label>
      </br>
@@ -49,14 +49,14 @@
     <%= form.text_field :user_ContactNo, class:"form-control" ,id:"ContactNo",placeholder:"Contact No" %>
     </br>
 
-    
+
     <%= form.select :user_Type, options_for_select( ["Admin","Student","Registrar","Consultant"]),{:prompt=>"Select Type"},{class: "form-control "}%>
 
-    
- 
- 
+
+
+
   </div>
-   
+
   <br/>
   <div class="actions">
     <%= form.submit class:"btn btn-secondary" %>
@@ -64,6 +64,3 @@
   <!------->
 
 <% end %>
-
-
-
