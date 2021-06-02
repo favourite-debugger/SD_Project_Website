@@ -1,7 +1,7 @@
 class BlocksController < ApplicationController
 	before_action :authenticate_admin! #kameron: definition found in application_controller.rb
   before_action :set_block, only: %i[ show edit update destroy ]
-
+  require "csv"
 
   # GET /blocks or /blocks.json
   def index
@@ -75,6 +75,18 @@ class BlocksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to blocks_url, notice: "Block was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def import #importing from csv file
+    Block.import(params[:file])
+    redirect_to blocks_path, notice: "Blocks Added Successfully"
+  end
+
+  def upload
+    uploaded_file = params[:file]
+    File.open(Rails.root.join('public', 'uploads', uploaded_file.original_filename), 'wb') do |file|
+      file.write(uploaded_file.read)
     end
   end
 

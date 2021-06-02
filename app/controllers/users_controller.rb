@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   before_action :set_search
   before_action :authenticate_admin!
+  require "csv"
   # GET /users or /users.json
   def index
    @users = @q.result
@@ -61,6 +62,11 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def import # importing from csv file
+    User.import(params[:file]) #call User.import function in user.rb model file
+    redirect_to blocks_path, notice: "Blocks Added Successfully"
   end
 
   private

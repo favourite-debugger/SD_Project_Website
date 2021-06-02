@@ -12,11 +12,17 @@ Rails.application.routes.draw do
   resources :group_assignments
   resources :groups
 
-    resources :blocks
+    resources :blocks do
+      collection { post :upload}#route for uploading and saving file( beta)
+      collection { post :import}#route for csv importer
+
+    end
     resources :specialty_pages
     resources :specialties
     resources :hospitals
-    resources :users
+    resources :users do
+        collection { post :import} # route for importing from csv
+    end
 
     get 'dashboard/index'
     get 'home/index'

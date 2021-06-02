@@ -11,6 +11,14 @@
         <!--<button type="button" class="btn btn-outline-dark">Add From CSV</button>-->
          <%= link_to 'Add New User', new_user_path, class: "btn btn-primary"%>
         <!--<button type="button" class="btn btn-outline-dark">Remove From CSV</button>-->
+
+        <div> <!-- this is for adding from csv -->
+        <%= form_tag import_users_path, multipart: true do %>
+          <%= file_field_tag :file %>
+          <%= submit_tag "Import Users from csv" %>
+        <% end %>
+        </div>
+
     </div>
 </div>
 
