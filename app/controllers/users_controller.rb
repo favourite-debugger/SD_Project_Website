@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
   def import # importing from csv file
     User.import(params[:file]) #call User.import function in user.rb model file
-    redirect_to blocks_path, notice: "Blocks Added Successfully"
+    redirect_to users_path, notice: "Users Added Successfully"
   end
 
   private

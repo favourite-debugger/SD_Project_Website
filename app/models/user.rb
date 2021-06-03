@@ -5,7 +5,27 @@ class User < ApplicationRecord
 
 	def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|
-          User.create! row.to_hash
+          #format: User.new(:database_field_name => row["csv_column_header_name])
+          @user = User.new(:email => row["email"], :user_FirstName => row["firstName"], :user_LastName => row["lastName"], :password => row["password"], :user_ContactNo => row["contactNo"], :user_Type => row["type"])
+          @user.save!
+          
+          #create a student with the same id as the user record
+          if (row["type"] == "Student")
+            Student.create(:id => @user.id, :studentNumber => row["studentNumber"], :courseCodes => row["courseCodes"], :programmeCode => row["programmeCode"])
+          end
         end
       end
+
 end
+
+
+#-----------------------------------------------------------------------------------
+#table = CSV.parse(File.read(file.path), headers: true)
+#table.each {|row|
+
+              #puts("Start Date: " +row["BlockStartDate"])
+#              puts("End Date: " +row["BlockEndDate"])
+#              puts("")
+              # Block.create(:BlockStartDate => row["BlockStartDate"], :BlockEndDate => row["BlockEndDate"])
+
+#          }

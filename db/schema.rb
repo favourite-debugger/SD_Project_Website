@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_26_224757) do
+ActiveRecord::Schema.define(version: 2021_06_03_124447) do
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -148,14 +148,12 @@ ActiveRecord::Schema.define(version: 2021_05_26_224757) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "students", primary_key: "StudentNo", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "StudentEmail"
-    t.string "CourseCode", limit: 45
-    t.string "StudentName", limit: 64, null: false
-    t.integer "StudentYOS", null: false
-    t.string "StudentContactNo", limit: 30, null: false
-    t.index ["StudentContactNo"], name: "StudentContactNo_UNIQUE", unique: true
-    t.index ["StudentNo"], name: "StudentNo_UNIQUE", unique: true
+  create_table "students", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "studentNumber"
+    t.string "courseCodes"
+    t.string "programmeCode"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
