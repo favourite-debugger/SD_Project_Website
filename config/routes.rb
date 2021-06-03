@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
     get 'menu/index'
     get 'home/index'
-
+    get 'student_dashboard/index'
   #==================================
 
 
