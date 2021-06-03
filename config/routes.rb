@@ -25,7 +25,7 @@ Rails.application.routes.draw do
         collection { post :import} # route for importing from csv
     end
 
-    get 'dashboard/index'
+    get 'menu/index'
     get 'home/index'
 
   #==================================
@@ -65,7 +65,7 @@ Rails.application.routes.draw do
   #START - Setting routes using devise scope---------------------------------------------------------------------------
   devise_scope :admin do
     authenticated :admin do
-      root 'dashboard#index', as: :authenticated_root
+      root 'menu#index', as: :authenticated_root
     end
 
     unauthenticated do
