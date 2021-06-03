@@ -20,7 +20,7 @@
       <h5>
         <p><%= course.CourseDescription %></p>
         <%= link_to 'Edit', edit_course_path(course), class:"btn btn-outline-primary" %>
-        <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Delete this course?' }, class:"btn btn-outline-danger" %>
+        <%= link_to 'Delete', course, method: :delete, data: { confirm: 'Delete this course?' }, class:"btn btn-outline-danger" %>
       </h5> <!-- CARD HEADER CLOSING TAG -->
 
       <ul class="list-group list-group-flush">
