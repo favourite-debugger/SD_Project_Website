@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_231854) do
 
   create_table "programmes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "ProgrammeID"
+    t.string "programme_code"
     t.integer "CourseID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

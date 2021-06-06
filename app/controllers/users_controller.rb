@@ -2,11 +2,17 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   before_action :set_search
   before_action :authenticate_admin!
+
+  #before_action :set_student, only: %i[ show edit update destroy ]
   require "csv"
-  # GET /users or /users.json
+
+  # GET /students or /students.json
+
   def index
-   @users = @q.result
+   # @students = Student.all
+    @users = @q.result
   end
+
 
   def set_search
     @q=User.ransack(params[:q])
@@ -79,4 +85,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :user_FirstName, :user_LastName, :password, :user_ContactNo, :user_Type)
     end
+
+
 end

@@ -1,10 +1,33 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[ show edit update destroy ]
+  before_action :set_search
 
   # GET /schedules or /schedules.json
   def index
+    @users = @q.result
+    @programmes = Programme.all
+
+
+    @programme_list = []
+    @programmes.each do |programme|
+
+      @arrProgramme = [programme["programme_code"],programme["programme_id"]]
+      @programme_list.append(@arrProgramme) #add all programmes for the drop down
+
+    end
+
+
+
+    @students = Student.all
     @schedules = Schedule.all
   end
+
+   def set_search
+     @q=User.ransack(params[:q])
+   end
+ 
+
+
 
   # GET /schedules/1 or /schedules/1.json
   def show

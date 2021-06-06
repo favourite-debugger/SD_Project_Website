@@ -1,33 +1,97 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Schedules</h1>
 
-<table>
+
+<div style="text-align:center">
+<br></br>
+<h1>Manage Schedules</h1>
+
+<br>
+<div class="container-fluid">
+    <div class="d-flex justify-content-evenly">
+
+
+
+    </div>
+</div>
+
+<!-- Add search forms for OWN model -->
+<!-- unless statement takes out search bar when editing,creating,etc-->
+<% unless url_for != users_path %>
+<!--Makes the seach field neater however cant find a way to pull search field to  right of navbar -->
+  <form class="form-inline my-2 my-lg-0">
+      <%=render "users/filters"%>
+  </form>
+<% end %>
+<!--ADD Below check users controller and -filters.html.erb for eg -->
+
+<%= select_tag(:programme_id, options_for_select([['Lisbon', 1], ['Madrid', 2]])) %>
+<%= select(:programme, :programme_id, @programme_list) %>
+
+
+<div class="field form-inline">
+<%# select(:programme_id, @programmes.collect {|a| [a.programme_code, a.id]}) -%#>
+<!-- <%= select :user_Type, options_for_select( @users.id),{:prompt=>"Select Type"},{class: "form-control "}%> -->
+</div>
+
+<div class="m-4">
+
+<table class="table table-hover ">
+
+
+  <!----------------------------------------->
   <thead>
-    <tr>
-      <th>Student</th>
-      <th>Specialty</th>
-      <th>Rotation</th>
-      <th>Hospital</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <tr>
+          <th scope="col">Student Number</th>
+          <th scope="col">Student First Name</th>
+          <th scope="col">Student Last Name</th>
+          <th scope="col">Rotation 1</th>
+          <th scope="col">Rotation 2</th>
+          <th scope="col">Rotation 3</th>
+          <th scope="col">Rotation 4</th>
+          <th scope="col">Rotation 5</th>
+         <th  scope="col"></th>
+        </tr>
+      </thead>
+
+  <!---------------------------------------------------------------------------------------------->
 
   <tbody>
-    <% @schedules.each do |schedule| %>
-      <tr>
-        <td><%= schedule.student_id %></td>
-        <td><%= schedule.specialty_id %></td>
-        <td><%= schedule.rotation_id %></td>
-        <td><%= schedule.hospital_id %></td>
-        <td><%= link_to 'Show', schedule %></td>
-        <td><%= link_to 'Edit', edit_schedule_path(schedule) %></td>
-        <td><%= link_to 'Destroy', schedule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+
+        <% @students.each do |student| %>
+
+          <tr>
+          <td class="col-1"><%= student.studentNumber %></td>
+          <td class="col-3"><%= @users.find(student.id).user_FirstName %></td>
+          <td class="col-3"><%= @users.find(student.id).user_LastName %></td>
+          <td class="col-2"><%# rotation 1 %#></td>
+
+            <td class="col-2">
+
+                <div class="btn-group" role="group" aria-label="Basic example">
+
+
+                <%= link_to 'Edit', edit_user_path(@users[0]), class:"btn btn-outline-primary" %>
+                <%= link_to 'Delete', @users[0], method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
+
+
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+  <!---------------------------------------------------------------------------------------------->
+
+
+
 </table>
+</div>
 
 <br>
 
-<%= link_to 'New Schedule', new_schedule_path %>
+
+
+
+
+<br>
+<br>
+</div>
