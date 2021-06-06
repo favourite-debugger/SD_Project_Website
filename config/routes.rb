@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :rotations
+  resources :schedules
   resources :students
   resources :hospital_assignments
   resources :course_specialties
