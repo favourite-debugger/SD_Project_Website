@@ -7,9 +7,10 @@ class SchedulesController < ApplicationController
   def index
     @users = @q.result
     @programmes = Programme.all
+    @selectedProg = 2
 
     @programme_list = []
-    
+
     @programmes.each do |programme|
       @programme_id = programme["programme_id"]
       @arrProgramme = [programme["programme_code"],@programme_id]

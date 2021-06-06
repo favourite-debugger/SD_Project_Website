@@ -116,10 +116,10 @@ ActiveRecord::Schema.define(version: 2021_06_05_231854) do
 
   create_table "programmes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "ProgrammeID"
-    t.string "programme_code"
     t.integer "CourseID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "programme_code", limit: 45
   end
 
   create_table "registrar_assignments", primary_key: "BlockID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -170,6 +170,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_231854) do
     t.integer "studentNumber"
     t.string "courseCodes"
     t.integer "programme_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
