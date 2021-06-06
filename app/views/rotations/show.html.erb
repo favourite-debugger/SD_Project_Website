@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Startdate:</strong>
+  <%= @rotation.startDate %>
+</p>
+
+<p>
+  <strong>Enddate:</strong>
+  <%= @rotation.endDate %>
+</p>
+
+<p>
+  <strong>Programme:</strong>
+  <%= @rotation.programme_id %>
+</p>
+
+<%= link_to 'Edit', edit_rotation_path(@rotation) %> |
+<%= link_to 'Back', rotations_path %>
