@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  resources :rotations
+  resources :schedules
+  resources :students
   resources :hospital_assignments
   resources :course_specialties
   resources :courses
@@ -12,15 +15,21 @@ Rails.application.routes.draw do
   resources :group_assignments
   resources :groups
 
-    resources :blocks
+    resources :blocks do
+      collection { post :upload}#route for uploading and saving file( beta)
+      collection { post :import}#route for csv importer
+
+    end
     resources :specialty_pages
     resources :specialties
     resources :hospitals
-    resources :users
+    resources :users do
+        collection { post :import} # route for importing from csv
+    end
 
-    get 'dashboard/index'
+    get 'menu/index'
     get 'home/index'
-
+    get 'student_dashboard/index'
   #==================================
 
 
@@ -42,6 +51,12 @@ Rails.application.routes.draw do
     get "/admins/sign_out", to: "devise/sessions#destroy", as: "sign_out"
     #Sget "/session", to: "sessions#new", as: "session"
   end
+
+  resources :csvs do
+    collection do
+      get :add_csv
+    end
+  end
   #---------------------------------------------------------------------------------------------------------
 
   #--------------------------------------------------------------------------------------------------------
@@ -52,7 +67,7 @@ Rails.application.routes.draw do
   #START - Setting routes using devise scope---------------------------------------------------------------------------
   devise_scope :admin do
     authenticated :admin do
-      root 'dashboard#index', as: :authenticated_root
+      root 'menu#index', as: :authenticated_root
     end
 
     unauthenticated do

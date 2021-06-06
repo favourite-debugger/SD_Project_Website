@@ -2,10 +2,17 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   before_action :set_search
   before_action :authenticate_admin!
-  # GET /users or /users.json
+
+  #before_action :set_student, only: %i[ show edit update destroy ]
+  require "csv"
+
+  # GET /students or /students.json
+
   def index
-   @users = @q.result
+   # @students = Student.all
+    @users = @q.result
   end
+
 
   def set_search
     @q=User.ransack(params[:q])
@@ -63,6 +70,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def import # importing from csv file
+    User.import(params[:file]) #call User.import function in user.rb model file
+    redirect_to users_path, notice: "Users Added Successfully"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -73,4 +85,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :user_FirstName, :user_LastName, :password, :user_ContactNo, :user_Type)
     end
+
+
 end

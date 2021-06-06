@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_26_224757) do
+ActiveRecord::Schema.define(version: 2021_06_06_135931) do
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 2021_05_26_224757) do
     t.date "BlockEndDate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "consultants", primary_key: "ConsultantID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "ConsultantEmail"
+    t.integer "SpecialtyID"
+    t.integer "ConsultHospitalID"
+    t.string "StudentContactNo", limit: 30, null: false
+    t.string "StudentEmail", null: false
+    t.index ["ConsultantID"], name: "ConsultantID_UNIQUE", unique: true
+    t.index ["StudentContactNo"], name: "StudentContactNo_UNIQUE", unique: true
+    t.index ["StudentEmail"], name: "StudentEmail_UNIQUE", unique: true
   end
 
   create_table "course_specialties", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -77,9 +88,16 @@ ActiveRecord::Schema.define(version: 2021_05_26_224757) do
     t.index ["user_id"], name: "index_hospital_assignments_on_user_id"
   end
 
+  create_table "hospital_availabilities", primary_key: ["HospSpecialtyID", "AvailableHospitalID"], charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "HospSpecialtyID", null: false
+    t.integer "AvailableHospitalID", null: false
+    t.integer "NumStudents", null: false
+    t.index ["HospSpecialtyID"], name: "SpecialtyID_UNIQUE", unique: true
+  end
+
   create_table "hospitals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "hospital_name"
-    t.string "hospital_location"
+    t.string "hospital_locatioin"
     t.string "hospital_contactNo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -102,15 +120,50 @@ ActiveRecord::Schema.define(version: 2021_05_26_224757) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "registrar_assignments", primary_key: "BlockID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "RegistrarID", null: false
+    t.integer "HospitalID", null: false
+    t.index ["BlockID"], name: "BlockID_UNIQUE", unique: true
+  end
+
+  create_table "registrars", primary_key: "RegistrarID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "RegistrarEmail"
+    t.integer "SpecialtyID", null: false
+    t.index ["RegistrarEmail"], name: "RegistrarEmail_idx"
+    t.index ["RegistrarID"], name: "RegistrarID_UNIQUE", unique: true
+  end
+
+  create_table "rotations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.date "startDate"
+    t.date "endDate"
+    t.integer "programme_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "schedules", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "specialty_id", null: false
+    t.bigint "hospital_id", null: false
+    t.bigint "rotation_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hospital_id"], name: "index_schedules_on_hospital_id"
+    t.index ["rotation_id"], name: "index_schedules_on_rotation_id"
+    t.index ["specialty_id"], name: "index_schedules_on_specialty_id"
+    t.index ["student_id"], name: "index_schedules_on_student_id"
+  end
+
   create_table "specialties", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "SpecialtyName"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "specialty_pages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "specialty_ID"
-    t.string "specialty_name"
+  create_table "students", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "studentNumber"
+    t.string "courseCodes"
+    t.integer "programme_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -136,4 +189,8 @@ ActiveRecord::Schema.define(version: 2021_05_26_224757) do
   add_foreign_key "hospital_assignments", "users"
   add_foreign_key "programme_courses", "courses"
   add_foreign_key "programme_courses", "programmes"
+  add_foreign_key "schedules", "hospitals"
+  add_foreign_key "schedules", "rotations"
+  add_foreign_key "schedules", "specialties"
+  add_foreign_key "schedules", "students"
 end
