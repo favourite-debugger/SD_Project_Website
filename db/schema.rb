@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_05_225534) do
+ActiveRecord::Schema.define(version: 2021_06_05_231854) do
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -135,6 +135,14 @@ ActiveRecord::Schema.define(version: 2021_06_05_225534) do
     t.index ["RegistrarID"], name: "RegistrarID_UNIQUE", unique: true
   end
 
+  create_table "rotations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.date "startDate"
+    t.date "endDate"
+    t.integer "programme_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "schedules", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "student_id"
     t.integer "specialty_id"
@@ -160,7 +168,7 @@ ActiveRecord::Schema.define(version: 2021_06_05_225534) do
   create_table "students", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "studentNumber"
     t.string "courseCodes"
-    t.string "programme_id"
+    t.integer "programme_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
