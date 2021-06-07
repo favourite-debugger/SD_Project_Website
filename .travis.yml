@@ -11,6 +11,7 @@ before_install:
   - gem install rake
 before_script:
   - echo "USE mysql;\nUPDATE user SET authentication_string=PASSWORD('ICTPass1') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - echo "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;"
   - bundle install --gemfile=Gemfile
   - bundle exec rake db:create
   - bundle exec rake db:schema:load
