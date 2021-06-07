@@ -72,20 +72,30 @@
            
           <% @rotations.each do |rotation| %>
           <td class="col-2">
+                
+  
+            <form action="/schedules/create_schedule" method="post">
+              <label> Select Specialty </label>
+              <select name="specialty_id" id="specialty_id">
+                <%= options = options_from_collection_for_select(Specialty.all, 'id', 'SpecialtyName') %>
+              </select>
+              <br></br>
 
-            <%= form_with(model: @schedule) do |form| %>
-              <div class="field">
-                <%= form.label :specialty_id %>
-                <%= collection_select(:@schedule, :specialty_id, Specialty.all, :id, :SpecialtyName, {}, { :multiple => false} ) %>
+              <label> Select Hospital </label>
+              <select name="hospital_id" id="hospital_id">
+                <%= options = options_from_collection_for_select(Hospital.all, 'id', 'hospital_name') %>
+              </select>
+              <br></br>
+
+              <input type="hidden" id="rotation_id" name="rotation_id" value= <%= rotation.id %>>
+              <input type="hidden" id="student_id" name="student_id" value= <%= student.id %>>
+              <br>
+              <input type="submit" value="Submit">
+            </form>
+   
               </div>
-            <% end %>
-                <%= form_with(model: @schedule) do |form| %>
-                  <div class="field">
-                    <%= form.label :hospital_id %>
-                    <%= collection_select(:@schedule, :hospital_id, Hospital.all, :id, :hospital_name, {}, { :multiple => false} ) %>
-                  </div>
-                <% end %>
-            </td>
+      
+          </td>
 
           <% end %>
 

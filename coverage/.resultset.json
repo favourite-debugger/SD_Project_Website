@@ -1,7 +1,7 @@
 {
   "MiniTest": {
     "coverage": {
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/add_specialty_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/add_specialty_controller_test.rb": [
         1,
         null,
         1,
@@ -10,57 +10,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/blocks_controller_test.rb": [
-        1,
-        null,
-        1,
-        1,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        1,
-        0,
-        0,
-        null,
-        null,
-        0,
-        null,
-        null
-      ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/course_specialties_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/blocks_controller_test.rb": [
         1,
         null,
         1,
@@ -110,7 +60,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/courses_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/course_specialties_controller_test.rb": [
         1,
         null,
         1,
@@ -160,17 +110,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/dashboard_controller_test.rb": [
-        1,
-        null,
-        1,
-        1,
-        0,
-        0,
-        null,
-        null
-      ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/group_assignments_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/courses_controller_test.rb": [
         1,
         null,
         1,
@@ -220,7 +160,17 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/groups_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/dashboard_controller_test.rb": [
+        1,
+        null,
+        1,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/group_assignments_controller_test.rb": [
         1,
         null,
         1,
@@ -270,17 +220,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/home_controller_test.rb": [
-        1,
-        null,
-        1,
-        1,
-        0,
-        0,
-        null,
-        null
-      ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/hospital_assignments_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/groups_controller_test.rb": [
         1,
         null,
         1,
@@ -330,7 +270,17 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/hospitals_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/home_controller_test.rb": [
+        1,
+        null,
+        1,
+        1,
+        0,
+        0,
+        null,
+        null
+      ],
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/hospital_assignments_controller_test.rb": [
         1,
         null,
         1,
@@ -380,16 +330,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/login_controller_test.rb": [
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null
-      ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/programme_courses_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/hospitals_controller_test.rb": [
         1,
         null,
         1,
@@ -439,7 +380,16 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/programmes_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/login_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/programme_courses_controller_test.rb": [
         1,
         null,
         1,
@@ -489,16 +439,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/registrations_controller_test.rb": [
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null
-      ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/rotations_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/programmes_controller_test.rb": [
         1,
         null,
         1,
@@ -548,7 +489,16 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/schedules_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/registrations_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/rotations_controller_test.rb": [
         1,
         null,
         1,
@@ -598,16 +548,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/sessions_controller_test.rb": [
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        null
-      ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/specialties_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/schedules_controller_test.rb": [
         1,
         null,
         1,
@@ -657,7 +598,16 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/specialty_pages_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/sessions_controller_test.rb": [
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/specialties_controller_test.rb": [
         1,
         null,
         1,
@@ -707,7 +657,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/students_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/students_controller_test.rb": [
         1,
         null,
         1,
@@ -757,7 +707,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/controllers/users_controller_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/controllers/users_controller_test.rb": [
         1,
         null,
         1,
@@ -807,7 +757,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/admin_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/admin_test.rb": [
         1,
         null,
         1,
@@ -816,7 +766,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/block_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/block_test.rb": [
         1,
         null,
         1,
@@ -825,7 +775,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/course_specialty_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/course_specialty_test.rb": [
         1,
         null,
         1,
@@ -834,7 +784,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/course_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/course_test.rb": [
         1,
         null,
         1,
@@ -843,7 +793,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/courses_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/courses_test.rb": [
         1,
         null,
         1,
@@ -852,7 +802,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/group_assignment_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/group_assignment_test.rb": [
         1,
         null,
         1,
@@ -861,7 +811,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/group_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/group_test.rb": [
         1,
         null,
         1,
@@ -870,7 +820,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/hospital_assignment_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/hospital_assignment_test.rb": [
         1,
         null,
         1,
@@ -879,7 +829,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/hospital_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/hospital_test.rb": [
         1,
         null,
         1,
@@ -888,7 +838,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/programme_course_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/programme_course_test.rb": [
         1,
         null,
         1,
@@ -897,7 +847,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/programme_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/programme_test.rb": [
         1,
         null,
         1,
@@ -906,7 +856,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/rotation_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/rotation_test.rb": [
         1,
         null,
         1,
@@ -915,7 +865,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/schedule_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/schedule_test.rb": [
         1,
         null,
         1,
@@ -924,7 +874,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/specialty_page_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/specialty_page_test.rb": [
         1,
         null,
         1,
@@ -933,7 +883,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/specialty_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/specialty_test.rb": [
         1,
         null,
         1,
@@ -942,7 +892,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/student_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/student_test.rb": [
         1,
         null,
         1,
@@ -951,7 +901,7 @@
         null,
         null
       ],
-      "C:/Users/Derrin/github/SD_Project_Website/test/models/user_test.rb": [
+      "D:/MyFiles/Study_Material/2021/Software_Design/Project/updated/SD_Project_Website/test/models/user_test.rb": [
         1,
         null,
         1,
@@ -961,6 +911,6 @@
         null
       ]
     },
-    "timestamp": 1623044508
+    "timestamp": 1623083012
   }
 }

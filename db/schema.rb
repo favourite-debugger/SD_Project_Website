@@ -31,17 +31,6 @@ ActiveRecord::Schema.define(version: 2021_06_06_135931) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "consultants", primary_key: "ConsultantID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "ConsultantEmail"
-    t.integer "SpecialtyID"
-    t.integer "ConsultHospitalID"
-    t.string "StudentContactNo", limit: 30, null: false
-    t.string "StudentEmail", null: false
-    t.index ["ConsultantID"], name: "ConsultantID_UNIQUE", unique: true
-    t.index ["StudentContactNo"], name: "StudentContactNo_UNIQUE", unique: true
-    t.index ["StudentEmail"], name: "StudentEmail_UNIQUE", unique: true
-  end
-
   create_table "course_specialties", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "Course_id", null: false
     t.bigint "Specialty_id", null: false
@@ -88,13 +77,6 @@ ActiveRecord::Schema.define(version: 2021_06_06_135931) do
     t.index ["user_id"], name: "index_hospital_assignments_on_user_id"
   end
 
-  create_table "hospital_availabilities", primary_key: ["HospSpecialtyID", "AvailableHospitalID"], charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "HospSpecialtyID", null: false
-    t.integer "AvailableHospitalID", null: false
-    t.integer "NumStudents", null: false
-    t.index ["HospSpecialtyID"], name: "SpecialtyID_UNIQUE", unique: true
-  end
-
   create_table "hospitals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "hospital_name"
     t.string "hospital_locatioin"
@@ -115,23 +97,9 @@ ActiveRecord::Schema.define(version: 2021_06_06_135931) do
   end
 
   create_table "programmes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-
+    t.string "programme_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "programme_code", limit: 45
-  end
-
-  create_table "registrar_assignments", primary_key: "BlockID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "RegistrarID", null: false
-    t.integer "HospitalID", null: false
-    t.index ["BlockID"], name: "BlockID_UNIQUE", unique: true
-  end
-
-  create_table "registrars", primary_key: "RegistrarID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "RegistrarEmail"
-    t.integer "SpecialtyID", null: false
-    t.index ["RegistrarEmail"], name: "RegistrarEmail_idx"
-    t.index ["RegistrarID"], name: "RegistrarID_UNIQUE", unique: true
   end
 
   create_table "rotations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
