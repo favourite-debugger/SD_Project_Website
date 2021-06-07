@@ -13,8 +13,8 @@ before_script:
   - echo "USE mysql;\nUPDATE user SET authentication_string=PASSWORD('ICTPass1') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - bundle install --gemfile=Gemfile
   - bundle exec rake db:create
-  - echo "USE mysql;\ncharacter-set-server=utf8mb4;\nFLUSH PRIVILEGES;\n" | mysql -u root -pICTPass1
-  - echo "USE mysql;\ncollation-server=utf8mb4_general_ci;\nFLUSH PRIVILEGES;\n" | mysql -u root -pICTPass1
+  - echo "USE mysql;\n--character-set-server=utf8mb4;\nFLUSH PRIVILEGES;\n" | mysql -u root -pICTPass1
+  - echo "USE mysql;\n--collation-server=utf8mb4_0900_ai_ci;\nFLUSH PRIVILEGES;\n" | mysql -u root -pICTPass1
   - bundle exec rake db:schema:load
   - yarn
 script:
