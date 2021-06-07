@@ -14,6 +14,8 @@ before_script:
   - bundle install --gemfile=Gemfile
   - bundle exec rake db:create
   - echo "USE mysql;\nALTER DATABASE student_placement CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
+  - echo "USE mysql;\nSET character_set_server = 'utf8mb4';"
+  - echo "USE mysql;\nSET collation_server = 'utf8mb4_0900_ai_ci';"
   - bundle exec rake db:schema:load
   - yarn
 script:
