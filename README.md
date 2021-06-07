@@ -6,7 +6,6 @@ Website to facilitate administrator functions
 
 [![Build Status](https://travis-ci.com/RXRider1451/SD_Project_Website.svg?branch=main)](https://travis-ci.com/RXRider1451/SD_Project_Website) [![Coverage Status](https://coveralls.io/repos/github/RXRider1451/SD_Project_Website/badge.svg?branch=main)](https://coveralls.io/github/RXRider1451/SD_Project_Website?branch=main)
 
-Note: No successful build will occur due a database connection error as we're currently using local databases to work on the website. Once we have access to the server, the builds should be successful as the database will be stored remotely (on the server). Until there is a successful build, the badge status will read "unknown".
 
 
 ## Developers
