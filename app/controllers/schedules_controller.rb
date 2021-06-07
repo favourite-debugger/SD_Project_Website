@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+  skip_forgery_protection 
   before_action :set_schedule, only: %i[ show edit update destroy ]
   before_action :set_search
  
@@ -81,6 +82,19 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def create_schedule
+
+    Schedule.create_with_form_data(params[:student_id], params[:rotation_id], params[:specialty_id], params[:hospital_id])
+    
+  end
+
+
+  #def import # importing from csv file
+  #  User.import(params[:file]) #call User.import function in user.rb model file
+  #  redirect_to users_path, notice: "Users Added Successfully"
+  #end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
@@ -89,6 +103,6 @@ class SchedulesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def schedule_params
-      params.require(:schedule).permit(:student_id, :specialty_id, :rotation_id, :hospital_id)
+      params.permit(:student_id, :specialty_id, :rotation_id, :hospital_id)
     end
 end
