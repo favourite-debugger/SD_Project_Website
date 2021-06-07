@@ -5,10 +5,24 @@
 <%= search_form_for @q do |f| %>
 <div class="d-flex flex-row">
 
- <%= f.search_field :hospital_name_or_hospital_contactNo_or_hospital_location_cont ,class:"form-control mr-sm-2" ,placeholder:"Enter Hospital Name" %>
+	<script>
+		//Function to clear the search field
+		function emptySearch(){
+				var searchField = document.getElementById("searchField");
+				searchField.value = "";
+			}
+	</script>
 
 
- <%= f.submit class:"btn btn-outline-dark" %>
+ <%= f.search_field :hospital_name_or_hospital_contactNo_or_hospital_location_cont ,class:"form-control mr-sm-2" ,placeholder:"Enter Hospital Name", id: "searchField" %>
+
+ <div class="btn-group" role="group" aria-label="Basic example">
+	 <!--Submit the form with an empty search field-->
+	 <%= f.submit 'Clear', class: "btn btn-outline-dark", style: "width: 5rem; height: 2.5rem;", onclick: "emptySearch()"%>
+
+	 <!-- Search Button -->
+ 	 <%= f.submit class:"btn btn-outline-dark" %>
+</div>
 
 
 

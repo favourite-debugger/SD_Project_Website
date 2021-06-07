@@ -8,9 +8,9 @@
 
 <div class="container-fluid">
   <div class="d-flex justify-content-evenly">
-      <%= link_to 'New Group', new_group_path, class:"btn btn-primary"  %>
+      <%= link_to 'New Group', new_group_path, class:"btn btn-primary", style: "width: 12rem; height: 2.5rem;"  %>
 
-      <%= link_to 'Group assignments',group_assignments_path,class:"btn btn-primary" %>
+      <%= link_to 'Group assignments',group_assignments_path,class:"btn btn-primary", style: "width: 12rem; height: 2.5rem;" %>
   </div>
 </div>
 <br>
@@ -60,10 +60,10 @@
              <%= link_to 'Assign Students', new_group_assignment_path(:group_id => group.id), class:"btn btn-outline-dark"  %>
              <p></p>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                <%= link_to 'Show', group, class:"btn btn-outline-primary" %>
+                <%= link_to 'Show', group, class:"btn btn-outline-primary",style: "width: 5rem; height: 2.5rem;" %>
 
-                <%= link_to 'Edit', edit_group_path(group), class:"btn btn-outline-primary" %>
-                <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
+                <%= link_to 'Edit', edit_group_path(group), class:"btn btn-outline-primary", style: "width: 5rem; height: 2.5rem;" %>
+                <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger", style: "width: 5rem; height: 2.5rem;" %>
 
 
               </div>

@@ -7,21 +7,26 @@ class SchedulesController < ApplicationController
   def index
     @users = @q.result
     @programmes = Programme.all
+    @current_programme_id = params[:programme_id]
 
-    @programme_list = []
-    
-    @programmes.each do |programme|
-      @programme_id = programme["programme_id"]
-      @arrProgramme = [programme["programme_code"],@programme_id]
-      @programme_list.append(@arrProgramme) #add all programmes for the drop down
+  #  @programme_list = []
 
-    end
+   # @programmes.each do |programme|
+    #  @programme_id = programme["programme_id"]
+    ##  @arrProgramme = [programme["programme_code"],@programme_id]
+     # @programme_list.append(@arrProgramme) #add all programmes for the drop down
 
+    #end
 
+   
 
-    @students = Student.all
+    @students = Student.filter_by_programme_id(@current_programme_id)
     #@students = @students.find()
     @schedules = Schedule.all
+
+    @rotations = Rotation.filter_by_programme_id(@current_programme_id)
+
+    @numRotations = @rotations.length()
   end
 
    def set_search
