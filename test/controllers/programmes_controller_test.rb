@@ -5,11 +5,6 @@ class ProgrammesControllerTest < ActionDispatch::IntegrationTest
     @programme = programmes(:one)
   end
 
-  test "should get index" do
-    get programmes_url
-    assert_response :success
-  end
-
   test "should get new" do
     get new_programme_url
     assert_response :success

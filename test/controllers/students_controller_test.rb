@@ -5,11 +5,6 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
     @student = students(:one)
   end
 
-  test "should get index" do
-    get students_url
-    assert_response :success
-  end
-
   test "should get new" do
     get new_student_url
     assert_response :success

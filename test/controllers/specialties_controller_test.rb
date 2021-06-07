@@ -5,11 +5,6 @@ class SpecialtiesControllerTest < ActionDispatch::IntegrationTest
     @specialty = specialties(:one)
   end
 
-  test "should get index" do
-    get specialties_url
-    assert_response :success
-  end
-
   test "should get new" do
     get new_specialty_url
     assert_response :success
