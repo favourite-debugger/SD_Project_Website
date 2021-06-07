@@ -7,18 +7,13 @@ class SchedulesController < ApplicationController
   def index
     @users = @q.result
     @programmes = Programme.all
-    @current_programme_id = params[:programme_id]
+    puts("look here")
+    @current_programme_id = 1
 
-  #  @programme_list = []
-
-   # @programmes.each do |programme|
-    #  @programme_id = programme["programme_id"]
-    ##  @arrProgramme = [programme["programme_code"],@programme_id]
-     # @programme_list.append(@arrProgramme) #add all programmes for the drop down
-
-    #end
-
-   
+    if (params[:programme_id])
+        @current_programme_id =  params[:programme_id]
+    #else
+    end
 
     @students = Student.filter_by_programme_id(@current_programme_id)
     #@students = @students.find()
