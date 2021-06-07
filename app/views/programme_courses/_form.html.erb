@@ -28,9 +28,8 @@
   <div class="field">
 
 
-    <%= form.label :course_id %>
-    <%= collection_select(:programme_course, :course_id, Course.all, :id, :CourseDescription, {}, { :multiple => false} ) %>
-  <!--  <%= form.select :CourseID, Courses: @courses_array_desc %> -->
+    <%= form.label :course_id, value: "Course: " %>
+    <%= collection_select(:programme_course, :course_id, Course.all, :id, :CourseDescription, {}, { :multiple => false, :class => "btn btn-outline-dark dropdown-toggle"} ) %>
 
   </div>
 <br></br>
