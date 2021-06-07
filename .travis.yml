@@ -10,6 +10,7 @@ before_install:
   - nvm install --lts
   - gem install rake
 before_script:
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('Password123') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - bundle install --gemfile=Gemfile
   - bundle exec rake db:create
   - bundle exec rake db:schema:load
