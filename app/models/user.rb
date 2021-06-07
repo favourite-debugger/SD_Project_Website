@@ -2,7 +2,7 @@ class User < ApplicationRecord
 	has_secure_password
 	validates :email, uniqueness: true
 	validates :email, :user_FirstName,:user_Type, presence: true
-  has_many :students
+  has_one :student
 
 	def self.import(file)
         CSV.foreach(file.path, headers: true) do |row|
@@ -11,8 +11,12 @@ class User < ApplicationRecord
           @user.save!
           
           #create a student with the same id as the user record
+          puts(row["type"])
           if (row["type"] == "Student")
-            Student.create(:id => @user.id, :studentNumber => row["studentNumber"], :courseCodes => row["courseCodes"], :programme_id => row["programme_id"])
+            #c = Client.new(firm_id: id); c.save; 
+            #b = Beneficiary.new(account_id: id); b.save; b
+            student = Student.new(user_id: @user.id, :studentNumber => row["studentNumber"], :courseCodes => row["courseCodes"], :programme_id => row["programme_id"])
+            student.save
           end
         end
       end

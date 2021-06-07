@@ -3,4 +3,5 @@ class Specialty < ApplicationRecord
     has_many :groups, :dependent => :delete_all 
     has_many :schedules, :dependent => :delete_all 
     has_many :course_specialties, :dependent => :delete_all
+    has_many :schedules
 end
