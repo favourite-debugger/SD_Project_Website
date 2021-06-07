@@ -31,10 +31,9 @@ ActiveRecord::Schema.define(version: 2021_06_05_231854) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "consultants", primary_key: "ConsultantID", id: { type: :string, limit: 13 }, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "consultants", primary_key: "ConsultantID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "ConsultantEmail"
     t.integer "SpecialtyID"
-    t.integer "ConsultHospitalID"
     t.string "StudentContactNo", limit: 30, null: false
     t.string "StudentEmail", null: false
     t.index ["ConsultantID"], name: "ConsultantID_UNIQUE", unique: true
@@ -88,16 +87,14 @@ ActiveRecord::Schema.define(version: 2021_06_05_231854) do
     t.index ["user_id"], name: "index_hospital_assignments_on_user_id"
   end
 
-  create_table "hospital_availabilities", primary_key: ["HospSpecialtyID", "AvailableHospitalID"], charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "HospSpecialtyID", null: false
-    t.integer "AvailableHospitalID", null: false
-    t.integer "NumStudents"
+  create_table "hospital_availabilities", primary_key: "HospSpecialtyID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "NumStudents", null: false
     t.index ["HospSpecialtyID"], name: "SpecialtyID_UNIQUE", unique: true
   end
 
   create_table "hospitals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "hospital_name"
-    t.string "hospital_location"
+    t.string "hospital_locatioin"
     t.string "hospital_contactNo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -115,23 +112,19 @@ ActiveRecord::Schema.define(version: 2021_06_05_231854) do
   end
 
   create_table "programmes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "ProgrammeID"
     t.string "programme_code"
-    t.integer "CourseID"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "registrar_assignments", primary_key: "BlockID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "RegistrarID", limit: 13, null: false
-    t.integer "HospitalID", null: false
+    t.integer "RegistrarID", null: false
     t.index ["BlockID"], name: "BlockID_UNIQUE", unique: true
     t.index ["RegistrarID"], name: "RegistrarID_UNIQUE", unique: true
   end
 
-  create_table "registrars", primary_key: "RegistrarID", id: { type: :string, limit: 13 }, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "registrars", primary_key: "RegistrarID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "RegistrarEmail"
-    t.integer "SpecialtyID", null: false
     t.index ["RegistrarEmail"], name: "RegistrarEmail_idx"
     t.index ["RegistrarID"], name: "RegistrarID_UNIQUE", unique: true
   end
