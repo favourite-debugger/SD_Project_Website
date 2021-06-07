@@ -7,9 +7,9 @@
     <div class="d-flex justify-content-evenly">
 
         <!--<button type="button" class="btn btn-outline-secondary">Add From CSV</button>-->
-        <%= link_to 'Create New Block', new_block_path, class: "btn btn-primary"%>
+        <%= link_to 'Create New Block', new_block_path, class: "btn btn-primary", style: "width: 13rem; height: 2.5rem;"%>
         <!-- <button type="button" class="btn btn-outline-secondary">Remove From CSV</button> -->
-        
+
       <!--  <form action="csvs/add_csv">
           <label for="file">Choose CSV file to upload</label>
           <input type="file" name="filename" value = "blocks.csv" accept=".csv">
@@ -25,10 +25,10 @@
         <div>
         <%= form_tag import_blocks_path, multipart: true do %>
           <%= file_field_tag :file %>
-          <%= submit_tag "Import Blocks from csv" %>
+          <%= submit_tag "Import Blocks from CSV", class: "btn btn-primary", style: "width: 13rem; height: 2.5rem;" %>
         <% end %>
         </div>
-    </div>  
+    </div>
 </div>
 <br>
 
@@ -65,10 +65,10 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
 
 
-                <%= link_to 'Edit', edit_block_path(block), class:"btn btn-outline-primary" %>
-                <%= link_to 'Delete', block, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
-                
-      
+                <%= link_to 'Edit', edit_block_path(block), class:"btn btn-outline-primary", style: "width: 5rem; height: 2.5rem;" %>
+                <%= link_to 'Delete', block, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger", style: "width: 5rem; height: 2.5rem;" %>
+
+
 
               </div>
             </td>

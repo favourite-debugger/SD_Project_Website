@@ -1,3 +1,5 @@
+
+
 <%= form_with(model: course_specialty) do |form| %>
   <% if course_specialty.errors.any? %>
     <div id="error_explanation">
@@ -17,8 +19,8 @@
   </div>
 </br>
   <div class="field">
-    <%= form.label :specialty_id %>
-    <%= collection_select(:course_specialty, :Specialty_id, Specialty.all, :id, :SpecialtyName, {}, { :multiple => false} ) %>
+    <%= form.label :specialty_id, value: "Specialty: " %>
+    <%= collection_select(:course_specialty, :Specialty_id, Specialty.all, :id, :SpecialtyName, {}, { :multiple => false, :class => "btn btn-outline-dark dropdown-toggle"} ) %>
 
   </div>
 </br>

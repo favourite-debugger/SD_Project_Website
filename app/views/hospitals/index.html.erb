@@ -5,8 +5,8 @@
 <br>
 <div class="container-fluid">
  <div class="d-flex justify-content-evenly">
-     <%= link_to 'Add New Hospital', new_hospital_path,class: "btn btn-primary"%>
-     <%= link_to 'Hospital Assignments', hospital_assignments_path,class: "btn btn-primary"%>
+     <%= link_to 'Add New Hospital', new_hospital_path,class: "btn btn-primary", style: "width: 12rem; height: 2.5rem;"%>
+     <%= link_to 'Hospital Assignments', hospital_assignments_path,class: "btn btn-primary", style: "width: 12rem; height: 2.5rem;"%>
  </div>
  <br>
 </div>
@@ -43,15 +43,15 @@
         <td class="col-4"><%= hospital.hospital_name %></td>
         <td class="col-4"><%= hospital.hospital_location%></td>
         <td class="col-4"><%= hospital.hospital_contactNo %></td>
-        
+
 
         <td class="col-4">
 
                 <div class="btn-group" role="group" aria-label="Basic example">
 
-                <%= link_to 'Show', hospital, class: "btn btn-outline-primary" %>
-                <%= link_to 'Edit', edit_hospital_path(hospital), class:"btn btn-outline-primary" %>
-                <%= link_to 'Delete', hospital, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
+                <%= link_to 'Show', hospital, class: "btn btn-outline-primary", style: "width: 5rem; height: 2.5rem;" %>
+                <%= link_to 'Edit', edit_hospital_path(hospital), class:"btn btn-outline-primary", style: "width: 5rem; height: 2.5rem;" %>
+                <%= link_to 'Delete', hospital, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger", style: "width: 5rem; height: 2.5rem;" %>
 
 
               </div>
