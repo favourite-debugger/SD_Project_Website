@@ -25,15 +25,18 @@
 <!--ADD Below check users controller and -filters.html.erb for eg -->
 
 
-<%= collection_select(:programme_id, Programme.all, :id, :programme_code) %>
-<%= select(:programme, :programme_id, @programme_list) %>
 
-<%# select(:programme, :programme_id, Programme.all, :id, programme_code, {}, {:multipart => false}) %>
+<form action="/schedules">
+<label> Select Programme Code </label>
+<select name="programme_id" id="programme_id" onchange="this.form.submit()">
+<%= options = options_from_collection_for_select(Programme.all, 'id', 'programme_code',@current_programme_id) %>
+</select>
+</form>
 
-<div class="field form-inline">
-<%# select(:programme_id, @programmes.collect {|a| [a.programme_code, a.id]}) -%#>
-<!-- <%= select :user_Type, options_for_select( @users.id),{:prompt=>"Select Type"},{class: "form-control "}%> -->
-</div>
+
+
+
+
 
 <div class="m-4">
 
@@ -46,16 +49,12 @@
           <th scope="col">Student Number</th>
           <th scope="col">Student First Name</th>
           <th scope="col">Student Last Name</th>
-          <th scope="col">Rotation 1</th>
-          <th scope="col">Rotation 2</th>
-          <th scope="col">Rotation 3</th>
-          <th scope="col">Rotation 4</th>
-          <th scope="col">Rotation 5</th>
-          <th scope="col">Rotation 1</th>
-          <th scope="col">Rotation 2</th>
-          <th scope="col">Rotation 3</th>
-          <th scope="col">Rotation 4</th>
-          <th scope="col">Rotation 5</th>
+
+          <% for i in 1..@numRotations do %>
+            <%# @users[i].name %>
+            <th scope="col">Rotation <%= i %></th>
+          <% end %>
+
          <th  scope="col"></th>
         </tr>
       </thead>
@@ -70,25 +69,26 @@
           <td class="col-1"><%= student.studentNumber %></td>
           <td class="col-3"><%= @users.find(student.user_id).user_FirstName %></td>
           <td class="col-3"><%= @users.find(student.user_id).user_LastName %></td>
-          <td class="col-2"><%# rotation 1 %#></td>
+           
+          <% @rotations.each do |rotation| %>
+          <td class="col-2">
 
-            <td class="col-2">
-
-                <div class="btn-group" role="group" aria-label="Basic example">
-
-
-                <%= link_to 'Edit', edit_user_path(@users[0]), class:"btn btn-outline-primary" %>
-                <%= link_to 'Delete', @users[0], method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-danger" %>
-
+            <%= form_with(model: @schedule) do |form| %>
+              <div class="field">
+                <%= form.label :specialty_id %>
+                <%= collection_select(:@schedule, :specialty_id, Specialty.all, :id, :SpecialtyName, {}, { :multiple => false} ) %>
+              </div>
+            <% end %>
                 <%= form_with(model: @schedule) do |form| %>
                   <div class="field">
                     <%= form.label :hospital_id %>
                     <%= collection_select(:@schedule, :hospital_id, Hospital.all, :id, :hospital_name, {}, { :multiple => false} ) %>
                   </div>
                 <% end %>
-
-              </div>
             </td>
+
+          <% end %>
+
           </tr>
         <% end %>
       </tbody>
