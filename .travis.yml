@@ -4,11 +4,19 @@ cache:
   - yarn
 services:
   - postgresql
+  - mysql
+
+test:
+  adapter: mysql2
+  database: student_placement
+  username: travis
+  encoding: utf8
+
 before_install:
   - nvm install --lts
   - gem install rake
+  - mysql -e 'CREATE DATABASE student_placement;'
 before_script:
   - bundle install --gemfile=Gemfile
   - yarn
 script:
-
