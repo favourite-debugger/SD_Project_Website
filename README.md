@@ -12,6 +12,7 @@ Website to facilitate administrator functions
 
 * Sedzani 
 * Suraksha 
+* Fezile
 * Favour
 * Kiyolin
 * Eston
