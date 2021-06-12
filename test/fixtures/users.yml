@@ -4,7 +4,7 @@ one:
   email: MyString
   user_FirstName: MyString
   user_LastName: MyString
-  password: MyString
+  password_digest: MyString
   user_ContactNo: MyString
   user_Type: MyString
 
@@ -12,7 +12,7 @@ two:
   email: MyString
   user_FirstName: MyString
   user_LastName: MyString
-  password: MyString
+  password_digest: MyString
   user_ContactNo: MyString
   user_Type: MyString
 

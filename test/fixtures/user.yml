@@ -1,19 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  UserEmail: MyString
-  UserPassword: MyString
-  UserFName: MyString
-  UserLName: MyString
-  UserContactNo: MyString
-  UserType: MyString
-  UserID: 1
-
-two:
-  UserEmail: MyString
-  UserPassword: MyString
-  UserFName: MyString
-  UserLName: MyString
-  UserContactNo: MyString
-  UserType: MyString
-  UserID: 1
+#one:
+#  email: MyString
+#  password_digest: MyString
+#  user_FirstName: MyString
+#  user_LastName: MyString
+#  user_ContactNo: MyString
+#  user_Type: MyString
+#
+#two:
+#  email: MyString
+#  password_digest: MyString
+#  user_FirstName: MyString
+#  user_LastName: MyString
+#  user_ContactNo: MyString
+#  user_Type: MyString

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
 
   resources :rotations
-  resources :schedules
+  resources :schedules do
+    collection { post :create_schedule}
+  end
   resources :students
   resources :hospital_assignments
   resources :course_specialties

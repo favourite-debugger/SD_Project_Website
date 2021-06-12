@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_06_06_135931) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+<<<<<<< HEAD
   create_table "consultants", primary_key: "ConsultantID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "ConsultantEmail"
     t.integer "SpecialtyID"
@@ -41,6 +42,8 @@ ActiveRecord::Schema.define(version: 2021_06_06_135931) do
     t.index ["StudentEmail"], name: "StudentEmail_UNIQUE", unique: true
   end
 
+=======
+>>>>>>> c2220f06b800f5e3d1a3726721f0f4e49ddeb955
   create_table "course_specialties", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "Course_id", null: false
     t.bigint "Specialty_id", null: false
@@ -87,10 +90,7 @@ ActiveRecord::Schema.define(version: 2021_06_06_135931) do
     t.index ["user_id"], name: "index_hospital_assignments_on_user_id"
   end
 
-  create_table "hospital_availabilities", primary_key: "HospSpecialtyID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "NumStudents", null: false
-    t.index ["HospSpecialtyID"], name: "SpecialtyID_UNIQUE", unique: true
-  end
+
 
   create_table "hospitals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "hospital_name"
@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 2021_06_06_135931) do
     t.string "programme_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
   end
 
   create_table "registrar_assignments", primary_key: "BlockID", id: :integer, default: nil, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -127,6 +128,8 @@ ActiveRecord::Schema.define(version: 2021_06_06_135931) do
     t.string "RegistrarEmail"
     t.index ["RegistrarEmail"], name: "RegistrarEmail_idx"
     t.index ["RegistrarID"], name: "RegistrarID_UNIQUE", unique: true
+=======
+>>>>>>> c2220f06b800f5e3d1a3726721f0f4e49ddeb955
   end
 
   create_table "rotations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
