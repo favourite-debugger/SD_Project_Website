@@ -5,11 +5,6 @@ class RotationsControllerTest < ActionDispatch::IntegrationTest
     @rotation = rotations(:one)
   end
 
-  test "should get index" do
-    get rotations_url
-    assert_response :success
-  end
-
   test "should get new" do
     get new_rotation_url
     assert_response :success

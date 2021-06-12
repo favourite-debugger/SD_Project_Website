@@ -63,16 +63,6 @@
           <% end %>
         </li>
 
-        <li class="nav-item">
-          <!-- If we're at the Manage Blocks view, set this nav link to active -->
-          <% if controller_name == "blocks"%>
-            <%= link_to 'Blocks', blocks_path, class:"nav-link active" %>
-            <!-- If we're at another view, set this to normal nav link -->
-          <% else %>
-            <%= link_to 'Blocks', blocks_path, class:"nav-link" %>
-          <% end %>
-        </li>
-
 
         <li class="nav-item">
           <!-- If we're at the Manage Specialties view, set this nav link to active -->

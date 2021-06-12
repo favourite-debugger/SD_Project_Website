@@ -5,19 +5,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
   end
 
-  test "should get index" do
-    get users_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get new_user_url
-    assert_response :success
-  end
 
   test "should create user" do
     assert_difference('User.count') do
-      post users_url, params: { user: { email: @user.email, password: @user.password, user_ContactNo: @user.user_ContactNo, user_FirstName: @user.user_FirstName, user_LastName: @user.user_LastName, user_Type: @user.user_Type } }
+      post users_url, params: { user: { email: "test@test.com", password_digest: @user.password_digest, user_ContactNo: @user.user_ContactNo, user_FirstName: @user.user_FirstName, user_LastName: @user.user_LastName, user_Type: @user.user_Type } }
     end
 
     assert_redirected_to user_url(User.last)

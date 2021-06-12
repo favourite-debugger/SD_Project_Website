@@ -35,10 +35,29 @@
 
 
 
+<script>
+ function drop(x){
+  console.log(x);
+  var data = x.dataTransfer.getData("data");
+   alert(data);
+ }
 
+ function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev, specialty, duration) {
+
+  ev.dataTransfer.setData("data", specialty);
+}
+
+
+
+</script>
 
 
 <div class="m-4">
+
 
 <table class="table table-hover ">
 
@@ -61,13 +80,28 @@
 
   <!---------------------------------------------------------------------------------------------->
 
+
+
   <tbody>
 
         <% @students.each do |student| %>
 
           <tr>
-          <td class="col-1"><%= student.studentNumber %></td>
-          <td class="col-3"><%= @users.find(student.user_id).user_FirstName %></td>
+          <td class="col-1"> 
+
+          <div draggable="true" ondragstart="drag(event,'nursing',2)"> 
+            <%= student.studentNumber %> 
+          </div>
+
+          </td>
+
+
+          <td class="col-3" ondrop="drop(event)" ondragover="allowDrop(event)" >
+          
+            <%= @users.find(student.user_id).user_FirstName %>
+            
+          </td>
+
           <td class="col-3"><%= @users.find(student.user_id).user_LastName %></td>
            
           <% @rotations.each do |rotation| %>

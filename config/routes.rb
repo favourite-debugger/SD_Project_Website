@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
 
-  resources :rotations
+  resources :rotations do
+    collection { post :upload}#route for uploading and saving file( beta)
+    collection { post :import}#route for csv importer
+
+  end
   resources :schedules do
     collection { post :create_schedule}
   end
@@ -17,11 +21,7 @@ Rails.application.routes.draw do
   resources :group_assignments
   resources :groups
 
-    resources :blocks do
-      collection { post :upload}#route for uploading and saving file( beta)
-      collection { post :import}#route for csv importer
-
-    end
+    resources :blocks 
     resources :specialty_pages
     resources :specialties
     resources :hospitals
