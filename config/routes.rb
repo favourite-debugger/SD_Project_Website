@@ -7,8 +7,9 @@ Rails.application.routes.draw do
 
   end
   resources :schedules do
-    collection { post :create_schedule}
-  end
+    collection { post :create_schedule} #route for creating a schedule
+    collection { post :update_schedule} #route for updating a schedule
+  end 
   resources :students
   resources :hospital_assignments
   resources :course_specialties
