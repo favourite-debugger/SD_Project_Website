@@ -34,7 +34,6 @@
 </form>
 
 
-
 <script>
  function drop(x){
   console.log(x);
@@ -105,18 +104,50 @@ function drag(ev, specialty, duration) {
           <td class="col-3"><%= @users.find(student.user_id).user_LastName %></td>
            
           <% @rotations.each do |rotation| %>
-          <td class="col-2">
+          <td >
                 
-  
+          <%if Schedule.exists?(student_id: student.id, rotation_id: rotation.id)%>
+
+          <%# Find student's hospital and specialty for that schedule %>
+            <%@schedule=Schedule.find_by(student_id: student.id, rotation_id:rotation.id)%>
+            <%@specialty=@schedule.specialty_id%>
+            <%@hospital=@schedule.hospital_id%>
+            <%@specialtyName=Specialty.find(@specialty).SpecialtyName %>
+            <%@hospitalName=Hospital.find(@hospital).hospital_name %>
+             
+            
+           <form action="/schedules/create_schedule" method="post">
+              <label> Select Specialty </label>
+              <select name="specialty_id" id="specialty_id">
+                <%= options = options_from_collection_for_select(Specialty.all, 'id', 'SpecialtyName',@specialty) %>
+              </select>
+            <br></br>
+
+              <label> Select Hospital </label>
+              
+              <select name="hospital_id" id="hospital_id">
+                <%= options = options_from_collection_for_select(Hospital.all, 'id', 'hospital_name',@hospital) %>
+              </select>
+              <br></br>
+
+              <input type="hidden" id="rotation_id" name="rotation_id" value= <%= rotation.id %>>
+              <input type="hidden" id="student_id" name="student_id" value= <%= student.id %>>
+              <br>
+              <input type="submit" value="Submit">
+            </form>
+ 
+          <%else%>
             <form action="/schedules/create_schedule" method="post">
               <label> Select Specialty </label>
               <select name="specialty_id" id="specialty_id">
+                <option value='' default selected hidden > </option>
                 <%= options = options_from_collection_for_select(Specialty.all, 'id', 'SpecialtyName') %>
               </select>
               <br></br>
 
               <label> Select Hospital </label>
               <select name="hospital_id" id="hospital_id">
+              <option value='' default selected hidden > </option>
                 <%= options = options_from_collection_for_select(Hospital.all, 'id', 'hospital_name') %>
               </select>
               <br></br>
@@ -128,6 +159,7 @@ function drag(ev, specialty, duration) {
             </form>
    
               </div>
+            <%end%>
       
           </td>
 
