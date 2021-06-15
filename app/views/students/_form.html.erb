@@ -13,7 +13,12 @@
 
   <div class="field">
     <%= form.label :user_id %>
-    <%= form.number_field :user_id%>
+    <select name="student[user_id]" id="student_user_id">
+      <%= options = options_from_collection_for_select(User.all, 'id', 'id') %>
+    </select>
+
+    <%# form.label :user_id %>
+    <%# form.number_field :user_id%>
   </div> 
 
   <div class="field">
@@ -28,7 +33,9 @@
 
   <div class="field">
     <%= form.label :programme_id %>
-    <%= form.text_field :programme_id %>
+    <select name="student[programme_id]" id="student_programme_id">
+      <%= options = options_from_collection_for_select(Programme.all, 'id', 'programme_code') %>
+    </select>
   </div>
 
   <div class="actions">
