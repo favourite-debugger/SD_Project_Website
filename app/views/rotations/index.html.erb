@@ -3,11 +3,76 @@
 <h1>Manage Rotations</h1>
 <br></br>
 
-<div class="container-fluid">
+<script>
+  //Show/Hide "Import from CSV" div -->
+  function toggleShow() {
+    var x = document.getElementById("csvRotations");
+    var btnShowDiv = document.getElementById("btnShowCSVdiv");
+
+    if (x.style.display == "none") {
+      x.style.display = "block";
+      btnShowDiv.className = "btn btn-outline-primary";
+    } else {
+      x.style.display = "none";
+      btnShowDiv.className = "btn btn-primary";
+    }
+  }
+
+//Toggle Import Button
+  function toggleButton(){
+    var uploadBox = document.getElementById("uploadBox");
+    var x = document.getElementById("btnImport");
+    if(uploadBox.value == ""){
+      x.disabled = true;
+    }
+    else{
+      x.disabled = false;
+    }
+
+  }
+
+</script>
+
+<%= link_to 'Create New Rotation', new_rotation_path, class: "btn btn-primary", style: "width: 14rem; height: 2.5rem;"%>
+<br></br>
+
+
+<button class = "btn btn-primary", style = "width: 14rem; height: 2.5rem;", onclick = "toggleShow()", id = "btnShowCSVdiv">Import Rotations from CSV</button>
+<br></br>
+
+<div class="container-fluid", id = "csvRotations">
     <div class="d-flex justify-content-evenly">
 
+      <!-- Initialy hide the import from CSV Card -->
+      <script type="text/javascript">
+        var x = document.getElementById("csvRotations");
+        if (x.style.display === "none") {
+
+        } else {
+          x.style.display = "none";
+        }
+      </script>
+
+
+      <div class = "form_card"> <!-- this is for adding from csv -->
+        <div class="card-heading"><strong><i>Upload the CSV File and Select Import</i></strong></div>
+        <div class="card-body"></div>
+        <%= form_tag import_users_path, multipart: true, onclick: "toggleButton()" do %>
+
+            <%= file_field_tag :file, id: "uploadBox"%>
+
+            <%= submit_tag "Import", class: "btn btn-primary", style: "width: 12rem; height: 2.5rem;", id: "btnImport" %>
+
+            <!-- Initially disable the Import Button -->
+            <script>
+              var x = document.getElementById("btnImport");
+              x.disabled = true;
+            </script>
+
+        <% end %>
+      </div>
         <!--<button type="button" class="btn btn-outline-secondary">Add From CSV</button>-->
-        <%= link_to 'Create New Rotation', new_rotation_path, class: "btn btn-primary", style: "width: 13rem; height: 2.5rem;"%>
+
         <!-- <button type="button" class="btn btn-outline-secondary">Remove From CSV</button> -->
 
       <!--  <form action="csvs/add_csv">
@@ -22,13 +87,10 @@
         </form>
 
         -->
-        <div>
-        <%= form_tag import_rotations_path, multipart: true do %>
-          <%= file_field_tag :file %>
-          <%= submit_tag "Import Rotations from CSV", class: "btn btn-primary", style: "width: 13rem; height: 2.5rem;" %>
-        <% end %>
-        </div>
+
     </div>
+
+
 </div>
 <br>
 
