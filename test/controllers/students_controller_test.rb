@@ -29,7 +29,7 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update student" do
-    patch student_url(@student), params: { student: { courseCodes: @student.courseCodes, programmeCode: @student.programmeCode, studentNumber: @student.studentNumber } }
+    patch student_url(@student), params: { student: { courseCodes: @student.courseCodes, programmeCode: @student.programme_id, studentNumber: @student.studentNumber } }
     assert_redirected_to student_url(@student)
   end
 
