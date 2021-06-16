@@ -2,7 +2,7 @@ require "test_helper"
 
 class SpecialtiesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @specialty = specialties(:one)
+  #  @specialty = specialties(:one)
   end
 #ActionView::Template::Error: Permission denied @ rb_file_s_rename - (C:/Users/Derrin/github/SD_Project_Website/tmp/cache/assets/sprockets/v4.0.0/Xk/XkT9JgZnbi28x71xQl3gcSH8tdp2-t9u5YgNC-3qTkQ.cache.1140684898820.14408.541039, C:/Users/Derrin/github/SD_Project_Website/tmp/cache/assets/sprockets/v4.0.0/Xk/XkT9JgZnbi28x71xQl3gcSH8tdp2-t9u5YgNC-3qTkQ.cache)
 #  test "should get new" do
