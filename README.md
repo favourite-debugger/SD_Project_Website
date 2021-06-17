@@ -33,5 +33,7 @@ The admin needs to be able to perform CRUD functions on the various tables in th
 
 ## More Information
 
+Note that we primarily used the Issue Tracker on Taiga.
+
 For more info as to the scope of the project and Sprint documentation, follow the project on Taiga:
 * https://tree.taiga.io/project/rxrider-software-design-project/wiki/home
