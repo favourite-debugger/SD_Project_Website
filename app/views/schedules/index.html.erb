@@ -9,8 +9,6 @@
 <div class="container-fluid">
     <div class="d-flex justify-content-evenly">
 
-
-
     </div>
 </div>
 
@@ -35,6 +33,7 @@
 </form>
 
 
+<!-- Some functions for the Drag and Drop Feature -->
 <script>
  function drop(x){
   console.log(x);
@@ -50,138 +49,204 @@ function drag(ev, specialty, duration) {
 
   ev.dataTransfer.setData("data", specialty);
 }
-
-
-
 </script>
 
 
 <div class="m-4">
 
 
-<table class="table table-hover ">
+<!-- Main Table - this is the table where each row represents a single student's schedule -->
+ <table id="mainTable">
 
-
-  <!----------------------------------------->
-  <thead>
-        <tr>
-          <th scope="col"><h6>Student Number</h6></th>
-          <th scope="col"><h6>Student First Name</h6></th>
-          <th scope="col"><h6>Student Last Name</h6></th>
-
-          <% for i in 1..@numRotations do %>
-            <%# @users[i].name %>
-            <th scope="col"><h6>Rotation <%= i %></h6></th>
-          <% end %>
-
-         <th  scope="col"></th>
-        </tr>
-      </thead>
-
-  <!---------------------------------------------------------------------------------------------->
+ <script>
+   <% @students.each do |student| %>
+     //Main Table
+     var mainTable = document.getElementById('mainTable');
 
 
 
-  <tbody>
+     //STUDENT INFORMATION
 
-        <% @students.each do |student| %>
+     var table = document.createElement('table'); //Temporary Table element for Student information (this table is appended to the row of the main table)
 
-          <tr>
-          <td class="col-1">
+     //Student Number
+     var tr = document.createElement('tr'); //Table row element
+     var studentNo = document.createElement('p'); //Paragraph element - for text
+     var td = document.createElement('td'); //Table cell element
 
-          <div draggable="true" ondragstart="drag(event,'nursing',2)">
-            <%= student.studentNumber %>
-          </div>
+     //Note: This needs to be the student's name
+     //This is the text for the cell
+     studentNo.innerHTML = <%= student.studentNumber %>;
 
-          </td>
-
-
-          <td class="col-2" ondrop="drop(event)" ondragover="allowDrop(event)" >
-
-            <%= @users.find(student.user_id).user_FirstName %>
-
-          </td>
-
-          <td class="col-2"><%= @users.find(student.user_id).user_LastName %></td>
-
-          <% @rotations.each do |rotation| %>
-          <td>
-
-          <%if Schedule.exists?(student_id: student.id, rotation_id: rotation.id)%>
-
-          <%# Find student's hospital and specialty for that schedule %>
-            <%@schedule=Schedule.find_by(student_id: student.id, rotation_id:rotation.id)%>
-            <%@specialty=@schedule.specialty_id%>
-            <%@hospital=@schedule.hospital_id%>
-            <%@specialtyName=Specialty.find(@specialty).SpecialtyName %>
-            <%@hospitalName=Hospital.find(@hospital).hospital_name %>
-
-            <hr>
-           <form action="/schedules/create_schedule" method="post">
-              <label> <h6>Specialty:</h6> </label>
-              <select name="specialty_id" id="specialty_id" class="btn btn-outline-dark dropdown-toggle" style = "width: 12rem; height: 2.5rem;">
-                <%= options = options_from_collection_for_select(Specialty.all, 'id', 'SpecialtyName',@specialty) %>
-              </select>
-            <hr>
-
-              <label> <h6>Hospital:</h6> </label>
-
-              <select name="hospital_id" id="hospital_id" class="btn btn-outline-dark dropdown-toggle" style = "width: 12rem; height: 2.5rem;">
-                <%= options = options_from_collection_for_select(Hospital.all, 'id', 'hospital_name',@hospital) %>
-              </select>
-              <hr>
-
-              <input type="hidden" id="rotation_id" name="rotation_id" value= <%= rotation.id %>>
-              <input type="hidden" id="student_id" name="student_id" value= <%= student.id %>>
-
-              <input type="submit" value="Submit" class = "btn btn-outline-primary">
-            </form>
-
-          <%else%>
-          <hr>
-            <form action="/schedules/create_schedule" method="post">
-              <label> <h6>Specialty:</h6> </label>
-              <select name="specialty_id" id="specialty_id" class="btn btn-outline-dark dropdown-toggle" style = "width: 12rem; height: 2.5rem;">
-                <option value='' default selected hidden > </option>
-                <%= options = options_from_collection_for_select(Specialty.all, 'id', 'SpecialtyName') %>
-              </select>
-
-              <hr>
-              <label> <h6>Hospital:</h6> </label>
-              <select name="hospital_id" id="hospital_id" class="btn btn-outline-dark dropdown-toggle" style = "width: 12rem; height: 2.5rem;">
-              <option value='' default selected hidden> </option>
-                <%= options = options_from_collection_for_select(Hospital.all, 'id', 'hospital_name') %>
-              </select>
-              <hr>
-
-              <input type="hidden" id="rotation_id" name="rotation_id" value= <%= rotation.id %>>
-              <input type="hidden" id="student_id" name="student_id" value= <%= student.id %>>
-
-              <input type="submit" value="Submit" class = "btn btn-outline-primary">
-            </form>
-
-              </div>
-            <%end%>
-
-          </td>
-
-          <% end %>
-
-          </tr>
-        <% end %>
-      </tbody>
-  <!---------------------------------------------------------------------------------------------->
+     td.appendChild(studentNo); //Add paragraph element to data cell element
+     tr.appendChild(td); //Add data cell element to row element
+     table.appendChild(tr); //Add row element to temporary table
 
 
+     //For some reason, the Student Name doesn't work right now (There's a reference error)
+/*
+     //Student Name
+     var studentName = document.createElement('p');
+     var td = document.createElement('td');
+     //Note: This needs to be the student's name
+     studentName.innerHTML = "Student Name";
+     td.appendChild(studentName);
+     tr.appendChild(td);
+     table.appendChild(tr);
+*/
+
+    //Create a new row element
+     var tr = document.createElement('tr');
+     tr.appendChild(table); //Add the temporary table to the new row element
+     mainTable.appendChild(tr); //Add the new row element to the main table
+
+
+     //NOTE, any other student information should appear here before the Disciplines below
+
+
+     //Disciplines
+     //Create a list of the specialties that this student is taking
+     //Determine list of courses for student
+     //Note: This method is not very efficient right now. Needs attention at some point.
+     var listOfCourses = [];
+     <% @programme_courses.each do |programme_course| %>
+         var temp1 = <%= programme_course.programme_id %>;
+         var temp2 = <%= student.programme_id %>;
+         if( temp1 == temp2 ){
+           listOfCourses.push(<%=programme_course.course_id%>);
+         }
+     <% end %>
+
+     //Determine list of specialties based on courses the student is taking
+     var listOfSpecialties = [];
+     <% @course_specialties.each do |course_specialty| %>
+         var temp1 = <%= course_specialty.course_id %>;
+         if( listOfCourses.includes(temp1) ){
+           listOfSpecialties.push(<%=course_specialty.specialty_id%>);
+         }
+     <% end %>
+
+
+     //Dynamically create a number of Divs for the different specialties
+     var table = document.createElement('table');
+
+     //Check each specialty in database
+     <% @specialties.each do |specialty| %>
+         var temp1 = <%= specialty.id %>;
+
+         //Check if student is assigned to current specialty
+         if( listOfSpecialties.includes(temp1) ){
+           var tr = document.createElement('tr');
+           var td = document.createElement('td');
+           var dis1 = document.createElement('div');
+
+
+           var disName = document.createElement('p');
+           specialtyName = <%=specialty.id%>
+           console.log(specialtyName)
+           disName.innerHTML = String(specialtyName);
+
+           dis1.appendChild(disName);
+
+           //Div attributes for the draggable box (to drag and drop the specialty in the timeline)
+           dis1.setAttribute("id","div1");
+           dis1.setAttribute("draggable","true");
+           dis1.setAttribute("ondragstart","drag(event)");
+           dis1.setAttribute("width","60");
+           dis1.setAttribute("height","10");
+
+           td.appendChild(dis1);
+           tr.appendChild(td);
+
+           table.appendChild(tr);
+     }
+     <% end %>
+
+     var tr = document.createElement('tr');
+     tr.appendChild(table);
+
+     mainTable.appendChild(tr); //Append to main table
+
+     //Timeline
+     var tr = document.createElement('tr');
+
+     //Some Drag Drop Functions
+     function allowDrop(ev) {
+         ev.preventDefault();
+       }
+
+       function drag(ev) {
+         ev.dataTransfer.setData("text", ev.target.id);
+       }
+
+       function drop(ev) {
+         ev.preventDefault();
+         var data = ev.dataTransfer.getData("text");
+         ev.target.appendChild(document.getElementById(data));
+
+       }
+
+
+
+     //Create 52 div blocks
+     var table = document.createElement('table');
+     //Create 52 div blocks
+     for(let i = 1; i<=52;i++){
+            var div = document.createElement('div');
+            //var block = {container:div,weekNo:i};
+
+
+            var text = document.createElement('p');
+            //text.innerHTML = "Week " + i; //To see how many blocks are created
+            div.appendChild(text);
+
+            //Div attributes for each div block in the timeline
+            div.style.width = '60px';
+            div.style.height = '10px';
+            div.style.padding = '10px';
+            div.style.display = 'flex';
+
+            div.style.border = "1px solid #aaaaaa";
+            div.style.alignItems = 'center';
+
+            div.setAttribute("ondrop","drop(event)")
+            div.setAttribute("ondragover","allowDrop(event)")
+            var td = document.createElement('td');
+            td.appendChild(div);
+            tr.appendChild(td);
+        }
+     table.appendChild(tr);
+     var tr = document.createElement('tr');
+     tr.appendChild(table);
+
+     //This div holds the timeline (All 52 div blocks)
+     var tempDiv = document.createElement('div');
+     tempDiv.appendChild(tr);
+
+     //Need to dynamically set the width and height in the future (So the timeline adjusts size with the window size of the browser)
+     //Note: I think we need to use window.InnerWidth and window.InnerHeight here but we'll come back to this at some point.
+     tempDiv.style.height = "50px";
+     tempDiv.style.width = "1800px";
+     tempDiv.style.overflow = 'scroll';
+     tempDiv.style.alignItems = 'center';
+
+     mainTable.appendChild(tempDiv); //Append to main table
+
+<% end %>
+ </script>
 
 </table>
+
+
+
+  <!---------------------------------------------------------------------------------------------->
+
+
+
+
 </div>
 
 <br>
-
-
-
-
 
 <br>
 <br>

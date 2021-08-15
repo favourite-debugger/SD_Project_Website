@@ -21,7 +21,10 @@
   <div class="field">
     <%= form.label :specialty_id, value: "Specialty: " %>
     <%= collection_select(:course_specialty, :specialty_id, Specialty.all, :id, :SpecialtyName, {}, { :multiple => false, :class => "btn btn-outline-dark dropdown-toggle"} ) %>
-
+  </div>
+  <div class="field">
+    <%= form.label :weeks, value: "Weeks: " %>
+    <%= form.number_field :weeks %>
   </div>
 </br>
   <div class="actions">

@@ -1,13 +1,16 @@
 class SchedulesController < ApplicationController
-  skip_forgery_protection 
+  skip_forgery_protection
   before_action :set_schedule, only: %i[ show edit update destroy ]
   before_action :set_search
- 
+
 
   # GET /schedules or /schedules.json
   def index
     @users = @q.result
     @programmes = Programme.all
+    @programme_courses = ProgrammeCourse.all
+    @course_specialties = CourseSpecialty.all
+    @specialties = Specialty.all
     puts("look here")
     @current_programme_id = 1
 
@@ -28,7 +31,7 @@ class SchedulesController < ApplicationController
    def set_search
      @q=User.ransack(params[:q])
    end
- 
+
 
 
 
@@ -99,7 +102,7 @@ class SchedulesController < ApplicationController
     end
   end
 
-  
+
 
 
   #def import # importing from csv file
