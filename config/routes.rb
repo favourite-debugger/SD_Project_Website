@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  get 'dashboard/index'
   resources :rotations do
     collection { post :upload}#route for uploading and saving file( beta)
     collection { post :import}#route for csv importer
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
 #<<<<<<< programmes
   resources :programme_courses
   resources :programmes
-
+  resources :dashboard
   resources :group_assignments
   resources :groups
 
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
   #TODO: AUTHENTICATION
   get '/programmes', to: "programmes#index"
   get '/specialties', to: "blocks#index"
+  get '/dashboard', to: 'dashboard#index'
   #get 'specialty_pages/index'
   get 'add_specialty/index'
   get "/blocks",to: "blocks#index"
