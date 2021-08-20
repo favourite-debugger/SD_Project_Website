@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 #<<<<<<< programmes
   resources :programme_courses
   resources :programmes
-  resources :dashboard
+  resources :dashboard #added this
   resources :group_assignments
   resources :groups
 

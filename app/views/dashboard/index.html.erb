@@ -17,7 +17,7 @@
       <tr>
         <% @number_allocated = @schedules.where(:id => hospital.id).count %>
         <td class="col-4"><%= hospital.hospital_name %></td>
-        <td class="col-4"><%= 'hospital.numberSpaces - @number_allocated' %></td>
+        <td class="col-4"><%= hospital.numberSpaces - @number_allocated %></td>
         <td class="col-4"><%= @number_allocated %></td>
 
 

@@ -18,18 +18,13 @@
  <br>
 <% end %>
 
-
-
-
-
-
-
 <table class="table table-hover ">
   <thead >
     <tr>
       <th scope="col"><h6>Hospital Name</h6></th>
       <th scope="col"><h6>Hospital Location</h6></th>
       <th scope="col"><h6>Contact Number</h6></th>
+      <th scope="col"><h6>Number of Total Spaces</h6></th>
       <th  scope="col"></th>
 
     </tr>
@@ -43,9 +38,8 @@
       <tr>
         <td class="col-4"><%= hospital.hospital_name %></td>
         <td class="col-4"><%= hospital.hospital_location%></td>
-        <td class="col-4"><%= hospital.hospital_contactNo %></td>
-
-
+        <td class="col-2"><%= hospital.hospital_contactNo %></td>
+        <td class="col-2"><%= hospital.numberSpaces %></td>
         <td class="col-4">
 
                 <div class="btn-group" role="group" aria-label="Basic example">
