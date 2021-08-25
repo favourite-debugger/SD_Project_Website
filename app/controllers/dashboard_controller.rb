@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
   def index
     @hospitals = Hospital.all
-    @schedules = Schedule.all
+    @specialties = Specialty.all
+    @allocations = Allocation.all
   end
 end
