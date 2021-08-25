@@ -1,0 +1,47 @@
+<%= form_with(model: allocation) do |form| %>
+  <% if allocation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(allocation.errors.count, "error") %> prohibited this allocation from being saved:</h2>
+
+      <ul>
+        <% allocation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :hospital_id %>
+    <%= form.number_field :hospital_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :specialty_id %>
+    <%= form.number_field :specialty_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :available_slots %>
+    <%= form.number_field :available_slots %>
+  </div>
+
+  <div class="field">
+    <%= form.label :used_slots %>
+    <%= form.number_field :used_slots %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_date %>
+    <%= form.date_select :end_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

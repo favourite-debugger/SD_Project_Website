@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :allocations
   get 'dashboard/index'
   resources :rotations do
     collection { post :upload}#route for uploading and saving file( beta)

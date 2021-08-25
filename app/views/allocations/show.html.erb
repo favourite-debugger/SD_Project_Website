@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @allocation.hospital_id %>
+</p>
+
+<p>
+  <strong>Specialty:</strong>
+  <%= @allocation.specialty_id %>
+</p>
+
+<p>
+  <strong>Available slots:</strong>
+  <%= @allocation.available_slots %>
+</p>
+
+<p>
+  <strong>Used slots:</strong>
+  <%= @allocation.used_slots %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @allocation.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @allocation.end_date %>
+</p>
+
+<%= link_to 'Edit', edit_allocation_path(@allocation) %> |
+<%= link_to 'Back', allocations_path %>
