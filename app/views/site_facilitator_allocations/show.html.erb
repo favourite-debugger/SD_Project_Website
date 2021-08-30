@@ -1,14 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Hospital:</strong>
-  <%= @site_facilitator_allocation.hospital_id %>
-</p>
 
-<p>
-  <strong>Site facilitator:</strong>
-  <%= @site_facilitator_allocation.site_facilitator_id %>
-</p>
 
-<%= link_to 'Edit', edit_site_facilitator_allocation_path(@site_facilitator_allocation) %> |
-<%= link_to 'Back', site_facilitator_allocations_path %>
+ 
+<%#  %>
+
+  <div class="form_card" >
+  <div class="card-body">
+
+    <p class="lead"><b>Hospital:</b></p>
+    <p class="lead"> <%= @site_facilitator_allocation.hospital_id %></p>
+
+   
+    <p class="lead"><b>Site facilitator:</b></p>
+    <p class="lead"> <%= @site_facilitator_allocation.site_facilitator_id %></p>
+
+
+   
+
+
+
+  <%= link_to 'Edit', edit_site_facilitator_allocation_path(@site_facilitator_allocation), class:"btn btn-outline-dark"%> 
+  <%= link_to 'Back',site_facilitator_allocations_path , class:"btn btn-outline-dark" %>
+
+  </div>
+</div>

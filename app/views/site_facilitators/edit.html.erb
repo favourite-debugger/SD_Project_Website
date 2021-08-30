@@ -1,6 +1,14 @@
-<h1>Editing Site Facilitator</h1>
 
-<%= render 'form', site_facilitator: @site_facilitator %>
+<br/>
+<div class="form_card">
+  <div class="card-body">
+    <h1>Edit Site Facilitator</h1>
 
-<%= link_to 'Show', @site_facilitator %> |
-<%= link_to 'Back', site_facilitators_path %>
+    <%= render 'form', site_facilitator: @site_facilitator%>
+    <br/>
+    <%= link_to 'Show', @site_facilitator, class:"btn btn-outline-dark" %>
+
+    <%= link_to 'Back', site_facilitators_path, class:"btn btn-outline-dark" %>
+  </div>
+</div>
+

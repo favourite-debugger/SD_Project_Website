@@ -11,17 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :hospital_id %>
-    <%= form.number_field :hospital_id %>
-  </div>
+  
 
-  <div class="field">
-    <%= form.label :site_facilitator_id %>
-    <%= form.number_field :site_facilitator_id %>
-  </div>
+  <label for="hospital_id">Hospital ID:</label>
+    <%= form.number_field :hospital_id ,class:"form-control" , id:"hospital_id", placeholder: "Hospital ID" %>
+
+    </br>
+
+     <label for="site_facilitator_id ">Site Facilitator ID:</label>
+    <%= form.number_field :site_facilitator_id ,class:"form-control" , id:"site_facilitator_id ", placeholder: "Site Facilitator ID" %>
+
+    </br>
+
+ 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-secondary" %>
   </div>
+  <br>
 <% end %>

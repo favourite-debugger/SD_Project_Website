@@ -1,7 +1,11 @@
+<div style="text-align:center">
+<br></br>
 <h1>Dashboard</h1>
+<br></br>
 
-<div style="width: 500px;">
-<table class="table table-bordered table-striped table-hover table-sm ">
+
+<div class="m-4">
+<table class="table table-hover">
   <thead >
     <tr>
       <th scope="col"><h6>Hospital Name</h6></th>
@@ -26,7 +30,7 @@
           <% @available_slots = allocation_for_hospital.available_slots %>
           <% @used_slots = allocation_for_hospital.used_slots %>
 
-          <td class="col-4"><%= @available_slots %></td>
+          <td class="col-1"><%= @available_slots %></td>
           <td class="col-4"><%= @used_slots %></td>
             
           </tr>
@@ -35,3 +39,10 @@
   </tbody>
 </table>
 <div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>

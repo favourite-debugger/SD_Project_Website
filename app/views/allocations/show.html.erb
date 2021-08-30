@@ -1,34 +1,41 @@
+<br/>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Hospital:</strong>
-  <%= @allocation.hospital_id %>
-</p>
 
-<p>
-  <strong>Specialty:</strong>
-  <%= @allocation.specialty_id %>
-</p>
 
-<p>
-  <strong>Available slots:</strong>
-  <%= @allocation.available_slots %>
-</p>
 
-<p>
-  <strong>Used slots:</strong>
-  <%= @allocation.used_slots %>
-</p>
+<div class="form_card" >
+  <div class="card-body">
 
-<p>
-  <strong>Start date:</strong>
-  <%= @allocation.start_date %>
-</p>
+    <p class="lead"><b>Hospital:</b></p>
+    <p class="lead"> <%= @allocation.hospital_id %></p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @allocation.end_date %>
-</p>
+   
+    <p class="lead"><b>Specialty:</b></p>
+    <p class="lead"> <%= @allocation.specialty_id %></p>
 
-<%= link_to 'Edit', edit_allocation_path(@allocation) %> |
-<%= link_to 'Back', allocations_path %>
+
+    <p class="lead"><b>Available slots:</b></p>
+    <p class="lead"> <%= @allocation.available_slots %></p>
+
+    <p class="lead"><b>Used slots:</b></p>
+    <p class="lead"> <%= @allocation.used_slots %></p>
+
+    <p class="lead"><b>Start date:</b></p>
+    <p class="lead"> <%= @allocation.start_date%></p>
+
+    <p class="lead"><b>End date:</b></p>
+    <p class="lead"> <%= @allocation.end_date%></p>
+
+
+    <%= link_to 'Edit', edit_allocation_path(@allocation) , class:"btn btn-outline-dark"%> 
+    <%= link_to 'Back', allocations_path, class:"btn btn-outline-dark" %>
+
+  </div>
+</div>
+
+<br/>
+<br/>
+
+<br/>
+<br/><br/><br/><br/>
