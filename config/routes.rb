@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :site_facilitator_allocations
+  resources :site_facilitators
   resources :allocations
   get 'dashboard/index'
   resources :rotations do

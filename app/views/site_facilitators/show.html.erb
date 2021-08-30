@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Site facilitator name:</strong>
+  <%= @site_facilitator.Site_Facilitator_Name %>
+</p>
+
+<p>
+  <strong>Site facilitator contactno:</strong>
+  <%= @site_facilitator.Site_Facilitator_ContactNo %>
+</p>
+
+<p>
+  <strong>Site facilitator email:</strong>
+  <%= @site_facilitator.Site_Facilitator_Email %>
+</p>
+
+<%= link_to 'Edit', edit_site_facilitator_path(@site_facilitator) %> |
+<%= link_to 'Back', site_facilitators_path %>

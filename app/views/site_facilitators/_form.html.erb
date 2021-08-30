@@ -1,0 +1,32 @@
+<%= form_with(model: site_facilitator) do |form| %>
+  <% if site_facilitator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(site_facilitator.errors.count, "error") %> prohibited this site_facilitator from being saved:</h2>
+
+      <ul>
+        <% site_facilitator.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Site_Facilitator_Name %>
+    <%= form.text_field :Site_Facilitator_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Site_Facilitator_ContactNo %>
+    <%= form.text_field :Site_Facilitator_ContactNo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Site_Facilitator_Email %>
+    <%= form.text_field :Site_Facilitator_Email %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

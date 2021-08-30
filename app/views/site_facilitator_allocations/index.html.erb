@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Site Facilitator Allocations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Hospital</th>
+      <th>Site facilitator</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @site_facilitator_allocations.each do |site_facilitator_allocation| %>
+      <tr>
+        <td><%= site_facilitator_allocation.hospital_id %></td>
+        <td><%= site_facilitator_allocation.site_facilitator_id %></td>
+        <td><%= link_to 'Show', site_facilitator_allocation %></td>
+        <td><%= link_to 'Edit', edit_site_facilitator_allocation_path(site_facilitator_allocation) %></td>
+        <td><%= link_to 'Destroy', site_facilitator_allocation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Site Facilitator Allocation', new_site_facilitator_allocation_path %>

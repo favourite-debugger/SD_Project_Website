@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hospital:</strong>
+  <%= @site_facilitator_allocation.hospital_id %>
+</p>
+
+<p>
+  <strong>Site facilitator:</strong>
+  <%= @site_facilitator_allocation.site_facilitator_id %>
+</p>
+
+<%= link_to 'Edit', edit_site_facilitator_allocation_path(@site_facilitator_allocation) %> |
+<%= link_to 'Back', site_facilitator_allocations_path %>

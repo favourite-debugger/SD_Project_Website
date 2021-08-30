@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_25_131636) do
+ActiveRecord::Schema.define(version: 2021_08_30_113431) do
 
   create_table "admins", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -133,6 +133,21 @@ ActiveRecord::Schema.define(version: 2021_08_25_131636) do
     t.index ["rotation_id"], name: "index_schedules_on_rotation_id"
     t.index ["specialty_id"], name: "index_schedules_on_specialty_id"
     t.index ["student_id"], name: "index_schedules_on_student_id"
+  end
+
+  create_table "site_facilitator_allocations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "hospital_id"
+    t.integer "site_facilitator_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "site_facilitators", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "Site_Facilitator_Name"
+    t.string "Site_Facilitator_ContactNo"
+    t.string "Site_Facilitator_Email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "specialties", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
