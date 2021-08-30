@@ -22,29 +22,57 @@ class AllocationsController < ApplicationController
   # POST /allocations or /allocations.json
   def create
     @allocation = Allocation.new(allocation_params)
-
-    respond_to do |format|
-      if @allocation.save
-        format.html { redirect_to @allocation, notice: "Allocation was successfully created." }
-        format.json { render :show, status: :created, location: @allocation }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @allocation.errors, status: :unprocessable_entity }
-      end
+    if ( @allocation[:start_date] < @allocation[:end_date] && @allocation[:available_slots] > @allocation[:used_slots]) #checks if the allocation dates make sense
+      respond_to do |format|
+        if @allocation.save
+          format.html { redirect_to @allocation, notice: "Allocation was successfully created." }
+          format.json { render :show, status: :created, location: @allocation }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @allocation.errors, status: :unprocessable_entity }
+        end
     end
+    else #START Showing alert message for invalid allocation dates---------------------------------------------------------------------------------------------------------------------------------------------------
+      if (@allocation[:start_date] > @allocation[:end_date])
+        flash.now[:alert] = "Allocation Start Date cannot be after the Allocation End Date. Please choose a Allocation Start Date that is earlier than the Allocation End Date"
+      end
+      if (@allocation[:available_slots] < @allocation[:used_slots])
+        flash.now[:alert] = "There cannot be more used slots than available slots. Please enter a valid amount"
+      end 
+        respond_to do |format|
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @block.errors, status: :unprocessable_entity }
+      end
+    end#END Showing alert message for invalid allocation dates---------------------------------------------------------------------------------------------------------------------------------------------------
+
   end
 
   # PATCH/PUT /allocations/1 or /allocations/1.json
   def update
-    respond_to do |format|
-      if @allocation.update(allocation_params)
-        format.html { redirect_to @allocation, notice: "Allocation was successfully updated." }
-        format.json { render :show, status: :ok, location: @allocation }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @allocation.errors, status: :unprocessable_entity }
+    @tempall = Allocation.new(allocation_params)
+    if ( @tempall[:start_date] < @tempall[:end_date] && @tempall[:available_slots] > @tempall[:used_slots]) #checks if the block dates make sense
+      respond_to do |format|
+        if @allocation.update(allocation_params)
+          format.html { redirect_to @allocation, notice: "Allocation was successfully updated." }
+          format.json { render :show, status: :ok, location: @allocation }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @allocation.errors, status: :unprocessable_entity }
+        end
       end
-    end
+    else#START Showing alert message for invalid block dates----------------------------------------------------------------------------------------------------------------------------------------------
+      if (@tempall[:start_date] < @tempall[:end_date])
+        flash.now[:alert] = "Allocation Start Date cannot be after the Allocation End Date. Please choose a Allocation Start Date that is earlier than the Allocation End Date"
+      end
+      if (@tempall[:available_slots] > @tempall[:used_slots])
+        flash.now[:alert] = "There cannot be more used slots than available slots. Please enter a valid amount"
+      end 
+      
+      respond_to do |format|
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @block.errors, status: :unprocessable_entity }
+      end
+    end#END Showing alert message for invalid block dates---------------------------------------------------------------------------------------------------------------------------------------------------
   end
 
   # DELETE /allocations/1 or /allocations/1.json
