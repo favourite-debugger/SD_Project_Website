@@ -6,7 +6,9 @@ class DashboardController < ApplicationController
 
     if (params[:hospital_id])
       @current_hospital_id =  params[:hospital_id]
-  #else
-  end
+    end  #else
+
+    @schedules= Schedule.all
+    @users= User.all
   end
 end
