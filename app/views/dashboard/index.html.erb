@@ -3,6 +3,80 @@
 <h1>Dashboard</h1>
 <br></br>
 
+  <!-- Scrollable modal -->
+    <div id="summaryInfo" style="display:none;" class="modal-dialog modal-dialog-scrollable">
+        <div class = "modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="modal_title">Clinical Site Information</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
+          </div>
+          <div id = "card_body" class="card-body">     <!-- Card body-->
+            <h5 id="hosp_name" class="text-center" class="card-title"></h5>
+            <p id= "hosp_loc" class="card-text"></p>
+            <p id= "hosp_contact" class="card-text"></p>
+            <h5 id= "hosp_capacity"></h5>
+          </div>
+          <div class="modal-footer">                  <!-- Modal Footer-->
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="closeModal()">
+            Close
+            </button>
+          </div>
+        </div>
+    </div>
+
+<script>
+  var showSummary = function(hospID) {
+    document.getElementById("summaryInfo").style.display = "flex";
+    //document.getElementById('hosp_name').innerHTML = hospID;
+    
+    <% @hospitals.each do |hospital| %>
+       if (hospID == "<%= hospital.id%>") {
+          document.getElementById('hosp_name').innerHTML = "<%= hospital.hospital_name%>"
+       }
+    <%end%>
+
+
+  /*
+  document.getElementById("summaryInfo").style.display = "flex";
+  var name = document.getElementById("hosp_table").rows[x.rowIndex].cells[0].innerHTML ;
+  var location = document.getElementById("hosp_table").rows[x.rowIndex].cells[1].innerHTML;
+  var contact = document.getElementById("hosp_table").rows[x.rowIndex].cells[2].innerHTML;
+  var capacity = 25;
+  
+  document.getElementById('hosp_loc').innerHTML = location;
+  document.getElementById('hosp_contact').innerHTML = "Contact: " + contact;
+  document.getElementById('hosp_capacity').innerHTML = "Capacity: " + capacity + " students";
+  */
+  };
+</script>
+
+<script>
+  function closeModal(){
+  document.getElementById("summaryInfo").style.display = "none";
+  }
+</script>
+
+
+<form action="/dashboard">
+<label> <h5>Select Hospital</h5> </label>
+<br>
+<select name="hospital_id" id="hospital_select" onchange="showSummary(this.options[this.selectedIndex].value)" class="btn btn-primary dropdown-toggle">
+
+</select>
+</form>
+
+<% @hospitals.each do |hospital| %>
+  <script >
+     select = document.getElementById('hospital_select')
+     option = document.createElement( 'option' );
+     option.value = <%= hospital.id %>
+     option.text = "<%= hospital.hospital_name %>";
+     select.add( option );
+  </script>
+  <br>
+<%end%>
+
+
 
 <div class="m-4">
 <table class="table table-hover">
