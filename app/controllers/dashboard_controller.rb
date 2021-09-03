@@ -10,5 +10,7 @@ class DashboardController < ApplicationController
 
     @schedules= Schedule.all
     @users= User.all
+    @site_facilitators = SiteFacilitator.all
+    @site_facilitator_allocations = SiteFacilitatorAllocation.all
   end
 end
